@@ -231,7 +231,7 @@ public class Methods {
                 attachment.append(" ").append(me.getDescription());
             }
 
-            br.write("[" + m.getCreationTime().getDayOfMonth() + "." + m.getCreationTime().getMonthValue() + "." + m.getCreationTime().getYear() + " - " + m.getAuthor().getId() + "] (" + m.getAuthor().getName() + ") " + messagecontent + " " + attachment);
+            br.write("Date: " + m.getCreationTime().getDayOfMonth() + "." + m.getCreationTime().getMonthValue() + "." + m.getCreationTime().getYear() + " ID: " + m.getAuthor().getId() + " Name:" + m.getAuthor().getName() + " » " + messagecontent + " " + attachment);
             br.newLine();
         }
 
