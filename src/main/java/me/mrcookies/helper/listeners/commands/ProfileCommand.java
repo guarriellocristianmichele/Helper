@@ -69,6 +69,7 @@ public class ProfileCommand extends ListenerAdapter {
     private void sendProfile(TextChannel channel, User usr, Member mem, Guild guild) {
         EmbedBuilder builder = new EmbedBuilder();
         String url;
+        int warns = Core.getMySQL().getWarns(usr.getIdLong());
         builder.setAuthor("Profile of " + usr.getName(), null, "https://i.imgur.com/IUFgzzq.png");
         builder.appendDescription("```There will be all informations about " + usr.getName() + ".```");
 
@@ -80,7 +81,13 @@ public class ProfileCommand extends ListenerAdapter {
         builder.addField("ID:", "`" + usr.getIdLong() + "`", false);
         builder.addField("Role:", "`" + mem.getRoles().get(0).getName() + "`", true);
         builder.addField("Coins:", "`" + Core.getMySQL().getCoins(usr.getIdLong()) + "`", true);
-        builder.addField("Warns:", "`" + Core.getMySQL().getWarns(usr.getIdLong()) + "/3`", false);
+
+        if (warns > 3) {
+            builder.addField("Status:", "Muted", false);
+        } else {
+            builder.addField("Warns:", "`" + warns + "/3`", false);
+        }
+
         builder.appendDescription("\n");
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
@@ -91,7 +98,7 @@ public class ProfileCommand extends ListenerAdapter {
         }
 
         if (!Core.getMySQL().hasSocial(usr.getIdLong())) {
-            builder.appendDescription("```No social linked to this account. \nIf you have one use " + References.prefix + "link```");
+            builder.addField("Social:", "No social linked.", false);
         }
 
         if (Core.getMySQL().hasSocial(usr.getIdLong(), "facebook")) {

@@ -45,10 +45,6 @@ public class Methods {
         channel.sendMessage(builder.build()).complete().delete().queueAfter(5, TimeUnit.SECONDS);
     }
 
-    public static void sendPrivateMessage(User user, String msg) {
-        user.openPrivateChannel().queue((channel) -> channel.sendMessage(msg).queue());
-    }
-
     public static void sendSimpleEmbed(TextChannel channel, String title, String Description) {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor(title, null, "https://i.imgur.com/IUFgzzq.png");

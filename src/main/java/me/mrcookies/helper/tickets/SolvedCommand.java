@@ -3,6 +3,8 @@ package me.mrcookies.helper.tickets;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
+import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
@@ -10,8 +12,10 @@ import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.time.Instant;
 
 public class SolvedCommand extends ListenerAdapter {
 
@@ -46,15 +50,7 @@ public class SolvedCommand extends ListenerAdapter {
                 ch.close().queue();
             });
 
-            File chatlogs = null;
-
-            try {
-                chatlogs = Methods.createChatLog(channel);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-
-            chatLogsChannel.sendFile(chatlogs).queue();
+            sendChatLogs(chatLogsChannel, channel, usr, usr);
 
             channel.delete().complete();
             return;
@@ -86,11 +82,7 @@ public class SolvedCommand extends ListenerAdapter {
                 ch.close().queue();
             });
 
-            try {
-                chatLogsChannel.sendFile(Methods.createChatLog(channel));
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            sendChatLogs(chatLogsChannel, channel, target, usr);
 
             channel.delete().complete();
             return;
@@ -123,6 +115,30 @@ public class SolvedCommand extends ListenerAdapter {
         }
 
         return null;
+    }
+
+    private void sendChatLogs(TextChannel channel, TextChannel log, User open, User close) {
+        MessageBuilder message = new MessageBuilder();
+        EmbedBuilder builder = new EmbedBuilder();
+        File chatlogs = null;
+
+        try {
+            chatlogs = Methods.createChatLog(log);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+        builder.setAuthor("System", null, "https://i.imgur.com/IUFgzzq.png");
+        builder.addField("Type:", "Ticket", false);
+        builder.addField("Channel:", log.getName(), false);
+        builder.addField("Opened by:", open.getName(), true);
+        builder.addField("Closed by:", close.getName(), true);
+        builder.setColor(Color.decode("#fdcb6e"));
+        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setTimestamp(Instant.now());
+
+        message.setEmbed(builder.build());
+        channel.sendFile(chatlogs, message.build()).queue();
     }
 
 }
