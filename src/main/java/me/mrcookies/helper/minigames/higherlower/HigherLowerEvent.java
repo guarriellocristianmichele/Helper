@@ -29,19 +29,12 @@ public class HigherLowerEvent extends ListenerAdapter {
 
             if (msgs.size() > 0) return;
 
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Higher Lower", "Minigame not started.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Minigame not started."));
         });
 
         if (!Methods.isNumeric(msg.getContentRaw())) {
             msg.delete().queue();
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Higher Lower", "You can't send text messages here, just numbers.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "You can't send text messages here, just numbers."));
             return;
         }
 
@@ -67,10 +60,7 @@ public class HigherLowerEvent extends ListenerAdapter {
             msg.delete().queue();
 
         } catch (NumberFormatException ex) {
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Higher Lower", "Invalid number.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Invalid number."));
             msg.delete().queue();
         }
 

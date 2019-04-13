@@ -21,7 +21,7 @@ public class SupportChannelMoveEvent extends ListenerAdapter {
 
         int cont = 0;
 
-        for (User usr : Core.getJDA().getUsers()) {
+        for (User usr : e.getJDA().getUsers()) {
 
             Member mem = e.getGuild().getMember(usr);
 

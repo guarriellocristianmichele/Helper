@@ -34,14 +34,8 @@ public class NoBadWords extends ListenerAdapter {
 
             if (warns == 3) {
                 e.getGuild().getController().addRolesToMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
-
                 Methods.sendSENT(channel, "Security", usr.getAsMention() + " have been muted.");
-
-                usr.openPrivateChannel().queue((ch) -> {
-                    Methods.sendSENT(ch, "Security", "You have been muted, (warns `3/3`).");
-                    ch.close().queue();
-                });
-
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Security", "You have been muted, (warns `3/3`)."));
                 return;
             }
 
@@ -55,7 +49,6 @@ public class NoBadWords extends ListenerAdapter {
                     Methods.sendSENT(ch, "Security", "You have been warned (`" + (warns + 1) + "/3`)");
                 }
 
-                ch.close().queue();
             });
 
         }

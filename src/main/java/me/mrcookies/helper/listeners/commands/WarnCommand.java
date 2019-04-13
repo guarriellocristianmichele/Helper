@@ -68,12 +68,7 @@ public class WarnCommand extends ListenerAdapter {
 
                 Core.getMySQL().setInt("members", "warns", 0, "id_long", String.valueOf(target.getIdLong()));
                 Methods.sendSimpleEmbed(channel, "Security", "Reset warns to " + target.getAsMention());
-
-                target.openPrivateChannel().queue((ch) -> {
-                    Methods.sendSENT(ch, "Security", "Your warns have been reset.");
-                    ch.close().queue();
-                });
-
+                target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Security", "Your warns have been reset."));
                 return;
             }
 
@@ -100,13 +95,8 @@ public class WarnCommand extends ListenerAdapter {
 
             if (warns == 3) {
                 e.getGuild().getController().addRolesToMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
-
                 Methods.sendSENT(channel, "Security", target.getAsMention() + " have been muted.");
-
-                target.openPrivateChannel().queue((ch) -> {
-                    Methods.sendSENT(ch, "Security", "You have been muted, (warns `3/3`).");
-                    ch.close().queue();
-                });
+                target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Security", "You have been muted, (warns `3/3`)."));
                 return;
             }
 
@@ -114,13 +104,13 @@ public class WarnCommand extends ListenerAdapter {
             Core.getMySQL().setInt("members", "warns", warns + 1, "id_long", String.valueOf(target.getIdLong()));
 
             target.openPrivateChannel().queue((ch) -> {
+
                 if (warns + 1 == 3) {
                     Methods.sendSENT(ch, "Security", "You have been warned (`" + (warns + 1) + "/3`), this is your last chance.");
                 } else {
                     Methods.sendSENT(ch, "Security", "You have been warned (`" + (warns + 1) + "/3`)");
                 }
 
-                ch.close().queue();
             });
 
         }

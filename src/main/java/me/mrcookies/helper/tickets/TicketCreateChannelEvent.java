@@ -26,23 +26,13 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
         String ms = e.getMessage().getContentRaw();
 
         if (e.getMember().getRoles().stream().anyMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.utility"))) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "You can't create a ticket.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You can't create a ticket."));
             msg.delete().queue();
             return;
         }
 
         if (msg.getContentRaw().startsWith(References.prefix)) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "You can't execute commands in tickets creation channel.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You can't execute commands in tickets creation channel."));
             msg.delete().queue();
             return;
         }
@@ -51,23 +41,13 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
 
             TextChannel tc = getOpenTicketChat(usr, e.getGuild());
 
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "You have already a ticket opened " + tc.getAsMention() +
-                        "\nIf you want to start another, please solve the opened one first.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You have already a ticket opened " + tc.getAsMention() + "\nIf you want to start another, please solve the opened one first."));
             msg.delete().queue();
             return;
         }
 
         if (msg.getContentRaw().length() < 4) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "Description too short **(Min 4 letters)**.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Description too short **(Min 4 letters)**."));
             msg.delete().queue();
             return;
         }
@@ -105,11 +85,7 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
                 .putPermissionOverride(guild.getPublicRole(), new ArrayList<>(), Arrays.asList(Permission.MESSAGE_READ, Permission.MESSAGE_WRITE))
                 .complete();
 
-        usr.openPrivateChannel().queue((ch) -> {
-            Methods.sendSENT(ch, "Ticket", "Your ticket has been created " + ticketChat.getAsMention() + "\nTo solve it, type in `" + References.prefix + "solved`.");
-            ch.close().queue();
-        });
-
+        usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been created " + ticketChat.getAsMention() + "\nTo solve it, type in `" + References.prefix + "solved`."));
         sendTicket(ticketChat, usr, desc);
     }
 

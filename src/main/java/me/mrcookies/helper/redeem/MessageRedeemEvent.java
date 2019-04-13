@@ -16,7 +16,9 @@ public class MessageRedeemEvent extends ListenerAdapter {
         TextChannel rChannel = e.getJDA().getTextChannelById(References.idRedeem);
 
         rChannel.getHistory().retrievePast(1).queue((msgs) -> {
+
             if (msgs.size() > 0) return;
+
             sendRedeemHelp(rChannel);
         });
 

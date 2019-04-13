@@ -4,6 +4,7 @@ import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -24,6 +25,7 @@ public class FileCommand extends ListenerAdapter {
             if (Methods.isInvalidChannel(e.getChannel())) return;
 
             TextChannel channel = e.getChannel();
+            User usr = e.getAuthor();
 
             if (!Methods.hasPermission(e, channel)) return;
 
@@ -42,7 +44,7 @@ public class FileCommand extends ListenerAdapter {
             TextChannel target = e.getMessage().getMentionedChannels().get(0);
 
             sendFile(target, msg[1], msg[2]);
-            channel.sendMessage(e.getAuthor().getAsMention() + " message sent.").queue();
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "File sent successfully."));
         }
 
     }

@@ -29,28 +29,19 @@ public class CountGameEvent extends ListenerAdapter {
 
         if (usr.getIdLong() == lastAuthorId) {
             msg.delete().queue();
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Count Game", "You just send a message. Let someone else take the turn first.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "You just send a message. Let someone else take the turn first."));
             return;
         }
 
         if (lastNumber == 0) {
             msg.delete().queue();
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Count Game", "Minigame not started.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "Minigame not started."));
             return;
         }
 
         if (!Methods.isNumeric(msg.getContentRaw())) {
             msg.delete().queue();
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Count Game", "You can't send text messages here, just numbers.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "You can't send text messages here, just numbers."));
             return;
         }
 
@@ -60,10 +51,7 @@ public class CountGameEvent extends ListenerAdapter {
 
             if (num != lastNumber + 1) {
                 msg.delete().queue();
-                usr.openPrivateChannel().queue((ch) -> {
-                    Methods.sendSENT(ch, "Count Game", "This is not the next number.\nThe next number is `" + (lastNumber + 1) + "`.");
-                    ch.close().queue();
-                });
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "This is not the next number.\nThe next number is `" + (lastNumber + 1) + "`."));
                 return;
             }
 

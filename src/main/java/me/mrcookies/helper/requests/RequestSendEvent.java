@@ -26,34 +26,19 @@ public class RequestSendEvent extends ListenerAdapter {
         User usr = e.getAuthor();
 
         if (e.getMember().getRoles().stream().anyMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.utility"))) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Request", "You can't create a request.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Request", "You can't create a request."));
             msg.delete().queue();
             return;
         }
 
         if (msg.getContentRaw().startsWith(References.prefix)) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Request", "You can't execute commands in requests channel.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Request", "You can't execute commands in requests channel."));
             msg.delete().queue();
             return;
         }
 
         if (msg.getContentRaw().length() < 15) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Request", "Description too short **(Min 15 letters)**.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Request", "Description too short **(Min 15 letters)**."));
             msg.delete().queue();
             return;
         }

@@ -16,7 +16,9 @@ public class HelpMessageEvent extends ListenerAdapter {
         TextChannel tChannel = e.getJDA().getTextChannelById(References.idTickets);
 
         tChannel.getHistory().retrievePast(1).queue((msgs) -> {
+
             if (msgs.size() > 0) return;
+
             sendTicketHelp(tChannel);
         });
 

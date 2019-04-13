@@ -36,19 +36,12 @@ public class QuickMathEvent extends ListenerAdapter {
 
             if (msgs.size() > 0) return;
 
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Quick Math", "Minigame not started.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Minigame not started."));
         });
 
         if (!Methods.isNumeric(msg.getContentRaw())) {
             msg.delete().queue();
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Quick Math", "You can't send text messages here, just numbers.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "You can't send text messages here, just numbers."));
             return;
         }
 
@@ -59,10 +52,7 @@ public class QuickMathEvent extends ListenerAdapter {
 
             if (number != reference) {
                 msg.delete().queue();
-                usr.openPrivateChannel().queue((ch) -> {
-                    Methods.sendSENT(ch, "Quick Math", "Sorry, this is not the correct answer `" + number + "`.");
-                    ch.close().queue();
-                });
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Sorry, this is not the correct answer `" + number + "`."));
                 return;
             }
 
@@ -71,10 +61,7 @@ public class QuickMathEvent extends ListenerAdapter {
             msg.delete().queue();
 
         } catch (NumberFormatException ex) {
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Quick Math", "Invalid number.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Invalid number."));
             msg.delete().queue();
         }
 

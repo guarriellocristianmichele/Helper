@@ -36,22 +36,12 @@ public class SolvedCommand extends ListenerAdapter {
             msg.delete().submit();
 
             if (e.getMember().getRoles().stream().anyMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.utility"))) {
-
-                usr.openPrivateChannel().queue((ch) -> {
-                    Methods.sendSENT(ch, "Ticket", "Only the user is able to close the ticket.\nTo close it use `" + References.prefix + "close`.");
-                    ch.close().queue();
-                });
-
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Only the user is able to close the ticket.\nTo close it use `" + References.prefix + "close`."));
                 return;
             }
 
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "You solved your ticket (`" + channel.getName() + "`).");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You solved your ticket (`" + channel.getName() + "`)."));
             sendChatLogs(chatLogsChannel, channel, usr, usr);
-
             channel.delete().complete();
             return;
         }
@@ -61,40 +51,21 @@ public class SolvedCommand extends ListenerAdapter {
             msg.delete().submit();
 
             if (e.getMember().getRoles().stream().noneMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.utility"))) {
-
-                usr.openPrivateChannel().queue((ch) -> {
-                    Methods.sendSENT(ch, "Ticket", "You can't execute this command. ");
-                    ch.close().queue();
-                });
-
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You can't execute this command. "));
                 return;
             }
 
             User target = getTarget(channel);
 
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "You closed " + target.getAsMention() + "'s ticket (`" + channel.getName() + "`).");
-                ch.close().queue();
-            });
-
-            target.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "Your ticket has been closed by " + usr.getAsMention() + " (`" + channel.getName() + "`).");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You closed " + target.getAsMention() + "'s ticket (`" + channel.getName() + "`)."));
+            target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been closed by " + usr.getAsMention() + " (`" + channel.getName() + "`)."));
             sendChatLogs(chatLogsChannel, channel, target, usr);
-
             channel.delete().complete();
             return;
         }
 
         if (msg.getContentRaw().startsWith(References.prefix)) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Ticket", "You can't execute commands in ticket's channel,\nonly `" + References.prefix + "solved` to solve the ticket.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You can't execute commands in ticket's channel,\nonly `" + References.prefix + "solved` to solve the ticket."));
             msg.delete().queue();
         }
 

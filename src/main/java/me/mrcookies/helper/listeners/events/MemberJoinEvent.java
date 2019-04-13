@@ -22,13 +22,9 @@ public class MemberJoinEvent extends ListenerAdapter {
 
         TextChannel rules = e.getGuild().getTextChannelById(References.idRules);
 
-        mem.getUser().openPrivateChannel().queue((ch) -> {
-            Methods.sendSENT(ch, "Welcome " + mem.getUser().getName(), "Please read the rules in the " +
-                    "channel " + rules.getAsMention() +
-                    " and have a good permanence.\nFor bot's commands type `" + References.prefix + "help`.");
-            ch.close().queue();
-        });
-
+        mem.getUser().openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Welcome " + mem.getUser().getName(),
+                "Please read the rules in the " + "channel " + rules.getAsMention() +
+                        " and have a good permanence.\nFor bot's commands type `" + References.prefix + "help`."));
         Core.getMySQL().addMember(mem.getUser().getName(), mem.getUser().getIdLong());
     }
 

@@ -54,14 +54,8 @@ public class UnmuteCommand extends ListenerAdapter {
 
             e.getGuild().getController().removeRolesFromMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
             Core.getMySQL().setInt("members", "warns", 0, "id_long", String.valueOf(target.getIdLong()));
-
             Methods.sendSimpleEmbed(channel, "Security", target.getAsMention() + " have been unmuted.");
-
-            target.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Security", "You have been unmuted.");
-                ch.close().queue();
-            });
-
+            target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Security", "You have been unmuted."));
         }
 
     }

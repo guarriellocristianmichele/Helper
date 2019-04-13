@@ -1,11 +1,15 @@
 package me.mrcookies.helper.requests;
 
+import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.core.entities.Emote;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.MessageReaction;
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionAddEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import java.util.List;
 
 public class AddReactionEvent extends ListenerAdapter {
 
@@ -23,10 +27,31 @@ public class AddReactionEvent extends ListenerAdapter {
 
         Message message = e.getChannel().getMessageById(e.getMessageId()).complete();
         Emote emote = e.getReactionEmote().getEmote();
+        User author = e.getUser();
 
         if (emote.getIdLong() != References.like && emote.getIdLong() != References.dislike) {
-            e.getReaction().removeReaction(e.getUser()).queue();
+            e.getReaction().removeReaction(author).queue();
             return;
+        }
+
+        List<MessageReaction> reactions = message.getReactions();
+
+        int cont = 0;
+
+        for (MessageReaction re : reactions) {
+
+            if (re.getUsers().stream().anyMatch(user -> user.getIdLong() == author.getIdLong())) {
+
+                cont++;
+
+                if (cont > 1) {
+                    e.getReaction().removeReaction(author).queue();
+                    author.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "You can't vote twice."));
+                    break;
+                }
+
+            }
+
         }
 
         if (emote.getIdLong() == References.like) return;

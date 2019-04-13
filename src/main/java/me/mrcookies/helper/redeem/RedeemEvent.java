@@ -21,34 +21,19 @@ public class RedeemEvent extends ListenerAdapter {
         User usr = e.getAuthor();
 
         if (e.getMember().getRoles().stream().anyMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.utility"))) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Redeem", "You can't redeem a prize.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can't redeem a prize."));
             msg.delete().queue();
             return;
         }
 
         if (msg.getContentRaw().startsWith(References.prefix)) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Redeem", "You can't execute commands in redeem channel.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can't execute commands in redeem channel."));
             msg.delete().queue();
             return;
         }
 
         if (msg.getContentRaw().length() != 16) {
-
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Redeem", "You can't write here, unless it's a license.");
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can't write here, unless it's a license."));
             msg.delete().queue();
             return;
         }

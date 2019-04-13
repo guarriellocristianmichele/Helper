@@ -17,18 +17,12 @@ public class CommandsChannelEvents extends ListenerAdapter {
 
         if (e.getChannel().getIdLong() == References.idCommands && !e.getMessage().getContentRaw().startsWith(References.prefix)) {
             e.getMessage().delete().queue();
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "System", "Please use only commands in commands's channel.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "Please use only commands in commands's channel."));
         }
 
         if (e.getChannel().getIdLong() == References.idStaffCommands && !e.getMessage().getContentRaw().startsWith(References.prefix)) {
             e.getMessage().delete().queue();
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "System", "Please use only commands in commands's channel.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "Please use only commands in commands's channel."));
         }
 
     }

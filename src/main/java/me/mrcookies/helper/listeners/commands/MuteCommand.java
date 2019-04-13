@@ -53,14 +53,8 @@ public class MuteCommand extends ListenerAdapter {
             }
 
             e.getGuild().getController().addRolesToMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
-
             Methods.sendSimpleEmbed(channel, "Security", target.getAsMention() + " have been muted.");
-
-            target.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Security", "You have been muted.");
-                ch.close().queue();
-            });
-
+            target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Security", "You have been muted."));
         }
 
     }

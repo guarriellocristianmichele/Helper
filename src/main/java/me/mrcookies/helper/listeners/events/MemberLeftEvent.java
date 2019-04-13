@@ -8,7 +8,9 @@ public class MemberLeftEvent extends ListenerAdapter {
 
     @Override
     public void onGuildMemberLeave(GuildMemberLeaveEvent e) {
+
         if (e.getUser().isBot()) return;
+
         Core.getMySQL().removeMember(e.getUser().getIdLong());
     }
 
