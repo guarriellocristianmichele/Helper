@@ -6,6 +6,10 @@ import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 
 import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -237,6 +241,42 @@ public class Methods {
 
         br.close();
         return saveFile;
+    }
+
+    public static BufferedImage makeRoundedCorner(Image image, int cornerRadius) {
+        int w = image.getWidth(null);
+        int h = image.getHeight(null);
+        BufferedImage output = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2 = output.createGraphics();
+
+        g2.setComposite(AlphaComposite.Src);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(Color.WHITE);
+        g2.fill(new RoundRectangle2D.Float(0, 0, w, h, cornerRadius, cornerRadius));
+
+        g2.setComposite(AlphaComposite.SrcAtop);
+        g2.drawImage(image, 0, 0, null);
+
+        g2.dispose();
+
+        return output;
+    }
+
+    public static void centerString(Graphics g, Rectangle r, String s, Font font) {
+        FontRenderContext frc = new FontRenderContext(null, true, true);
+
+        Rectangle2D r2D = font.getStringBounds(s, frc);
+        int rWidth = (int) Math.round(r2D.getWidth());
+        int rHeight = (int) Math.round(r2D.getHeight());
+        int rX = (int) Math.round(r2D.getX());
+        int rY = (int) Math.round(r2D.getY());
+
+        int a = (r.width / 2) - (rWidth / 2) - rX;
+        int b = (r.height / 2) - (rHeight / 2) - rY;
+
+        g.setFont(font);
+        g.drawString(s, r.x + a, r.y + b);
     }
 
 }

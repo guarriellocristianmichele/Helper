@@ -34,7 +34,6 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/CancelCommandsEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java
-/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/LinkCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/requests/AddReactionEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/RobCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/SupportChannelMoveEvent.java

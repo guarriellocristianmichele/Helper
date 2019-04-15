@@ -13,6 +13,8 @@ import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
 
+import java.io.File;
+
 public class Core {
 
     private static JDA jda;
@@ -22,6 +24,7 @@ public class Core {
 
     public static void main(String[] args) throws Exception {
         setupConfig();
+        setupFolders();
 
         if (config.getYml().getString("Settings.token").isEmpty()) {
             System.out.println("Helper > NO BOT TOKEN FOUND! Cannot start :C");
@@ -89,12 +92,18 @@ public class Core {
         config.saveDefaults();
     }
 
+    private static void setupFolders() {
+        if (!new File("Helper/Images").exists()) {
+            new File("Helper/Images").mkdir();
+        }
+    }
+
     public static ConfigManager getConfig() {
         return config;
     }
 
     public static String getVersion() {
-        return "2.0.1";
+        return "2.0.2";
     }
 
     public static JDA getJDA() {

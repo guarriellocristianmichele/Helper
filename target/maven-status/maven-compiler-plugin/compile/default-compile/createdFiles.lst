@@ -15,7 +15,6 @@ me/mrcookies/helper/security/MessageEditBadWordEvent.class
 me/mrcookies/helper/tickets/TicketCreateChannelEvent.class
 me/mrcookies/helper/listeners/ListenerManager.class
 me/mrcookies/helper/listeners/commands/RoleCommand.class
-me/mrcookies/helper/listeners/commands/LinkCommand.class
 me/mrcookies/helper/configuration/YamlConfiguration$1.class
 me/mrcookies/helper/listeners/commands/HelpCommand.class
 me/mrcookies/helper/requests/AddReactionEvent.class

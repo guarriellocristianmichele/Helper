@@ -28,12 +28,12 @@ public class SayCommand extends ListenerAdapter {
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
             if (msg.length < 4) {
-                Methods.sendErrorMessage(channel, "Use • `send [#canale] say [testo]`");
+                Methods.sendErrorMessage(channel, "Use • `send [#channel] say [testo]`");
                 return;
             }
 
             if (e.getMessage().getMentionedChannels().isEmpty()) {
-                Methods.sendErrorMessage(channel, "Use • `send [#canale] say [testo]`");
+                Methods.sendErrorMessage(channel, "Use • `send [#channel] say [testo]`");
                 return;
             }
 

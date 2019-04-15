@@ -57,9 +57,7 @@ public class MySQL {
                                 "  `coins` int default 0,\n" +
                                 "  `daily_start` bigint default 0,\n" +
                                 "  `rob_start` bigint default 0,\n" +
-                                "  `warns` int default 0," +
-                                "  `facebook` text," +
-                                "  `instagram` text" +
+                                "  `warns` int default 0" +
                                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8;"
                 );
 
@@ -449,70 +447,6 @@ public class MySQL {
             }
         }
 
-    }
-
-    public boolean hasSocial(Long id) {
-        Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
-
-        try {
-            final PreparedStatement check = connection.prepareStatement("SELECT * FROM members WHERE id_long = ?");
-            check.setLong(1, id);
-            ResultSet rs = check.executeQuery();
-            boolean social = true;
-            String facebook;
-            String instagram;
-
-            if (rs.next()) {
-                facebook = rs.getString("facebook");
-                instagram = rs.getString("instagram");
-
-                if (facebook == null && instagram == null) {
-                    social = false;
-                }
-            }
-
-            check.close();
-            connection.close();
-            return social;
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-            try {
-                connection.close();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return true;
-    }
-
-    public boolean hasSocial(Long id, String social) {
-        Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
-
-        try {
-            final PreparedStatement check = connection.prepareStatement("SELECT * FROM members WHERE id_long = ?");
-            check.setLong(1, id);
-            ResultSet rs = check.executeQuery();
-            boolean value = true;
-
-            if (rs.next()) {
-                rs.getString(social);
-                value = !rs.wasNull();
-            }
-
-            check.close();
-            connection.close();
-            return value;
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-            try {
-                connection.close();
-            } catch (SQLException e1) {
-                e1.printStackTrace();
-            }
-        }
-        return true;
     }
 
     public boolean isLicenseRedeemed(String license) {

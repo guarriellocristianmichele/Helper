@@ -13,11 +13,8 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.Objects;
 
 public class QuickMathEvent extends ListenerAdapter {
 
@@ -122,13 +119,22 @@ public class QuickMathEvent extends ListenerAdapter {
         Graphics2D g2d = bufferedImage.createGraphics();
 
         g2d.setColor(Color.decode("#2C2F33"));
+
         g2d.fillRect(0, 0, width, height);
 
         g2d.setColor(Color.decode("#ecf0f1"));
 
         Rectangle r = new Rectangle(0, 0, width, height);
 
-        centerString(g2d, r, math, Objects.requireNonNull(customFont));
+        RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+        rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        rh.put(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+        rh.put(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+
+        g2d.setRenderingHints(rh);
+
+        Methods.centerString(g2d, r, math, customFont);
 
         g2d.dispose();
 
@@ -162,22 +168,6 @@ public class QuickMathEvent extends ListenerAdapter {
         builder.setColor(Color.decode("#2ecc71"));
         builder.setFooter("Helper • New equation incoming!", "https://i.imgur.com/nepS3Lp.jpg");
         channel.sendMessage(builder.build()).queue();
-    }
-
-    private static void centerString(Graphics g, Rectangle r, String s, Font font) {
-        FontRenderContext frc = new FontRenderContext(null, true, true);
-
-        Rectangle2D r2D = font.getStringBounds(s, frc);
-        int rWidth = (int) Math.round(r2D.getWidth());
-        int rHeight = (int) Math.round(r2D.getHeight());
-        int rX = (int) Math.round(r2D.getX());
-        int rY = (int) Math.round(r2D.getY());
-
-        int a = (r.width / 2) - (rWidth / 2) - rX;
-        int b = (r.height / 2) - (rHeight / 2) - rY;
-
-        g.setFont(font);
-        g.drawString(s, r.x + a, r.y + b);
     }
 
 }
