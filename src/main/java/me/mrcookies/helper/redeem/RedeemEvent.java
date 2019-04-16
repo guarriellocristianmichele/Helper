@@ -46,8 +46,9 @@ public class RedeemEvent extends ListenerAdapter {
         }
 
         if (Core.getMySQL().isLicenseRedeemed(msg.getContentRaw())) {
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "This license is already redeemed."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "This license has already been redeemed."));
             msg.delete().queue();
+            return;
         }
 
         int prize = Core.getMySQL().getInt("licenses", "value", "license", mes);
