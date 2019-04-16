@@ -1,5 +1,6 @@
 package me.mrcookies.helper.listeners.commands;
 
+import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.core.EmbedBuilder;
@@ -65,7 +66,7 @@ public class ProfileCommand extends ListenerAdapter {
 
                 Member targ = e.getGuild().getMember(target);
 
-
+                createProfileImage(channel, targ);
             }
 
         }
@@ -126,10 +127,11 @@ public class ProfileCommand extends ListenerAdapter {
         File pathToFile = new File("Helper/Images/Form.png");
         BufferedImage image = null;
         Image avatar = null;
-        URL url = null;
+        URL url;
         User usr = mem.getUser();
         OffsetDateTime date = mem.getJoinDate();
-        String format = date.getDayOfWeek().toString().substring(3) + ", " + date.getMonth().name() + date.getDayOfMonth() + ", " + date.getYear();
+        String format = date.getDayOfWeek().toString().substring(0, 3) + ", " + date.getMonth().name() + " " + date.getDayOfMonth() + ", " + date.getYear();
+        int coins = Core.getMySQL().getCoins(usr.getIdLong());
 
         try {
             customFont = Font.createFont(Font.TRUETYPE_FONT, new File("Helper/custom.ttf"));
@@ -143,7 +145,7 @@ public class ProfileCommand extends ListenerAdapter {
 
             URLConnection hc = url.openConnection();
             hc.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
-            avatar = ImageIO.read(hc.getInputStream()).getScaledInstance(45, 45, Image.SCALE_DEFAULT);
+            avatar = ImageIO.read(hc.getInputStream()).getScaledInstance(90, 90, Image.SCALE_DEFAULT);
         } catch (FontFormatException | IOException e) {
             e.printStackTrace();
         }
@@ -160,11 +162,18 @@ public class ProfileCommand extends ListenerAdapter {
 
         g2d.setRenderingHints(rh);
 
-        g2d.drawImage(av, 89, 22, null);
+        g2d.drawImage(av, 180, 41, null);
 
         g2d.setColor(Color.decode("#23272A"));
 
-        centerString(g2d, 158, 19, 33, 76, usr.getName() + "'s profile", customFont.deriveFont(10f));
+        centerString(g2d, 374, 42, 39, 137, usr.getName() + "'s profile", customFont.deriveFont(20f));
+
+        g2d.setColor(Color.decode("#2C2F33"));
+        g2d.setFont(customFont.deriveFont(25f));
+
+        g2d.drawString(usr.getAsTag(), 66, 260);
+        g2d.drawString(format, 66, 346);
+        g2d.drawString(String.valueOf(coins), 66, 437);
 
         g2d.dispose();
 

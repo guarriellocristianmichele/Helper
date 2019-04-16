@@ -103,7 +103,7 @@ public class Core {
     }
 
     public static String getVersion() {
-        return "2.0.2";
+        return "2.0.3";
     }
 
     public static JDA getJDA() {
