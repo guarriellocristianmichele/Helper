@@ -173,7 +173,7 @@ public class Methods {
         return e.getChannel().getName().contains("ticket-");
     }
 
-    public static String getRandomKey() {
+    public static String getRandomLicense() {
         return new SecureRandom().ints(0, 36)
                 .mapToObj(i -> Integer.toString(i, 36))
                 .map(String::toUpperCase).distinct().limit(16).collect(Collectors.joining())
@@ -277,6 +277,10 @@ public class Methods {
 
         g.setFont(font);
         g.drawString(s, r.x + a, r.y + b);
+    }
+
+    public static String getCap(String input) {
+        return input.substring(0, 1).toUpperCase() + input.substring(1);
     }
 
 }

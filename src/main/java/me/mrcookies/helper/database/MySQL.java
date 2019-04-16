@@ -64,8 +64,7 @@ public class MySQL {
                 PreparedStatement pss = connection.prepareStatement(
                         "CREATE TABLE IF NOT EXISTS `licenses` (\n" +
                                 "  `license` text not null,\n" +
-                                "  `type` text not null,\n" +
-                                "  `value` text not null,\n" +
+                                "  `value` int not null,\n" +
                                 "  `created` bigint not null,\n" +
                                 "  `redeemed` bigint\n" +
                                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8;"
@@ -390,7 +389,7 @@ public class MySQL {
 
     }
 
-    public void setLicense(String license, String type, String value, long created) {
+    public void createLicense(String license, int value, long created) {
         Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
 
         try {
@@ -398,11 +397,10 @@ public class MySQL {
             Long check = getLong("licenses", "created", "created", String.valueOf(created));
 
             if (check == null) {
-                ps = connection.prepareStatement("INSERT INTO licenses (license, type, value, created) VALUES (?,?,?,?);");
+                ps = connection.prepareStatement("INSERT INTO licenses (license, value, created) VALUES (?,?,?);");
                 ps.setString(1, license);
-                ps.setString(2, type);
-                ps.setString(3, value);
-                ps.setLong(4, created);
+                ps.setInt(2, value);
+                ps.setLong(3, created);
                 ps.execute();
                 ps.close();
             }
@@ -459,7 +457,7 @@ public class MySQL {
             boolean redeemed = true;
 
             if (rs.next()) {
-                rs.getInt("redeemed");
+                rs.getLong("redeemed");
                 redeemed = !rs.wasNull();
             }
 

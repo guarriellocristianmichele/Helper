@@ -19,9 +19,10 @@ public class RedeemEvent extends ListenerAdapter {
 
         Message msg = e.getMessage();
         User usr = e.getAuthor();
+        String mes = msg.getContentRaw();
 
         if (e.getMember().getRoles().stream().anyMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.utility"))) {
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can't redeem a prize."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can't redeem a license."));
             msg.delete().queue();
             return;
         }
@@ -33,11 +34,29 @@ public class RedeemEvent extends ListenerAdapter {
         }
 
         if (msg.getContentRaw().length() != 16) {
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can't write here, unless it's a license."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can only write licenses in redeem channel."));
             msg.delete().queue();
             return;
         }
 
+        if (Core.getMySQL().getString("licenses", "license", "license", mes) == null) {
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "License not found."));
+            msg.delete().queue();
+            return;
+        }
+
+        if (Core.getMySQL().isLicenseRedeemed(msg.getContentRaw())) {
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "This license is already redeemed."));
+            msg.delete().queue();
+        }
+
+        int prize = Core.getMySQL().getInt("licenses", "value", "license", mes);
+        int sum = Core.getMySQL().getCoins(usr.getIdLong()) + prize;
+
+        Core.getMySQL().setInt("members", "coins", sum, "id_long", String.valueOf(usr.getIdLong()));
+        Core.getMySQL().redeemLicense(mes, usr.getIdLong());
+        usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "License redeemed successfully.\n\n**You claimed:** `" + prize + "` coins"));
+        msg.delete().queue();
     }
 
 }

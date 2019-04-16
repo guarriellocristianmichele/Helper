@@ -152,7 +152,7 @@ public class QuickMathEvent extends ListenerAdapter {
     private static void sendFile(TextChannel channel, ByteArrayOutputStream by) {
         MessageBuilder message = new MessageBuilder();
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setAuthor("Quick Maths Time", null, "https://i.imgur.com/tXTuUuZ.png");
+        builder.setAuthor("Quick Math", null, "https://i.imgur.com/tXTuUuZ.png");
         InputStream file = new ByteArrayInputStream(by.toByteArray());
         builder.setImage("attachment://math.png");
         builder.setColor(Color.decode("#FF5252"));

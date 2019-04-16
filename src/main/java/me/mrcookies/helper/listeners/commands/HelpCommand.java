@@ -70,7 +70,7 @@ public class HelpCommand extends ListenerAdapter {
                     "`• unmute` - Unmute user.\n" +
                     "`• warn` - Warn user.\n" +
                     "`• id` - ID of emotes and roles.\n" +
-                    "`• link` - Link social to profile."
+                    "`• license` - Create licenses."
             );
 
             channel.sendMessage(builder.build()).queue();
@@ -86,8 +86,7 @@ public class HelpCommand extends ListenerAdapter {
                 "`• daily` - Claim daily reward.\n" +
                 "`• profile` - Profile information.\n" +
                 "`• rob` - Rob user's coins.\n" +
-                "`• oracle` - Answers every question.\n" +
-                "`• link` - Link social to profile."
+                "`• oracle` - Answers every question."
         );
 
         channel.sendMessage(builder.build()).queue();
