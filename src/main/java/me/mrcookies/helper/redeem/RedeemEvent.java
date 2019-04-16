@@ -33,7 +33,7 @@ public class RedeemEvent extends ListenerAdapter {
             return;
         }
 
-        if (msg.getContentRaw().length() != 16) {
+        if (msg.getContentRaw().length() != 19) {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "You can only write licenses in redeem channel."));
             msg.delete().queue();
             return;

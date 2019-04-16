@@ -130,7 +130,7 @@ public class ProfileCommand extends ListenerAdapter {
         URL url;
         User usr = mem.getUser();
         OffsetDateTime date = mem.getJoinDate();
-        String format = Methods.getCap(date.getDayOfWeek().toString().substring(0, 3)) + ", " + Methods.getCap(date.getMonth().name()) + " " + date.getDayOfMonth() + ", " + date.getYear();
+        String format = Methods.getCap(date.getDayOfWeek().toString().substring(0, 3).toLowerCase()) + ", " + Methods.getCap(date.getMonth().name().toLowerCase()) + " " + date.getDayOfMonth() + ", " + date.getYear();
         int coins = Core.getMySQL().getCoins(usr.getIdLong());
 
         try {
