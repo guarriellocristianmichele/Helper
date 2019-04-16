@@ -425,15 +425,16 @@ public class MySQL {
             PreparedStatement ps;
             final PreparedStatement check = connection.prepareStatement("SELECT * FROM licenses WHERE license = ?");
             check.setString(1, license);
-            ResultSet rs = check.executeQuery();
 
-            if (rs.next()) {
-                ps = connection.prepareStatement("UPDATE licenses SET reedemed = ? WHERE license = ?");
+            if (check.executeQuery().next()) {
+                ps = connection.prepareStatement("UPDATE licenses SET redeemed = ? WHERE license = ?");
                 ps.setLong(1, redeemed);
                 ps.setString(2, license);
+                ps.execute();
                 ps.close();
             }
 
+            check.close();
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
