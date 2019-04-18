@@ -36,7 +36,7 @@ public class LicenseCommand extends ListenerAdapter {
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
             if (msg.length < 2) {
-                Methods.sendErrorMessage(channel, "Use • `license create | delete | info | list`");
+                Methods.sendErrorMessage(channel, "Use • `license create | delete | list | info`");
                 return;
             }
 
@@ -151,7 +151,7 @@ public class LicenseCommand extends ListenerAdapter {
                 }
 
                 default: {
-                    Methods.sendErrorMessage(channel, "Use • `license create | delete | info | list`");
+                    Methods.sendErrorMessage(channel, "Use • `license create | delete | list | info`");
                     break;
                 }
 
@@ -207,19 +207,25 @@ public class LicenseCommand extends ListenerAdapter {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor("Licenses", null, "https://i.imgur.com/WLQIKDX.png");
 
-        for (String license : licenses) {
+        if (licenses != null) {
 
-            int value = Core.getMySQL().getInt("licenses", "value", "license", license);
+            for (String license : licenses) {
 
-            builder.addField("License", license, true);
-            builder.addField("Value", String.valueOf(value), true);
+                int value = Core.getMySQL().getInt("licenses", "value", "license", license);
 
-            if (Core.getMySQL().isLicenseRedeemed(license)) {
-                builder.addField("Redeemed", "Yes", true);
-            } else {
-                builder.addField("Redeemed", "No", true);
+                builder.addField("License", license, true);
+                builder.addField("Value", String.valueOf(value), true);
+
+                if (Core.getMySQL().isLicenseRedeemed(license)) {
+                    builder.addField("Redeemed", "Yes", true);
+                } else {
+                    builder.addField("Redeemed", "No", true);
+                }
+
             }
 
+        } else {
+            builder.setDescription("There are no licenses.");
         }
 
         builder.setColor(Color.decode("#ce93d8"));
