@@ -39,7 +39,7 @@ public class PayCommand extends ListenerAdapter {
             User target = e.getMessage().getMentionedUsers().get(0);
 
             if (target.isBot()) {
-                Methods.sendErrorMessage(channel, "Invalid number.");
+                Methods.sendErrorMessage(channel, "Invalid user.");
                 return;
             }
 

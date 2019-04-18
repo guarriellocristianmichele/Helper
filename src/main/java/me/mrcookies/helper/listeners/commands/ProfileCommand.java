@@ -35,8 +35,6 @@ public class ProfileCommand extends ListenerAdapter {
             if (Methods.isInvalidChannel(e.getChannel())) return;
 
             TextChannel channel = e.getChannel();
-            User usr = e.getAuthor();
-            Member mem = e.getMember();
 
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
@@ -72,54 +70,6 @@ public class ProfileCommand extends ListenerAdapter {
         }
 
     }
-
-    /*private void sendProfile(TextChannel channel, User usr, Member mem, Guild guild) {
-        EmbedBuilder builder = new EmbedBuilder();
-        String url;
-        int warns = Core.getMySQL().getWarns(usr.getIdLong());
-        builder.setAuthor("Profile of " + usr.getName(), null, "https://i.imgur.com/IUFgzzq.png");
-        builder.appendDescription("```There will be all informations about " + usr.getName() + ".```");
-
-        if (mem.getNickname() != null) {
-            builder.addField("Nickname:", "`" + mem.getNickname() + "`", false);
-        }
-
-        builder.addField("Tag:", "`" + usr.getAsTag() + "`", false);
-        builder.addField("ID:", "`" + usr.getIdLong() + "`", false);
-        builder.addField("Role:", "`" + mem.getRoles().get(0).getName() + "`", true);
-        builder.addField("Coins:", "`" + Core.getMySQL().getCoins(usr.getIdLong()) + "`", true);
-
-        if (warns > 3) {
-            builder.addField("Status:", "Muted", false);
-        } else {
-            builder.addField("Warns:", "`" + warns + "/3`", false);
-        }
-
-        builder.appendDescription("\n");
-        builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
-
-        if (usr.getDefaultAvatarUrl() != null) {
-            builder.setThumbnail(usr.getAvatarUrl());
-        }
-
-        if (!Core.getMySQL().hasSocial(usr.getIdLong())) {
-            builder.addField("Social:", "No social linked.", false);
-        }
-
-        if (Core.getMySQL().hasSocial(usr.getIdLong(), "facebook")) {
-            url = Core.getMySQL().getString("members", "facebook", "id_long", String.valueOf(usr.getIdLong()));
-            builder.addField(guild.getEmoteById(References.facebook).getAsMention(), "[Click here.](" + url + " \"Profile\")", true);
-        }
-
-        if (Core.getMySQL().hasSocial(usr.getIdLong(), "instagram")) {
-            url = Core.getMySQL().getString("members", "instagram", "id_long", String.valueOf(usr.getIdLong()));
-            builder.addField(guild.getEmoteById(References.instagram).getAsMention(), "[Click here.](" + url + " \"Profile\")", true);
-        }
-
-        channel.sendMessage(builder.build()).queue();
-    }*/
 
     private void createProfileImage(TextChannel channel, Member mem) {
 

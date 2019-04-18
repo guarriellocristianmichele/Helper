@@ -24,7 +24,7 @@ public class ListenerManager {
         addEventListeners(new RandomCommand(), new ClearCommand(), new MemberJoinEvent(),
                 new DontTagEvent(), new AboutCommand(), new AddReactionEvent(), new RequestSendEvent(),
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
-                new CalculatorCommand(), new RoleCommand(), new CountGameEvent(),
+                new CalculatorCommand(), new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
                 new FileCommand(), new StartGameCommand(), new StopGameCommand(), new WordAssistantEvent(),
                 new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(), new PresenceCommand(),
                 new BotStopEvent(), new CoinsCommand(), new EconomyCommand(), new LeaderBoardCommand(),
@@ -32,7 +32,7 @@ public class ListenerManager {
                 new RobCommand(), new AccountResetCommand(), new OracleCommand(), new SolvedCommand(),
                 new SupportChannelJoinEvent(), new SupportChannelMoveEvent(), new ShutdownCommand(),
                 new NoBadWords(), new CommandsChannelEvents(), new MuteCommand(), new UnmuteCommand(),
-                new WarnCommand(), new GetIDCommand(), new TicketCreateChannelEvent(),
+                new WarnCommand(), new IDCommand(), new TicketCreateChannelEvent(),
                 new QuickMathEvent(), new HigherLowerEvent(), new MessageEditBadWordEvent());
         System.out.println("Helper > Events ready.");
     }
