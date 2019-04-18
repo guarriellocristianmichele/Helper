@@ -15,7 +15,6 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.time.Instant;
 
 public class SolvedCommand extends ListenerAdapter {
 
@@ -29,7 +28,7 @@ public class SolvedCommand extends ListenerAdapter {
         User usr = e.getAuthor();
         Message msg = e.getMessage();
         TextChannel channel = e.getChannel();
-        TextChannel chatLogsChannel = e.getGuild().getTextChannelById(References.idChatLogs);
+        TextChannel logsChannel = e.getGuild().getTextChannelById(References.idLogs);
 
         if (msg.getContentRaw().equalsIgnoreCase(References.prefix + "solved")) {
 
@@ -41,7 +40,7 @@ public class SolvedCommand extends ListenerAdapter {
             }
 
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You solved your ticket (`" + channel.getName() + "`)."));
-            sendChatLogs(chatLogsChannel, channel, usr, usr);
+            sendChatLogs(logsChannel, channel, usr, usr);
             channel.delete().complete();
             return;
         }
@@ -59,7 +58,7 @@ public class SolvedCommand extends ListenerAdapter {
 
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You closed " + target.getAsMention() + "'s ticket (`" + channel.getName() + "`)."));
             target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been closed by " + usr.getAsMention() + " (`" + channel.getName() + "`)."));
-            sendChatLogs(chatLogsChannel, channel, target, usr);
+            sendChatLogs(logsChannel, channel, target, usr);
             channel.delete().complete();
             return;
         }
@@ -105,8 +104,7 @@ public class SolvedCommand extends ListenerAdapter {
         builder.addField("Opened by:", open.getName(), true);
         builder.addField("Closed by:", close.getName(), true);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
+        builder.setFooter("Helper • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
 
         message.setEmbed(builder.build());
         channel.sendFile(chatlogs, message.build()).queue();

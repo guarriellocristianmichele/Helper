@@ -15,7 +15,7 @@ public class References {
     public static Long idHigherLower = Core.getConfig().getYml().getLong("Games.HigherLower.channel");
     public static Long idSupportChannel = Core.getConfig().getYml().getLong("Channels.support-channel");
     public static Long idCommands = Core.getConfig().getYml().getLong("Channels.command-channel");
-    public static Long idChatLogs = Core.getConfig().getYml().getLong("Channels.chat-logs-channel");
+    public static Long idLogs = Core.getConfig().getYml().getLong("Channels.logs-channel");
     public static Long idStaffCommands = Core.getConfig().getYml().getLong("Channels.command-channel-staff");
     public static Long idRedeem = Core.getConfig().getYml().getLong("Channels.redeem-channel");
     public static Long idRules = Core.getConfig().getYml().getLong("Channels.rules-channel");
@@ -27,7 +27,5 @@ public class References {
     public static Long loading = Core.getConfig().getYml().getLong("Reactions.loading");
     public static Long like = Core.getConfig().getYml().getLong("Reactions.like");
     public static Long dislike = Core.getConfig().getYml().getLong("Reactions.dislike");
-    public static Long facebook = Core.getConfig().getYml().getLong("Reactions.facebook");
-    public static Long instagram = Core.getConfig().getYml().getLong("Reactions.instagram");
 
 }

@@ -3,10 +3,14 @@ package me.mrcookies.helper.redeem;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import java.awt.*;
 
 public class RedeemEvent extends ListenerAdapter {
 
@@ -53,11 +57,29 @@ public class RedeemEvent extends ListenerAdapter {
 
         int prize = Core.getMySQL().getInt("licenses", "value", "license", mes);
         int sum = Core.getMySQL().getCoins(usr.getIdLong()) + prize;
+        Long created = Core.getMySQL().getLong("licenses", "redeemed", "license", msg.getContentRaw());
+        User create = e.getGuild().getMemberById(created).getUser();
+        TextChannel logsChannel = e.getGuild().getTextChannelById(References.idLogs);
 
         Core.getMySQL().setInt("members", "coins", sum, "id_long", String.valueOf(usr.getIdLong()));
         Core.getMySQL().redeemLicense(mes, usr.getIdLong());
         usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Redeem", "License redeemed successfully.\n\n**You claimed:** `" + prize + "` coins"));
+        sendLog(msg.getContentRaw(), logsChannel, create, usr, prize);
         msg.delete().queue();
+    }
+
+    private void sendLog(String license, TextChannel channel, User create, User redeem, int value) {
+        EmbedBuilder builder = new EmbedBuilder();
+        builder.setAuthor("System", null, "https://i.imgur.com/IUFgzzq.png");
+        builder.addField("Type:", "License", false);
+        builder.addField("License:", license, false);
+        builder.addField("Created by:", create.getName(), false);
+        builder.addField("Redeemed by:", redeem.getName(), false);
+        builder.addField("Value:", String.valueOf(value), false);
+        builder.setColor(Color.decode("#fdcb6e"));
+        builder.setFooter("Helper • License", "https://i.imgur.com/nepS3Lp.jpg");
+
+        channel.sendMessage(builder.build()).queue();
     }
 
 }

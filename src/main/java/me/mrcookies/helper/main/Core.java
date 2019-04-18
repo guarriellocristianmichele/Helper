@@ -56,8 +56,6 @@ public class Core {
         config.addDefault("Roles.utility", "");
         config.addDefault("Reactions.like", "");
         config.addDefault("Reactions.dislike", "");
-        config.addDefault("Reactions.facebook", "");
-        config.addDefault("Reactions.instagram", "");
         config.addDefault("Roles.no-tag", "");
         config.addDefault("Games.Countgame.channel", "");
         config.addDefault("Games.Countgame.surprise", 10);
@@ -78,7 +76,7 @@ public class Core {
         config.addDefault("Roles.player", "");
         config.addDefault("Roles.support", "");
         config.addDefault("Channels.command-channel", "");
-        config.addDefault("Channels.chat-logs-channel", "");
+        config.addDefault("Channels.logs-channel", "");
         config.addDefault("Channels.command-channel-staff", "");
         config.addDefault("Channels.redeem-channel", "");
         config.addDefault("Channels.status-channel", "");
@@ -93,9 +91,15 @@ public class Core {
     }
 
     private static void setupFolders() {
+
         if (!new File("Helper/Images").exists()) {
             new File("Helper/Images").mkdir();
         }
+
+        if (!new File("Helper/Chatlogs").exists()) {
+            new File("Helper/Chatlogs").mkdir();
+        }
+
     }
 
     public static ConfigManager getConfig() {
@@ -103,7 +107,7 @@ public class Core {
     }
 
     public static String getVersion() {
-        return "2.1.0";
+        return "2.2.0";
     }
 
     public static JDA getJDA() {

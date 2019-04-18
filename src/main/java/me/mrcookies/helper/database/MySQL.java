@@ -394,7 +394,7 @@ public class MySQL {
 
         try {
             PreparedStatement ps;
-            Long check = getLong("licenses", "created", "created", String.valueOf(created));
+            String check = getString("licenses", "license", "license", license);
 
             if (check == null) {
                 ps = connection.prepareStatement("INSERT INTO licenses (license, value, created) VALUES (?,?,?);");
