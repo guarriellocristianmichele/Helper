@@ -25,6 +25,7 @@ me/mrcookies/helper/redeem/MessageRedeemEvent.class
 me/mrcookies/helper/listeners/commands/ProfileCommand.class
 me/mrcookies/helper/listeners/commands/ShutdownCommand.class
 me/mrcookies/helper/listeners/events/MemberLeftEvent.class
+me/mrcookies/helper/listeners/commands/IDCommand.class
 me/mrcookies/helper/listeners/commands/FileCommand.class
 me/mrcookies/helper/listeners/commands/AnnounceCommand.class
 me/mrcookies/helper/utils/References.class
@@ -43,12 +44,12 @@ me/mrcookies/helper/listeners/commands/LicenseCommand.class
 me/mrcookies/helper/listeners/commands/PingCommand.class
 me/mrcookies/helper/listeners/commands/RobCommand.class
 me/mrcookies/helper/listeners/commands/PayCommand.class
-me/mrcookies/helper/listeners/commands/GetIDCommand.class
 me/mrcookies/helper/listeners/commands/CalculatorCommand.class
 me/mrcookies/helper/listeners/commands/WarnCommand.class
 me/mrcookies/helper/minigames/countgame/CountGameEvent.class
 me/mrcookies/helper/listeners/commands/AccountResetCommand.class
 me/mrcookies/helper/minigames/quickmath/QuickMathEvent.class
+me/mrcookies/helper/listeners/commands/UserInfoCommand.class
 me/mrcookies/helper/listeners/events/CancelCommandsEvent.class
 me/mrcookies/helper/listeners/commands/AboutCommand.class
 me/mrcookies/helper/listeners/events/BotStatusEvent.class

@@ -28,11 +28,8 @@ public class HelpCommand extends ListenerAdapter {
 
             User usr = e.getAuthor();
 
-            usr.openPrivateChannel().queue((ch) -> {
-                sendHelp(ch, usr, e.getGuild());
-                ch.close().queue();
-            });
-
+            usr.openPrivateChannel().queue((ch) -> sendHelp(ch, usr, e.getGuild()));
+            Methods.sendSENT(e.getChannel(), "Help", "You have received a direct message.");
         }
 
     }
