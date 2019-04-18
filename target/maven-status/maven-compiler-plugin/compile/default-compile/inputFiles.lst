@@ -11,6 +11,7 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/MemberLeftEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/tickets/SolvedCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/SayCommand.java
+/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/database/MySQL.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/BotStartEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java

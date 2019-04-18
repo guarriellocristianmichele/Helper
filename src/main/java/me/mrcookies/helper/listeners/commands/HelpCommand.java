@@ -70,7 +70,8 @@ public class HelpCommand extends ListenerAdapter {
                     "`• unmute` - Unmute user.\n" +
                     "`• warn` - Warn user.\n" +
                     "`• id` - ID of emotes and roles.\n" +
-                    "`• license` - Create licenses."
+                    "`• license` - Create licenses.\n" +
+                    "`• presence` - Set presence."
             );
 
             channel.sendMessage(builder.build()).queue();

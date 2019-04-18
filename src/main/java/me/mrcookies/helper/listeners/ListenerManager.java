@@ -26,7 +26,7 @@ public class ListenerManager {
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
                 new CalculatorCommand(), new RoleCommand(), new CountGameEvent(),
                 new FileCommand(), new StartGameCommand(), new StopGameCommand(), new WordAssistantEvent(),
-                new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(),
+                new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(), new PresenceCommand(),
                 new BotStopEvent(), new CoinsCommand(), new EconomyCommand(), new LeaderBoardCommand(),
                 new ProfileCommand(), new PayCommand(), new PingCommand(), new DailyCommand(),
                 new RobCommand(), new AccountResetCommand(), new OracleCommand(), new SolvedCommand(),
