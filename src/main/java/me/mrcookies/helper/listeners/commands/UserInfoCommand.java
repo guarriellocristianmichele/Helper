@@ -87,7 +87,7 @@ public class UserInfoCommand extends ListenerAdapter {
         builder.addField("Tag:", usr.getAsTag(), false);
         builder.addField("ID:", "`" + usr.getIdLong() + "`", false);
         builder.addField("Joined:", format, false);
-        builder.addField("Status:", mem.getOnlineStatus().name().toLowerCase().replace("_", " "), false);
+        builder.addField("Status:", Methods.getCap(mem.getOnlineStatus().name().toLowerCase().replace("_", " ")), false);
         builder.addField("Role:", mem.getRoles().get(0).getName(), false);
         builder.addField("Coins:", "`" + Core.getMySQL().getCoins(usr.getIdLong()) + "`", false);
 
