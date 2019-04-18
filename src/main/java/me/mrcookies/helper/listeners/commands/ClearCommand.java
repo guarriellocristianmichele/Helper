@@ -2,8 +2,8 @@ package me.mrcookies.helper.listeners.commands;
 
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -42,12 +42,12 @@ public class ClearCommand extends ListenerAdapter {
             }
 
             TextChannel target = e.getMessage().getMentionedChannels().get(0);
-            purgeMessages(target, Integer.parseInt(msg[2]), channel);
+            purgeMessages(target, Integer.parseInt(msg[2]), channel, e.getAuthor());
         }
 
     }
 
-    private void purgeMessages(TextChannel channel, int num, TextChannel chan) {
+    private void purgeMessages(TextChannel channel, int num, TextChannel chan, User usr) {
 
         if (num > 100 || num < 1) {
             Methods.sendErrorMessage(chan, "Invalid number `" + num + "`");
@@ -57,7 +57,7 @@ public class ClearCommand extends ListenerAdapter {
         channel.getHistory().retrievePast(num).queue(msgs -> {
 
             if (msgs.size() < 2) {
-                Methods.sendErrorMessage(chan, "Minimum `2` messages in the channel.");
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "Minimum `2` messages in the channel."));
                 return;
             }
 
