@@ -32,14 +32,13 @@ public class GiveawayCommand extends ListenerAdapter {
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
             if (msg.length < 2) {
-                Methods.sendErrorMessage(channel, "Use • `giveaway start | end`");
+                Methods.sendErrorMessage(channel, "Use • `giveaway start | end | delete | info`");
                 return;
             }
 
             TextChannel gaChannel = e.getGuild().getTextChannelById(References.idGiveaways);
             TextChannel aChannel = e.getGuild().getTextChannelById(References.idAnnouncements);
             Emote emote = e.getGuild().getEmoteById(References.check);
-            User usr = e.getAuthor();
 
             switch (msg[1].toLowerCase()) {
 
@@ -60,7 +59,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     }
 
                     sendGiveaway(text[1], gaChannel, emote);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nA giveaway has been started.\nJoin it " + gaChannel.getAsMention());
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```A giveaway has been started.```\n\n**Join it** " + gaChannel.getAsMention());
                     break;
                 }
 
@@ -85,7 +84,7 @@ public class GiveawayCommand extends ListenerAdapter {
 
                     message.delete().queue();
                     sendEndGiveaway(gaChannel, prize, winner);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nThe giveaway ended.");
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway ended.```");
                     Core.getMySQL().dropEntry("giveaway", "id", String.valueOf(id));
                     break;
                 }
@@ -105,7 +104,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     String ID = String.valueOf(Core.getMySQL().getGiveawayID());
                     Message message = gaChannel.getMessageById(ID).complete();
 
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nThe giveaway has been deleted.");
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway has been deleted.```");
                     message.delete().queue();
                     Core.getMySQL().dropEntry("giveaway", "id", ID);
                     break;
@@ -127,6 +126,7 @@ public class GiveawayCommand extends ListenerAdapter {
         builder.setAuthor("Giveaway", null, "https://i.imgur.com/nNpzsAY.png");
         builder.addField("Prize:", prize, false);
         builder.addField("How to join:", "React with " + emote.getAsMention() + " to join.", false);
+        builder.setThumbnail("https://i.imgur.com/gl3SIVs.png");
         builder.setColor(Color.decode("#5e9cab"));
         builder.setFooter("Helper • Join the giveaway!", "https://i.imgur.com/nepS3Lp.jpg");
 
@@ -142,6 +142,7 @@ public class GiveawayCommand extends ListenerAdapter {
         builder.addField("Prize:", prize, false);
         builder.addField("Winner:", winner.getAsMention(), false);
         builder.addField("How to claim the prize:", "Just open a ticket and be patient.", false);
+        builder.setThumbnail("https://i.imgur.com/gl3SIVs.png");
         builder.setColor(Color.decode("#5e9cab"));
         builder.setFooter("Helper • See you to the next giveaway!", "https://i.imgur.com/nepS3Lp.jpg");
 
