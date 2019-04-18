@@ -76,6 +76,7 @@ public class RedeemEvent extends ListenerAdapter {
         builder.addField("Created by:", create.getName(), false);
         builder.addField("Redeemed by:", redeem.getName(), false);
         builder.addField("Value:", String.valueOf(value), false);
+        builder.setThumbnail("https://i.imgur.com/QVw0qZa.png");
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter("Helper • License", "https://i.imgur.com/nepS3Lp.jpg");
 
