@@ -43,7 +43,7 @@ public class DontTagEvent extends ListenerAdapter {
             }
 
             msg.delete().queue();
-            Methods.sendSimpleEmbed(channel, "System", usr.getAsMention() + " please do **NOT** tag him, if you need help write `Help` or join the support channel.");
+            Methods.sendSimpleEmbed(channel, "System", usr.getAsMention() + " please do **NOT** tag him, join the support channel if you need help.");
             channel.sendMessage("**" + usr.getName() + ":** *" + msg.getContentDisplay().replace("@", "") + "*").queue();
         }
 

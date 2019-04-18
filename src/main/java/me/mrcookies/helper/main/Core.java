@@ -56,6 +56,7 @@ public class Core {
         config.addDefault("Roles.utility", "");
         config.addDefault("Reactions.like", "");
         config.addDefault("Reactions.dislike", "");
+        config.addDefault("Reactions.check", "");
         config.addDefault("Roles.no-tag", "");
         config.addDefault("Games.Countgame.channel", "");
         config.addDefault("Games.Countgame.surprise", 10);
@@ -82,6 +83,8 @@ public class Core {
         config.addDefault("Channels.status-channel", "");
         config.addDefault("Channels.tickets-channel", "");
         config.addDefault("Channels.rules-channel", "");
+        config.addDefault("Channels.giveaways-channel", "");
+        config.addDefault("Channels.announcements-channel", "");
         config.addDefault("Reactions.online", "");
         config.addDefault("Reactions.offline", "");
         config.addDefault("Reactions.loading", "");

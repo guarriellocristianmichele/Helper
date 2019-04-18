@@ -24,8 +24,8 @@ public class CountGameEvent extends ListenerAdapter {
         Message msg = e.getMessage();
         User usr = e.getAuthor();
         int num;
-        Long lastAuthorId = this.getLastAuthor(channel);
-        int lastNumber = this.getLastNumber(channel);
+        Long lastAuthorId = getLastAuthor(channel);
+        int lastNumber = getLastNumber(channel);
 
         if (usr.getIdLong() == lastAuthorId) {
             msg.delete().queue();

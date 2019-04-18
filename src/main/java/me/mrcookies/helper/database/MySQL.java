@@ -70,10 +70,19 @@ public class MySQL {
                                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8;"
                 );
 
+                PreparedStatement ga = connection.prepareStatement(
+                        "CREATE TABLE IF NOT EXISTS `giveaway` (\n" +
+                                "  `id` bigint not null,\n" +
+                                "  `prize` text not null\n" +
+                                ") ENGINE=InnoDB DEFAULT CHARSET=utf8;"
+                );
+
                 ps.executeUpdate();
                 ps.close();
                 pss.executeUpdate();
                 pss.close();
+                ga.executeUpdate();
+                ga.close();
                 connection.close();
                 System.out.println("Helper > Database Structure Created...");
             } catch (final SQLException e1) {
@@ -581,6 +590,34 @@ public class MySQL {
             ps.close();
             connection.close();
             return ids;
+        } catch (final SQLException e) {
+            e.printStackTrace();
+
+            try {
+                connection.close();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public Long getGiveawayID() {
+        Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
+
+        try {
+            final PreparedStatement ps = connection.prepareStatement("SELECT id FROM giveaway");
+            final ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                Long result = rs.getLong("id");
+                rs.close();
+                ps.close();
+                connection.close();
+                return result;
+            }
+
+            connection.close();
         } catch (final SQLException e) {
             e.printStackTrace();
 

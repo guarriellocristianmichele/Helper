@@ -1,5 +1,7 @@
 package me.mrcookies.helper.listeners;
 
+import me.mrcookies.helper.giveaway.GiveawayCommand;
+import me.mrcookies.helper.giveaway.GiveawayEvent;
 import me.mrcookies.helper.listeners.commands.*;
 import me.mrcookies.helper.listeners.events.*;
 import me.mrcookies.helper.main.Core;
@@ -25,14 +27,14 @@ public class ListenerManager {
                 new DontTagEvent(), new AboutCommand(), new AddReactionEvent(), new RequestSendEvent(),
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
                 new CalculatorCommand(), new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
-                new FileCommand(), new StartGameCommand(), new StopGameCommand(), new WordAssistantEvent(),
+                new FileCommand(), new StartGameCommand(), new StopGameCommand(), new GiveawayCommand(),
                 new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(), new PresenceCommand(),
                 new BotStopEvent(), new CoinsCommand(), new EconomyCommand(), new LeaderBoardCommand(),
                 new ProfileCommand(), new PayCommand(), new PingCommand(), new DailyCommand(),
                 new RobCommand(), new AccountResetCommand(), new OracleCommand(), new SolvedCommand(),
                 new SupportChannelJoinEvent(), new SupportChannelMoveEvent(), new ShutdownCommand(),
                 new NoBadWords(), new CommandsChannelEvents(), new MuteCommand(), new UnmuteCommand(),
-                new WarnCommand(), new IDCommand(), new TicketCreateChannelEvent(),
+                new WarnCommand(), new IDCommand(), new TicketCreateChannelEvent(), new GiveawayEvent(),
                 new QuickMathEvent(), new HigherLowerEvent(), new MessageEditBadWordEvent());
         System.out.println("Helper > Events ready.");
     }

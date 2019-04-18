@@ -28,7 +28,7 @@ public class EconomyCommand extends ListenerAdapter {
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
             if (msg.length < 2) {
-                Methods.sendErrorMessage(channel, "Use • `eco [reset/add/remove]`");
+                Methods.sendErrorMessage(channel, "Use • `eco reset | add | remove`");
                 return;
             }
 
@@ -130,7 +130,7 @@ public class EconomyCommand extends ListenerAdapter {
                 }
 
                 default: {
-                    Methods.sendErrorMessage(channel, "Use • `eco [reset/add/remove]`");
+                    Methods.sendErrorMessage(channel, "Use • `eco reset | add | remove`");
                     break;
                 }
 

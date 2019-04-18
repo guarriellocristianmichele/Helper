@@ -22,10 +22,13 @@ public class References {
     public static Long idStatus = Core.getConfig().getYml().getLong("Channels.status-channel");
     public static Long idTickets = Core.getConfig().getYml().getLong("Channels.tickets-channel");
     public static Long idRequests = Core.getConfig().getYml().getLong("Channels.requests-channel");
+    public static Long idGiveaways = Core.getConfig().getYml().getLong("Channels.giveaways-channel");
+    public static Long idAnnouncements = Core.getConfig().getYml().getLong("Channels.announcements-channel");
     public static Long online = Core.getConfig().getYml().getLong("Reactions.online");
     public static Long offline = Core.getConfig().getYml().getLong("Reactions.offline");
     public static Long loading = Core.getConfig().getYml().getLong("Reactions.loading");
     public static Long like = Core.getConfig().getYml().getLong("Reactions.like");
     public static Long dislike = Core.getConfig().getYml().getLong("Reactions.dislike");
+    public static Long check = Core.getConfig().getYml().getLong("Reactions.check");
 
 }
