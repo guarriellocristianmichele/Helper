@@ -38,7 +38,7 @@ me/mrcookies/helper/tickets/SolvedCommand.class
 me/mrcookies/helper/listeners/commands/SayCommand.class
 me/mrcookies/helper/listeners/commands/EconomyCommand.class
 me/mrcookies/helper/security/NoBadWords.class
-me/mrcookies/helper/listeners/commands/LicenseCreateCommand.class
+me/mrcookies/helper/listeners/commands/LicenseCommand.class
 me/mrcookies/helper/listeners/commands/PingCommand.class
 me/mrcookies/helper/listeners/commands/RobCommand.class
 me/mrcookies/helper/listeners/commands/PayCommand.class

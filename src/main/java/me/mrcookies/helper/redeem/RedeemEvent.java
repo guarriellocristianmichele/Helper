@@ -57,7 +57,7 @@ public class RedeemEvent extends ListenerAdapter {
 
         int prize = Core.getMySQL().getInt("licenses", "value", "license", mes);
         int sum = Core.getMySQL().getCoins(usr.getIdLong()) + prize;
-        Long created = Core.getMySQL().getLong("licenses", "redeemed", "license", msg.getContentRaw());
+        Long created = Core.getMySQL().getLong("licenses", "created", "license", msg.getContentRaw());
         User create = e.getGuild().getMemberById(created).getUser();
         TextChannel logsChannel = e.getGuild().getTextChannelById(References.idLogs);
 

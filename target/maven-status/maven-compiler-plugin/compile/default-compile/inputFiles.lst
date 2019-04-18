@@ -19,7 +19,6 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/requests/RequestSendEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/configuration/ConfigurationProvider.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/tickets/TicketCreateChannelEvent.java
-/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCreateCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/DontTagEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/AboutCommand.java
@@ -40,6 +39,7 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/security/MessageEditBadWordEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/GetIDCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/tickets/HelpMessageEvent.java
+/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/minigames/higherlower/HigherLowerEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/MemberJoinEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/minigames/StopGameCommand.java

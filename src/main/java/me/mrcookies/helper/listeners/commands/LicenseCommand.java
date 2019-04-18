@@ -115,7 +115,7 @@ public class LicenseCommand extends ListenerAdapter {
 
                     User redeem = null;
                     int value = Core.getMySQL().getInt("licenses", "value", "license", msg[2]);
-                    Long created = Core.getMySQL().getLong("licenses", "redeemed", "license", msg[2]);
+                    Long created = Core.getMySQL().getLong("licenses", "created", "license", msg[2]);
                     User create = e.getGuild().getMemberById(created).getUser();
 
                     if (Core.getMySQL().isLicenseRedeemed(msg[2])) {
