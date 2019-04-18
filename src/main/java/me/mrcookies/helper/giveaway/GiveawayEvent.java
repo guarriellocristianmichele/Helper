@@ -1,6 +1,7 @@
 package me.mrcookies.helper.giveaway;
 
 import me.mrcookies.helper.main.Core;
+import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.core.entities.Emote;
 import net.dv8tion.jda.core.entities.User;
@@ -20,6 +21,12 @@ public class GiveawayEvent extends ListenerAdapter {
         Emote emote = e.getReactionEmote().getEmote();
         User author = e.getUser();
 
+        if (Methods.isStaffer(e.getGuild().getMember(author))) {
+            e.getReaction().removeReaction(author).queue();
+            author.openPrivateChannel().queue(ch -> Methods.sendSENT(ch, "Giveaway", "You can't join the giveaway."));
+            return;
+        }
+
         if (e.getMessageIdLong() != id) {
             e.getReaction().removeReaction(author).queue();
             return;
@@ -32,7 +39,6 @@ public class GiveawayEvent extends ListenerAdapter {
 
         if (emote.getIdLong() != References.check) {
             e.getReaction().removeReaction(author).queue();
-
         }
 
     }

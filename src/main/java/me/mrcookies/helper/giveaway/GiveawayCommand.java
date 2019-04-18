@@ -39,6 +39,7 @@ public class GiveawayCommand extends ListenerAdapter {
             TextChannel gaChannel = e.getGuild().getTextChannelById(References.idGiveaways);
             TextChannel aChannel = e.getGuild().getTextChannelById(References.idAnnouncements);
             Emote emote = e.getGuild().getEmoteById(References.check);
+            User usr = e.getAuthor();
 
             switch (msg[1].toLowerCase()) {
 
@@ -59,7 +60,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     }
 
                     sendGiveaway(text[1], gaChannel, emote);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nA Giveaway has been started (" + gaChannel.getAsMention() + ")");
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nA giveaway has been started.\nJoin it " + gaChannel.getAsMention());
                     break;
                 }
 
@@ -75,7 +76,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     Long id = Core.getMySQL().getGiveawayID();
                     String prize = Core.getMySQL().getString("giveaway", "prize", "id", String.valueOf(id));
                     Message message = gaChannel.getMessageById(id).complete();
-                    User winner = getWinner(message, e.getGuild());
+                    User winner = getWinner(message);
 
                     if (winner == null) {
                         Methods.sendErrorMessage(channel, "No winner found.");
@@ -84,13 +85,34 @@ public class GiveawayCommand extends ListenerAdapter {
 
                     message.delete().queue();
                     sendEndGiveaway(gaChannel, prize, winner);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nThe Giveaway ended.");
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nThe giveaway ended.");
                     Core.getMySQL().dropEntry("giveaway", "id", String.valueOf(id));
                     break;
                 }
 
+                case "info": {
+
+                    String ID = String.valueOf(Core.getMySQL().getGiveawayID());
+                    Message message = gaChannel.getMessageById(ID).complete();
+                    String prize = Core.getMySQL().getString("giveaway", "prize", "id", ID);
+                    String n = String.valueOf(getJoinedUsers(message));
+
+                    sendInfo(channel, ID, prize, n);
+                    break;
+                }
+
+                case "delete": {
+                    String ID = String.valueOf(Core.getMySQL().getGiveawayID());
+                    Message message = gaChannel.getMessageById(ID).complete();
+
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nThe giveaway has been deleted.");
+                    message.delete().queue();
+                    Core.getMySQL().dropEntry("giveaway", "id", ID);
+                    break;
+                }
+
                 default: {
-                    Methods.sendErrorMessage(channel, "Use • `giveaway start | end`");
+                    Methods.sendErrorMessage(channel, "Use • `giveaway start | end | delete | info`");
                     break;
                 }
 
@@ -126,7 +148,7 @@ public class GiveawayCommand extends ListenerAdapter {
         channel.sendMessage(builder.build()).queue();
     }
 
-    private User getWinner(Message msg, Guild guild) {
+    private User getWinner(Message msg) {
 
         List<MessageReaction> reactions = msg.getReactions();
         List<User> users = new ArrayList<>();
@@ -139,16 +161,45 @@ public class GiveawayCommand extends ListenerAdapter {
                     continue;
                 }
 
-                if (Methods.isStaffer(guild.getMember(usr))) {
-                    continue;
-                }
-
                 users.add(usr);
             }
 
         }
 
         return users.get(Methods.getRandom(users.size(), 0));
+    }
+
+    private int getJoinedUsers(Message msg) {
+
+        List<MessageReaction> reactions = msg.getReactions();
+        int cont = 0;
+
+        for (MessageReaction re : reactions) {
+
+            for (User usr : re.getUsers()) {
+
+                if (usr.isBot()) {
+                    continue;
+                }
+
+                cont++;
+            }
+
+        }
+
+        return cont;
+    }
+
+    private void sendInfo(TextChannel channel, String ID, String prize, String joined) {
+        EmbedBuilder builder = new EmbedBuilder();
+        builder.setAuthor("Giveaway", null, "https://i.imgur.com/nNpzsAY.png");
+        builder.addField("ID:", ID, false);
+        builder.addField("Prize:", prize, false);
+        builder.addField("Joined:", joined, false);
+        builder.setColor(Color.decode("#5e9cab"));
+        builder.setFooter("Helper • Info", "https://i.imgur.com/nepS3Lp.jpg");
+
+        channel.sendMessage(builder.build()).queue();
     }
 
 }
