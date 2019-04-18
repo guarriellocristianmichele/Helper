@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="157e23b5-8c43-4a54-9655-df8b57019d9e" name="Default Changelist" comment="">
+    <list default="true" id="157e23b5-8c43-4a54-9655-df8b57019d9e" name="Default Changelist" comment="Improved embed visual.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/ClearCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/ClearCommand.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/redeem/RedeemEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/redeem/RedeemEvent.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,10 +24,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="506" column="5" lean-forward="true" selection-start-line="506" selection-start-column="5" selection-end-line="506" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-854">
-              <caret line="108" column="21" lean-forward="true" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+            <state relative-caret-position="187">
+              <caret line="219" column="57" lean-forward="true" selection-start-line="219" selection-start-column="57" selection-end-line="219" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,9 +45,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="619">
+              <caret line="99" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="451">
               <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
             </state>
           </provider>
@@ -54,17 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/MessageRedeemEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="96" selection-start-line="10" selection-start-column="96" selection-end-line="10" selection-end-column="96" />
+            <state relative-caret-position="405">
+              <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -72,21 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/SolvedCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="99" selection-start-line="99" selection-end-line="99" />
-              <folding>
-                <element signature="e#3186#3187#0" expanded="true" />
-                <element signature="e#3246#3247#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="464">
+              <caret line="78" column="64" selection-start-line="78" selection-start-column="64" selection-end-line="78" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -118,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="306">
+              <caret line="182" column="26" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -165,16 +166,17 @@
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/quickmath/QuickMathEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ProfileCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/SolvedCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCreateCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" />
       </list>
     </option>
   </component>
@@ -518,14 +520,28 @@
       <option name="project" value="LOCAL" />
       <updated>1555584068409</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Fixed a rare issue.">
+      <created>1555584541192</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1555584541192</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Improved embed visual.">
+      <created>1555584649885</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1555584649885</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="21" y="23" width="1920" height="973" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21086262" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21086262" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -534,7 +550,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893504" visible="true" weight="0.37456647" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49893504" visible="true" weight="0.37424546" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -566,12 +582,11 @@
     <MESSAGE value="Another little issue resolved." />
     <MESSAGE value="Finished license system." />
     <MESSAGE value="Fixed an issue in getting user from database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue in getting user from database." />
+    <MESSAGE value="Fixed a rare issue." />
+    <MESSAGE value="Improved embed visual." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved embed visual." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dependency-reduced-pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/AddReactionEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -818,13 +833,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4819">
-          <caret line="100" column="35" lean-forward="true" selection-start-line="100" selection-start-column="35" selection-end-line="100" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/TicketCreateChannelEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -850,13 +858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
           <caret line="168" column="34" selection-start-line="168" selection-start-column="34" selection-end-line="168" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/MessageRedeemEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="74" />
         </state>
       </provider>
     </entry>
@@ -911,34 +912,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/MessageRedeemEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
+        <state relative-caret-position="405">
+          <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-854">
-          <caret line="108" column="21" lean-forward="true" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="464">
+          <caret line="78" column="64" selection-start-line="78" selection-start-column="64" selection-end-line="78" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="506" column="5" lean-forward="true" selection-start-line="506" selection-start-column="5" selection-end-line="506" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="99" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="451">
           <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="306">
+          <caret line="182" column="26" selection-start-line="182" selection-start-column="26" selection-end-line="182" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="219" column="57" lean-forward="true" selection-start-line="219" selection-start-column="57" selection-end-line="219" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

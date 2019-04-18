@@ -57,7 +57,7 @@ public class ClearCommand extends ListenerAdapter {
         channel.getHistory().retrievePast(num).queue(msgs -> {
 
             if (msgs.size() < 2) {
-                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "Minimum `2` messages in the channel."));
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Clear", "Minimum `2` messages in the channel."));
                 return;
             }
 

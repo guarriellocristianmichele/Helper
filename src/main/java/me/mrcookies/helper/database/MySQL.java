@@ -506,6 +506,47 @@ public class MySQL {
 
     }
 
+    public ArrayList<String> getLicenses(int start, int limit) {
+
+        ArrayList<String> licenses = new ArrayList<>();
+        Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
+
+        try {
+
+            final PreparedStatement ps;
+            ps = connection.prepareStatement("SELECT license FROM licenses LIMIT ?");
+            ps.setInt(1, limit);
+
+            final ResultSet rs = ps.executeQuery();
+
+            int count = 0;
+            while (rs.next()) {
+
+                if (count < start) {
+                    count++;
+                    continue;
+                }
+
+                String result = rs.getString("license");
+                licenses.add(result);
+            }
+
+            rs.close();
+            ps.close();
+            connection.close();
+            return licenses;
+        } catch (final SQLException e) {
+            e.printStackTrace();
+
+            try {
+                connection.close();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Long> getTop(int start, int limit, String table, String key, String value, boolean b) {
 
         ArrayList<Long> ids = new ArrayList<>();

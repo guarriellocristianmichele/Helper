@@ -11,7 +11,6 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class LicenseCommand extends ListenerAdapter {
 
@@ -24,19 +23,20 @@ public class LicenseCommand extends ListenerAdapter {
 
         if (e.getMessage().getContentRaw().toLowerCase().startsWith(References.prefix + "license")) {
 
-            if (Methods.isInvalidChannel(e.getChannel())) return;
+            if (e.getChannel().getIdLong() != References.idStaffCommands) {
+                Methods.sendErrorMessage(e.getChannel(), "This command can't be perfomed here.");
+                return;
+            }
 
             TextChannel channel = e.getChannel();
             User usr = e.getAuthor();
-            List<String> types = new ArrayList<>();
-            types.add("coins");
 
             if (!Methods.hasPermission(e, channel)) return;
 
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
             if (msg.length < 2) {
-                Methods.sendErrorMessage(channel, "Use • `license create | delete | info`");
+                Methods.sendErrorMessage(channel, "Use • `license create | delete | info | list`");
                 return;
             }
 
@@ -96,6 +96,29 @@ public class LicenseCommand extends ListenerAdapter {
                     break;
                 }
 
+                case "list": {
+
+                    if (msg.length != 3) {
+                        Methods.sendErrorMessage(channel, "Use • `license list [number]`");
+                        return;
+                    }
+
+                    if (!Methods.isNumeric(msg[2])) {
+                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[2] + "`");
+                        return;
+                    }
+
+                    int n = Integer.parseInt(msg[2]);
+
+                    if (n > 20) {
+                        Methods.sendErrorMessage(channel, "Maximum `20` licenses.");
+                        return;
+                    }
+
+                    sendLicenses(channel, n);
+                    break;
+                }
+
                 case "info": {
 
                     if (msg.length != 3) {
@@ -128,7 +151,7 @@ public class LicenseCommand extends ListenerAdapter {
                 }
 
                 default: {
-                    Methods.sendErrorMessage(channel, "Use • `license create | delete`");
+                    Methods.sendErrorMessage(channel, "Use • `license create | delete | info | list`");
                     break;
                 }
 
@@ -173,6 +196,32 @@ public class LicenseCommand extends ListenerAdapter {
         }
 
         builder.addField("Value:", String.valueOf(value), false);
+        builder.setColor(Color.decode("#ce93d8"));
+        builder.setFooter("Helper • Info", "https://i.imgur.com/nepS3Lp.jpg");
+
+        channel.sendMessage(builder.build()).queue();
+    }
+
+    private void sendLicenses(TextChannel channel, int n) {
+        ArrayList<String> licenses = Core.getMySQL().getLicenses(0, n);
+        EmbedBuilder builder = new EmbedBuilder();
+        builder.setAuthor("Licenses", null, "https://i.imgur.com/WLQIKDX.png");
+
+        for (String license : licenses) {
+
+            int value = Core.getMySQL().getInt("licenses", "value", "license", license);
+
+            builder.addField("License", license, true);
+            builder.addField("Value", String.valueOf(value), true);
+
+            if (Core.getMySQL().isLicenseRedeemed(license)) {
+                builder.addField("Redeemed", "Yes", true);
+            } else {
+                builder.addField("Redeemed", "No", true);
+            }
+
+        }
+
         builder.setColor(Color.decode("#ce93d8"));
         builder.setFooter("Helper • Info", "https://i.imgur.com/nepS3Lp.jpg");
 

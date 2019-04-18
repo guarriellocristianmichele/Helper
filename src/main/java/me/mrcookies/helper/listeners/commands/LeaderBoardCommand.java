@@ -48,7 +48,6 @@ public class LeaderBoardCommand extends ListenerAdapter {
             User usr = Core.getJDA().getUserById(id);
             int coins = Core.getMySQL().getCoins(id);
 
-
             if (user.getIdLong() == id) {
 
                 pos = cont;
