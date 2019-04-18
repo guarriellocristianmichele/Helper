@@ -37,6 +37,7 @@ me/mrcookies/helper/listeners/events/MemberJoinEvent.class
 me/mrcookies/helper/minigames/StopGameCommand.class
 me/mrcookies/helper/listeners/commands/MuteCommand.class
 me/mrcookies/helper/tickets/SolvedCommand.class
+me/mrcookies/helper/giveaway/GiveawayCommand.class
 me/mrcookies/helper/listeners/commands/SayCommand.class
 me/mrcookies/helper/listeners/commands/EconomyCommand.class
 me/mrcookies/helper/security/NoBadWords.class
@@ -53,8 +54,8 @@ me/mrcookies/helper/listeners/commands/UserInfoCommand.class
 me/mrcookies/helper/listeners/events/CancelCommandsEvent.class
 me/mrcookies/helper/listeners/commands/AboutCommand.class
 me/mrcookies/helper/listeners/events/BotStatusEvent.class
+me/mrcookies/helper/giveaway/GiveawayEvent.class
 me/mrcookies/helper/listeners/commands/ClearCommand.class
-me/mrcookies/helper/listeners/events/WordAssistantEvent.class
 me/mrcookies/helper/listeners/commands/LeaderBoardCommand.class
 me/mrcookies/helper/listeners/events/DontTagEvent.class
 me/mrcookies/helper/listeners/events/BotStopEvent.class

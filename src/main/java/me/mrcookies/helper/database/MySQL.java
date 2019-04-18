@@ -47,6 +47,7 @@ public class MySQL {
         try {
             connection.prepareStatement("SELECT 1 FROM members LIMIT 1").executeQuery().close();
             connection.prepareStatement("SELECT 1 FROM licenses LIMIT 1").executeQuery().close();
+            connection.prepareStatement("SELECT 1 FROM giveaway LIMIT 1").executeQuery().close();
             connection.close();
         } catch (final SQLException e) {
             try {

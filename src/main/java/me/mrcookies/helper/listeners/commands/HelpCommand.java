@@ -69,7 +69,8 @@ public class HelpCommand extends ListenerAdapter {
                     "`• id` - ID of emotes and roles.\n" +
                     "`• license` - Create licenses.\n" +
                     "`• presence` - Set presence.\n" +
-                    "`• info` - Get user's info."
+                    "`• info` - Get user's info.\n" +
+                    "`• giveaway` - Manage giveaways."
             );
 
             channel.sendMessage(builder.build()).queue();

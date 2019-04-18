@@ -25,7 +25,6 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/AboutCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/WarnCommand.java
-/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/WordAssistantEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/ProfileCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/main/Core.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/ShutdownCommand.java
@@ -39,6 +38,7 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/requests/AddReactionEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/RobCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/SupportChannelMoveEvent.java
+/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/security/MessageEditBadWordEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/tickets/HelpMessageEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java
@@ -58,5 +58,6 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/SupportChannelJoinEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/security/BadWordsFilter.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/minigames/quickmath/QuickMathEvent.java
+/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/giveaway/GiveawayEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/redeem/MessageRedeemEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/AnnounceCommand.java
