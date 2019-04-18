@@ -43,17 +43,17 @@ public class GiveawayCommand extends ListenerAdapter {
 
                 case "start": {
 
-                    List<Message> msgs = channel.getHistory().retrievePast(1).complete();
-
-                    if (!msgs.isEmpty()) {
-                        Methods.sendErrorMessage(channel, "There is already a giveaway started.");
-                        return;
-                    }
-
                     String[] text = e.getMessage().getContentRaw().split(" - ");
 
                     if (text.length != 2) {
                         Methods.sendErrorMessage(channel, "Use • `giveaway start - [prize]`");
+                        return;
+                    }
+
+                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
+
+                    if (!msgs.isEmpty()) {
+                        Methods.sendErrorMessage(channel, "There is already a giveaway started.");
                         return;
                     }
 
@@ -64,7 +64,7 @@ public class GiveawayCommand extends ListenerAdapter {
 
                 case "end": {
 
-                    List<Message> msgs = channel.getHistory().retrievePast(1).complete();
+                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
 
                     if (msgs.isEmpty()) {
                         Methods.sendErrorMessage(channel, "There isn't any giveaway started.");

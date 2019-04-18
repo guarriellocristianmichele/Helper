@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="157e23b5-8c43-4a54-9655-df8b57019d9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/DontTagEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/DontTagEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/WordAssistantEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/HelpCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/HelpCommand.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -27,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="73" column="24" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="62" />
+            <state relative-caret-position="289">
+              <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
-              <caret line="31" column="103" lean-forward="true" selection-start-line="31" selection-start-column="103" selection-end-line="31" selection-end-column="103" />
+              <caret line="31" column="103" selection-start-line="31" selection-start-column="103" selection-end-line="31" selection-end-column="103" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="378">
@@ -67,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="347">
-              <caret line="40" column="60" lean-forward="true" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
+              <caret line="40" column="60" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -76,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/RequestSendEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="555">
-              <caret line="50" column="69" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="74" />
+              <caret line="50" column="69" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -103,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="99" column="63" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="77" />
+              <caret line="99" column="63" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -111,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="613" column="27" lean-forward="true" selection-start-line="613" selection-start-column="27" selection-end-line="613" selection-end-column="27" />
+            <state relative-caret-position="91">
+              <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -120,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="23" />
+            <state relative-caret-position="156">
+              <caret line="69" column="55" lean-forward="true" selection-start-line="69" selection-start-column="55" selection-end-line="69" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -178,18 +170,18 @@
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PayCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ProfileCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/DontTagEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayEvent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" />
       </list>
     </option>
   </component>
@@ -261,6 +253,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="helper" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Helper" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="helper" type="462c0819:PsiDirectoryNode" />
+              <item name="giveaway" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Helper" type="b2602c69:ProjectViewProjectNode" />
@@ -597,13 +598,28 @@
       <option name="project" value="LOCAL" />
       <updated>1555605856956</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added giveaway system.">
+      <created>1555616481005</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1555616481005</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Fixed issue related to MySQL.">
+      <created>1555616879924</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1555616879924</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="974" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21512248" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21512248" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -612,7 +628,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49893504" visible="true" weight="0.37297922" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893504" visible="true" weight="0.37297922" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -653,7 +669,9 @@
     <MESSAGE value="Added info command and fixed some bugs." />
     <MESSAGE value="Improved a thing." />
     <MESSAGE value="Fixed an issue." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed an issue." />
+    <MESSAGE value="Added giveaway system." />
+    <MESSAGE value="Fixed issue related to MySQL." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue related to MySQL." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/configuration/ConfigManager.java">
@@ -961,38 +979,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="613" column="27" lean-forward="true" selection-start-line="613" selection-start-column="27" selection-end-line="613" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="99" column="63" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="23" />
+          <caret line="99" column="63" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="77" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/RequestSendEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
-          <caret line="50" column="69" lean-forward="true" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="74" />
+          <caret line="50" column="69" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="74" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
-          <caret line="40" column="60" lean-forward="true" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
+          <caret line="40" column="60" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -1006,17 +1010,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="31" column="103" lean-forward="true" selection-start-line="31" selection-start-column="103" selection-end-line="31" selection-end-column="103" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="73" column="24" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="62" />
+          <caret line="31" column="103" selection-start-line="31" selection-start-column="103" selection-end-line="31" selection-end-column="103" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1034,6 +1028,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="69" column="55" lean-forward="true" selection-start-line="69" selection-start-column="55" selection-end-line="69" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
