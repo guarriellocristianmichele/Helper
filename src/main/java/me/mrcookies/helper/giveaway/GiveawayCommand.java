@@ -9,6 +9,7 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class GiveawayCommand extends ListenerAdapter {
@@ -58,7 +59,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     }
 
                     sendGiveaway(text[1], gaChannel, emote);
-                    Methods.sendSENT(aChannel, "Giveaway", "A Giveaway has been started (" + gaChannel.getAsMention() + ")");
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nA Giveaway has been started (" + gaChannel.getAsMention() + ")");
                     break;
                 }
 
@@ -74,11 +75,16 @@ public class GiveawayCommand extends ListenerAdapter {
                     Long id = Core.getMySQL().getGiveawayID();
                     String prize = Core.getMySQL().getString("giveaway", "prize", "id", String.valueOf(id));
                     Message message = gaChannel.getMessageById(id).complete();
-                    User winner = getWinner(message);
+                    User winner = getWinner(message, e.getGuild());
+
+                    if (winner == null) {
+                        Methods.sendErrorMessage(channel, "No winner found.");
+                        return;
+                    }
 
                     message.delete().queue();
                     sendEndGiveaway(gaChannel, prize, winner);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "The Giveaway ended.");
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\nThe Giveaway ended.");
                     Core.getMySQL().dropEntry("giveaway", "id", String.valueOf(id));
                     break;
                 }
@@ -96,7 +102,7 @@ public class GiveawayCommand extends ListenerAdapter {
 
     private void sendGiveaway(String prize, TextChannel channel, Emote emote) {
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setAuthor("GIVEAWAY", null, "https://i.imgur.com/IUFgzzq.png");
+        builder.setAuthor("Giveaway", null, "https://i.imgur.com/nNpzsAY.png");
         builder.addField("Prize:", prize, false);
         builder.addField("How to join:", "React with " + emote.getAsMention() + " to join.", false);
         builder.setColor(Color.decode("#5e9cab"));
@@ -110,7 +116,7 @@ public class GiveawayCommand extends ListenerAdapter {
 
     private void sendEndGiveaway(TextChannel channel, String prize, User winner) {
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setAuthor("GIVEAWAY END", null, "https://i.imgur.com/nNpzsAY.png");
+        builder.setAuthor("Giveaway", null, "https://i.imgur.com/nNpzsAY.png");
         builder.addField("Prize:", prize, false);
         builder.addField("Winner:", winner.getAsMention(), false);
         builder.addField("How to claim the prize:", "Just open a ticket and be patient.", false);
@@ -120,16 +126,20 @@ public class GiveawayCommand extends ListenerAdapter {
         channel.sendMessage(builder.build()).queue();
     }
 
-    private User getWinner(Message msg) {
+    private User getWinner(Message msg, Guild guild) {
 
         List<MessageReaction> reactions = msg.getReactions();
-        List<User> users = null;
+        List<User> users = new ArrayList<>();
 
         for (MessageReaction re : reactions) {
 
             for (User usr : re.getUsers()) {
 
                 if (usr.isBot()) {
+                    continue;
+                }
+
+                if (Methods.isStaffer(guild.getMember(usr))) {
                     continue;
                 }
 
