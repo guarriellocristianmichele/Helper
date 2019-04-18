@@ -207,7 +207,7 @@ public class LicenseCommand extends ListenerAdapter {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor("Licenses", null, "https://i.imgur.com/WLQIKDX.png");
 
-        if (licenses != null) {
+        if (!licenses.isEmpty()) {
 
             for (String license : licenses) {
 
