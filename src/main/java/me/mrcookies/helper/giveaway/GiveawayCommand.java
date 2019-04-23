@@ -91,6 +91,13 @@ public class GiveawayCommand extends ListenerAdapter {
 
                 case "info": {
 
+                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
+
+                    if (msgs.isEmpty()) {
+                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                        return;
+                    }
+
                     String ID = String.valueOf(Core.getMySQL().getGiveawayID());
                     Message message = gaChannel.getMessageById(ID).complete();
                     String prize = Core.getMySQL().getString("giveaway", "prize", "id", ID);
@@ -101,6 +108,14 @@ public class GiveawayCommand extends ListenerAdapter {
                 }
 
                 case "delete": {
+
+                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
+
+                    if (msgs.isEmpty()) {
+                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                        return;
+                    }
+
                     String ID = String.valueOf(Core.getMySQL().getGiveawayID());
                     Message message = gaChannel.getMessageById(ID).complete();
 
