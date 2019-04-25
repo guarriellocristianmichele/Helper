@@ -84,7 +84,7 @@ public class GiveawayCommand extends ListenerAdapter {
 
                     message.delete().queue();
                     sendEndGiveaway(gaChannel, prize, winner);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway ended.```");
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway ended.```\n\n**Winner** " + winner.getAsMention());
                     Core.getMySQL().dropEntry("giveaway", "id", String.valueOf(id));
                     break;
                 }

@@ -65,6 +65,7 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
                 .setParent(category)
                 .setTopic("Ticket from " + usr.getAsMention() + " | Problem Solved? Please type in **" + References.prefix + "solved**.")
                 .complete();
+        TextChannel logsChannel = guild.getTextChannelById(References.idLogs);
 
         ticketChat.getManager().clearOverridesRemoved();
         ticketChat.getManager().clearOverridesAdded();
@@ -87,6 +88,7 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
 
         usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been created " + ticketChat.getAsMention() + "\nTo solve it, type in `" + References.prefix + "solved`."));
         sendTicket(ticketChat, usr, desc);
+        sendLog(logsChannel, ticketChat, usr);
     }
 
     private TextChannel getOpenTicketChat(User usr, Guild guild) {
@@ -147,6 +149,19 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
 
     private boolean isTicketChat(TextChannel channel) {
         return channel.getName().contains("ticket-");
+    }
+
+    private void sendLog(TextChannel channel, TextChannel log, User open) {
+        EmbedBuilder builder = new EmbedBuilder();
+
+        builder.setAuthor("System", null, "https://i.imgur.com/IUFgzzq.png");
+        builder.addField("Type:", "Ticket", false);
+        builder.addField("Channel:", log.getName(), false);
+        builder.addField("Opened by:", open.getName(), true);
+        builder.setColor(Color.decode("#fdcb6e"));
+        builder.setFooter("Helper • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
+
+        channel.sendMessage(builder.build()).queue();
     }
 
 }
