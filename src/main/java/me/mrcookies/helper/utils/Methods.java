@@ -155,8 +155,8 @@ public class Methods {
         return message;
     }
 
-    public static boolean hasPermission(GuildMessageReceivedEvent e, TextChannel channel) {
-        if (e.getMember().getRoles().stream().noneMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.permission"))) {
+    public static boolean hasPermission(Member mem, TextChannel channel) {
+        if (mem.getRoles().stream().noneMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.permission"))) {
             sendErrorMessage(channel, "No permission.");
             return false;
         }

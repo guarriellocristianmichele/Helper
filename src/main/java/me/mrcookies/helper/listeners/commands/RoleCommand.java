@@ -22,7 +22,7 @@ public class RoleCommand extends ListenerAdapter {
 
             TextChannel channel = e.getChannel();
 
-            if (!Methods.hasPermission(e, channel)) return;
+            if (!Methods.hasPermission(e.getMember(), channel)) return;
 
             String[] msgs = e.getMessage().getContentRaw().split(" ");
 

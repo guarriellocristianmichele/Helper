@@ -35,7 +35,8 @@ public class ListenerManager {
                 new SupportChannelJoinEvent(), new SupportChannelMoveEvent(), new ShutdownCommand(),
                 new NoBadWords(), new CommandsChannelEvents(), new MuteCommand(), new UnmuteCommand(),
                 new WarnCommand(), new IDCommand(), new TicketCreateChannelEvent(), new GiveawayEvent(),
-                new QuickMathEvent(), new HigherLowerEvent(), new MessageEditBadWordEvent());
+                new QuickMathEvent(), new HigherLowerEvent(), new MessageEditBadWordEvent(),
+                new ChatLogCommand());
         System.out.println("Helper > Events ready.");
     }
 

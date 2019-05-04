@@ -48,7 +48,6 @@ public class Core {
         config = new ConfigManager("config", "Helper");
         config.addDefault("Prefix", "");
         config.addDefault("Settings.token", "");
-        config.addDefault("Settings.discord-link", "");
         config.addDefault("Server.ip", "");
         config.addDefault("Server.port", "");
         config.addDefault("Roles.permission", "");
@@ -110,7 +109,7 @@ public class Core {
     }
 
     public static String getVersion() {
-        return "2.2.2";
+        return "2.3.0";
     }
 
     public static JDA getJDA() {

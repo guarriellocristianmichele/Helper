@@ -2,9 +2,92 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="157e23b5-8c43-4a54-9655-df8b57019d9e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ChatLogCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/tickets/TicketCreateChannelEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/tickets/TicketCreateChannelEvent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AccountResetCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AccountResetCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AnnounceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AnnounceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/CalculatorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/CalculatorCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/FileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/FileCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/IDCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/IDCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/MuteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/MuteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RoleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RoleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/SayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/SayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ShutdownCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ShutdownCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UnmuteCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UnmuteCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/WarnCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/WarnCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StartGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StartGameCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StopGameCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StopGameCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/configuration/ConfigManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/configuration/Configuration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/configuration/ConfigurationProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/configuration/YamlConfiguration$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/configuration/YamlConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/database/MySQL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/ListenerManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/AboutCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/AccountResetCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/AnnounceCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/CalculatorCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/ClearCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/CoinsCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/DailyCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/EconomyCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/FileCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/HelpCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/MuteCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/OracleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/PayCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/ProfileCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/RandomCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/RobCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/RoleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/SayCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/ShutdownCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/UnmuteCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/commands/WarnCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/BotStartEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/BotStatusEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/BotStopEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/CancelCommandsEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/CommandsChannelEvents.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/DontTagEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/MemberJoinEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/MemberLeftEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/SupportChannelJoinEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/listeners/events/SupportChannelMoveEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/main/Core.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/minigames/StartGameCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/minigames/StopGameCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/minigames/countgame/CountGameEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/minigames/higherlower/HigherLowerEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/minigames/quickmath/QuickMathEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/redeem/MessageRedeemEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/requests/AddReactionEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/requests/RequestSendEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/security/BadWordsFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/security/MessageEditBadWordEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/security/NoBadWords.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/tickets/HelpMessageEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/tickets/SolvedCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/tickets/TicketCreateChannelEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/utils/Methods.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/mrcookies/helper/utils/References.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,20 +102,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="71" column="27" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
+            <state relative-caret-position="252">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ChatLogCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PingCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1323">
-              <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
+            <state relative-caret-position="441">
+              <caret line="31" column="18" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="569">
+              <caret line="43" column="15" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -41,55 +145,25 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/SolvedCommand.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="336">
-              <caret line="30" column="10" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="85" />
+              <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="85" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/TicketCreateChannelEvent.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AboutCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="113" />
+            <state relative-caret-position="-846">
+              <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/MessageEditBadWordEvent.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/MessageRedeemEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="25" column="109" selection-start-line="25" selection-start-column="109" selection-end-line="25" selection-end-column="109" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1491">
-              <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -97,20 +171,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="66" column="50" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
+            <state relative-caret-position="-3582">
+              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/BadWordsFilter.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StopGameCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2478">
-              <caret line="125" selection-start-line="125" selection-end-line="125" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="357">
+              <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StartGameCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -135,9 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/BadWordsFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/AddReactionEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/RequestSendEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/MessageEditBadWordEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/NoBadWords.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/HelpMessageEvent.java" />
@@ -148,38 +225,47 @@
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/MemberLeftEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/SupportChannelJoinEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/SupportChannelMoveEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/WarnCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UnmuteCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/MuteCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/FileCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/SayCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/quickmath/QuickMathEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCreateCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/GameSetCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PayCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ProfileCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/DontTagEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayEvent.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/SolvedCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/TicketCreateChannelEvent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/reports/ReportCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/CalculatorCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AccountResetCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AnnounceCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/FileCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/IDCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/MuteCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RoleCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/SayCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ShutdownCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UnmuteCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/WarnCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StopGameCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StartGameCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ChatLogCommand.java" />
       </list>
     </option>
   </component>
@@ -190,11 +276,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="98" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-577" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
-    <option name="height" value="973" />
+    <option name="height" value="983" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -202,6 +288,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -393,7 +480,6 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -657,14 +743,21 @@
       <option name="project" value="LOCAL" />
       <updated>1556185398015</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Updated imports.">
+      <created>1556384836682</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1556384836682</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="98" y="23" width="1920" height="973" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="974" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22364217" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2257721" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -674,7 +767,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49840257" weight="0.37225434" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39977092" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -693,7 +786,6 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rewritten some parts." />
     <MESSAGE value="Finished restyling profile command." />
     <MESSAGE value="Finished redeem system." />
     <MESSAGE value="Fixed a little bug." />
@@ -718,202 +810,28 @@
     <MESSAGE value="Improved giveaway system again." />
     <MESSAGE value="Fixed some issues with Giveaway system." />
     <MESSAGE value="Improved some things." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved some things." />
+    <MESSAGE value="Updated imports." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated imports." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/awt/Rectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2436">
-          <caret line="140" column="15" selection-start-line="140" selection-start-column="15" selection-end-line="140" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/MemberLeftEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RoleCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/MuteCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/MemberJoinEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.3_462/JDA-3.8.3_462.jar!/net/dv8tion/jda/core/hooks/ListenerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="187" column="22" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/quickmath/QuickMathEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="168" column="34" selection-start-line="168" selection-start-column="34" selection-end-line="168" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="78" column="64" selection-start-line="78" selection-start-column="64" selection-end-line="78" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="99" lean-forward="true" selection-start-line="33" selection-start-column="4" selection-end-line="109" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="53" column="19" lean-forward="true" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/FileCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="12" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/IDCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UnmuteCommand.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AccountResetCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="26" column="15" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="59" />
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.3_462/JDA-3.8.3_462.jar!/net/dv8tion/jda/core/entities/Member.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AnnounceCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
-          <caret line="28" column="12" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/dv8tion/JDA/3.8.3_462/JDA-3.8.3_462.jar!/net/dv8tion/jda/core/OnlineStatus.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/CoinsCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/WarnCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="82" column="50" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ProfileCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="82" column="200" selection-start-line="81" selection-start-column="8" selection-end-line="82" selection-end-column="216" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PayCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/OracleCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="12" selection-end-line="55" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PingCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/WordAssistantEvent.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/DontTagEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/higherlower/HigherLowerEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
+        <state relative-caret-position="-38">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StopGameCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-802">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StartGameCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/MessageRedeemEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="8" selection-end-line="22" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -924,76 +842,226 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="99" column="63" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/DatabaseCommand.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3717">
-          <caret line="187" column="28" selection-start-line="187" selection-start-column="4" selection-end-line="202" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="31" column="103" selection-start-line="31" selection-start-column="103" selection-end-line="31" selection-end-column="103" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="19" column="50" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="40" column="60" selection-start-line="40" selection-start-column="60" selection-end-line="40" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/RequestSendEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="50" column="69" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/AddReactionEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/EconomyCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="27" column="69" selection-start-line="27" selection-start-column="69" selection-end-line="27" selection-end-column="69" />
+        <state relative-caret-position="399">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/FileCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="69" column="55" selection-start-line="69" selection-start-column="55" selection-end-line="69" selection-end-column="55" />
+        <state relative-caret-position="173">
+          <caret line="40" column="57" selection-start-line="40" selection-start-column="57" selection-end-line="40" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/IDCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="23" column="71" selection-start-line="23" selection-start-column="71" selection-end-line="23" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LeaderBoardCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="87" column="23" lean-forward="true" selection-start-line="87" selection-start-column="23" selection-end-line="87" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/LicenseCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/MuteCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/OracleCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-20">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PayCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PresenceCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ProfileCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1277">
+          <caret line="82" column="200" selection-start-line="81" selection-start-column="8" selection-end-line="82" selection-end-column="216" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RandomCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="28" column="71" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RobCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/RoleCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" column="71" selection-start-line="24" selection-start-column="71" selection-end-line="24" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/SayCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="25" column="71" selection-start-line="25" selection-start-column="71" selection-end-line="25" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ShutdownCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UnmuteCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/UserInfoCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="30" column="71" selection-start-line="30" selection-start-column="71" selection-end-line="30" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/WarnCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="26" column="71" selection-start-line="26" selection-start-column="71" selection-end-line="26" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/BotStartEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/BotStatusEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/BotStopEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/CancelCommandsEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/CommandsChannelEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/DontTagEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/MemberJoinEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/MemberLeftEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/SupportChannelJoinEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/events/SupportChannelMoveEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/TicketCreateChannelEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/HelpMessageEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1004,49 +1072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/reports/ReportCommand.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="71" column="27" selection-start-line="71" selection-start-column="27" selection-end-line="71" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/main/Core.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1323">
-          <caret line="76" column="39" selection-start-line="76" selection-start-column="39" selection-end-line="76" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/SolvedCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/TicketCreateChannelEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="113" />
-          <folding>
-            <element signature="e#5511#5512#0" expanded="true" />
-            <element signature="e#5571#5572#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/MessageEditBadWordEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -1054,31 +1079,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/References.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/BadWordsFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="109" selection-start-line="25" selection-start-column="109" selection-end-line="25" selection-end-column="109" />
+        <state relative-caret-position="793">
+          <caret line="125" selection-start-line="125" selection-end-line="125" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/database/MySQL.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/RequestSendEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1491">
-          <caret line="80" column="35" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
+        <state relative-caret-position="84">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/requests/AddReactionEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/redeem/MessageRedeemEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StopGameCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="22" column="71" selection-start-line="22" selection-start-column="71" selection-end-line="22" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/minigames/StartGameCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/giveaway/GiveawayCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/AboutCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-846">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/utils/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="66" column="50" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
+        <state relative-caret-position="-3582">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/security/BadWordsFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2478">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
+        <state relative-caret-position="569">
+          <caret line="43" column="15" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/tickets/SolvedCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/PingCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="31" column="18" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/mrcookies/helper/listeners/commands/ChatLogCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

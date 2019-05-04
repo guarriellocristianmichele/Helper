@@ -24,7 +24,7 @@ public class MuteCommand extends ListenerAdapter {
 
             TextChannel channel = e.getChannel();
 
-            if (!Methods.hasPermission(e, channel)) return;
+            if (!Methods.hasPermission(e.getMember(), channel)) return;
 
             String[] msg = e.getMessage().getContentRaw().split(" ");
 

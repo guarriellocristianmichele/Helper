@@ -28,8 +28,11 @@ public class ShutdownCommand extends ListenerAdapter {
 
             if (Methods.isInvalidChannel(e.getChannel())) return;
 
-            TextChannel c = e.getJDA().getTextChannelById(References.idStatus);
             TextChannel channel = e.getChannel();
+
+            if (!Methods.hasPermission(e.getMember(), channel)) return;
+
+            TextChannel c = e.getJDA().getTextChannelById(References.idStatus);
             List<Message> msgs = c.getHistory().retrievePast(1).complete();
 
             Methods.sendSENT(channel, "System", "The Bot will shutdown...");

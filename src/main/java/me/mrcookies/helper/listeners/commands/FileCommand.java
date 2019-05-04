@@ -27,7 +27,7 @@ public class FileCommand extends ListenerAdapter {
             TextChannel channel = e.getChannel();
             User usr = e.getAuthor();
 
-            if (!Methods.hasPermission(e, channel)) return;
+            if (!Methods.hasPermission(e.getMember(), channel)) return;
 
             String[] msg = e.getMessage().getContentRaw().split(" / ");
 

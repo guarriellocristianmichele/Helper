@@ -5,7 +5,6 @@ import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -23,9 +22,8 @@ public class PresenceCommand extends ListenerAdapter {
             if (Methods.isInvalidChannel(e.getChannel())) return;
 
             TextChannel channel = e.getChannel();
-            User usr = e.getAuthor();
 
-            if (!Methods.hasPermission(e, channel)) return;
+            if (!Methods.hasPermission(e.getMember(), channel)) return;
 
             String[] msg = e.getMessage().getContentRaw().split(" ");
             String[] text = e.getMessage().getContentRaw().split(" - ");

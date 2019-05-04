@@ -33,6 +33,7 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/PayCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/CancelCommandsEvent.java
+/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/ChatLogCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/ClearCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/IDCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/requests/AddReactionEvent.java
