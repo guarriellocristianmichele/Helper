@@ -51,7 +51,7 @@ public class ChatLogCommand extends ListenerAdapter {
 
             long time = System.currentTimeMillis() - now;
 
-            Methods.sendSENT(channel, "Chatlog", "Successfully logged " + target.getAsMention() + "\n\nIt tooks `" + time + "`.");
+            Methods.sendSENT(channel, "Chatlog", "**Successfully logged** " + target.getAsMention() + "\n\nIt tooks `" + time + "`ms.");
         }
 
     }
