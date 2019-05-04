@@ -70,7 +70,8 @@ public class HelpCommand extends ListenerAdapter {
                     "`• license` - Create licenses.\n" +
                     "`• presence` - Set presence.\n" +
                     "`• info` - Get user's info.\n" +
-                    "`• giveaway` - Manage giveaways."
+                    "`• giveaway` - Manage giveaways.\n" +
+                    "`• chatlog` - Create a chatlog."
             );
 
             channel.sendMessage(builder.build()).queue();

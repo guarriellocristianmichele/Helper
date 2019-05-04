@@ -2,6 +2,7 @@ package me.mrcookies.helper.listeners.commands;
 
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
+import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
@@ -61,7 +62,10 @@ public class ClearCommand extends ListenerAdapter {
                 return;
             }
 
-            channel.deleteMessages(msgs).queue();
+            for (Message msg : msgs) {
+                msg.delete().queue();
+            }
+
         });
 
         Methods.sendSimpleEmbed(chan, "Messages", "Deleted `" + num + "` messages.");

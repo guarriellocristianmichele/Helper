@@ -17,7 +17,7 @@ public class BotStatusEvent extends ListenerAdapter {
     @Override
     public void onGuildReady(GuildReadyEvent e) {
 
-        TextChannel c = e.getJDA().getTextChannelById(References.idStatus);
+        TextChannel c = e.getGuild().getTextChannelById(References.idStatus);
         List<Message> msgs = c.getHistory().retrievePast(1).complete();
 
         if (msgs.size() > 0) {
