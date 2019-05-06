@@ -199,7 +199,7 @@ public class Methods {
 
     public static File createChatLog(TextChannel channel) throws IOException {
 
-        final String filename = "Chatlog//" + channel.getName() + "//.txt";
+        final String filename = channel.getName() + ".txt";
         final File saveFile = new File("Helper/Chatlogs/" + filename);
 
         if (!saveFile.getParentFile().exists()) {
