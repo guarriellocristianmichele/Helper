@@ -59,7 +59,9 @@ public class GiveawayCommand extends ListenerAdapter {
                     }
 
                     sendGiveaway(text[1], gaChannel, emote);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```A giveaway has been started.```\n\n**Join it** " + gaChannel.getAsMention());
+                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() +
+                            "\n```A giveaway has been started.```\n\n**Join it** " + gaChannel.getAsMention());
+                    Methods.sendSENT(channel, "Giveaway", "Giveaway started successfully.");
                     break;
                 }
 
@@ -75,6 +77,13 @@ public class GiveawayCommand extends ListenerAdapter {
                     Long id = Core.getMySQL().getGiveawayID();
                     String prize = Core.getMySQL().getString("giveaway", "prize", "id", String.valueOf(id));
                     Message message = gaChannel.getMessageById(id).complete();
+                    int joined = getJoinedUsers(message);
+
+                    if (joined == 0) {
+                        Methods.sendErrorMessage(channel, "Nobody joined the giveaway.\nIf you wanna delete it, use ``" + References.prefix + "giveaway delete``");
+                        return;
+                    }
+
                     User winner = getWinner(message);
 
                     if (winner == null) {
@@ -86,6 +95,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     sendEndGiveaway(gaChannel, prize, winner);
                     Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway ended.```\n\n**Winner** " + winner.getAsMention());
                     Core.getMySQL().dropEntry("giveaway", "id", String.valueOf(id));
+                    Methods.sendSENT(channel, "Giveaway", "Giveaway ended successfully.");
                     break;
                 }
 
@@ -122,6 +132,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway has been deleted.```");
                     message.delete().queue();
                     Core.getMySQL().dropEntry("giveaway", "id", ID);
+                    Methods.sendSENT(channel, "Giveaway", "Giveaway deleted successfully.");
                     break;
                 }
 
