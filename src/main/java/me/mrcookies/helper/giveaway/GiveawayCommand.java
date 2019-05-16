@@ -59,8 +59,8 @@ public class GiveawayCommand extends ListenerAdapter {
                     }
 
                     sendGiveaway(text[1], gaChannel, emote);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() +
-                            "\n```A giveaway has been started.```\n\n**Join it** " + gaChannel.getAsMention());
+                    aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention());
+                    Methods.sendSENT(aChannel, "Giveaway", "```A giveaway has been started.```\n\n**Join it** " + gaChannel.getAsMention());
                     Methods.sendSENT(channel, "Giveaway", "Giveaway started successfully.");
                     break;
                 }
@@ -74,8 +74,14 @@ public class GiveawayCommand extends ListenerAdapter {
                         return;
                     }
 
-                    Long id = Core.getMySQL().getGiveawayID();
-                    String prize = Core.getMySQL().getString("giveaway", "prize", "id", String.valueOf(id));
+                    String id = String.valueOf(Core.getMySQL().getGiveawayID());
+
+                    if (id == null) {
+                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                        return;
+                    }
+
+                    String prize = Core.getMySQL().getString("giveaway", "prize", "id", id);
                     Message message = gaChannel.getMessageById(id).complete();
                     int joined = getJoinedUsers(message);
 
@@ -93,7 +99,8 @@ public class GiveawayCommand extends ListenerAdapter {
 
                     message.delete().queue();
                     sendEndGiveaway(gaChannel, prize, winner);
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway ended.```\n\n**Winner** " + winner.getAsMention());
+                    aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention());
+                    Methods.sendSENT(aChannel, "Giveaway", "```The giveaway ended.```\n\n**Winner** " + winner.getAsMention());
                     Core.getMySQL().dropEntry("giveaway", "id", String.valueOf(id));
                     Methods.sendSENT(channel, "Giveaway", "Giveaway ended successfully.");
                     break;
@@ -109,6 +116,12 @@ public class GiveawayCommand extends ListenerAdapter {
                     }
 
                     String ID = String.valueOf(Core.getMySQL().getGiveawayID());
+
+                    if (ID == null) {
+                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                        return;
+                    }
+
                     Message message = gaChannel.getMessageById(ID).complete();
                     String prize = Core.getMySQL().getString("giveaway", "prize", "id", ID);
                     String n = String.valueOf(getJoinedUsers(message));
@@ -127,9 +140,16 @@ public class GiveawayCommand extends ListenerAdapter {
                     }
 
                     String ID = String.valueOf(Core.getMySQL().getGiveawayID());
+
+                    if (ID == null) {
+                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                        return;
+                    }
+
                     Message message = gaChannel.getMessageById(ID).complete();
 
-                    Methods.sendSENT(aChannel, "Giveaway", e.getGuild().getPublicRole().getAsMention() + "\n```The giveaway has been deleted.```");
+                    aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention());
+                    Methods.sendSENT(aChannel, "Giveaway", "```The giveaway has been deleted.```");
                     message.delete().queue();
                     Core.getMySQL().dropEntry("giveaway", "id", ID);
                     Methods.sendSENT(channel, "Giveaway", "Giveaway deleted successfully.");
