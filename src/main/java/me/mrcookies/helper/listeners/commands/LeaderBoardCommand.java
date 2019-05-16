@@ -40,7 +40,7 @@ public class LeaderBoardCommand extends ListenerAdapter {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor("Stats", null, "https://i.imgur.com/YWQIikM.png");
         builder.setColor(Color.decode("#9b59b6"));
-        builder.appendDescription("```Here are shown the top 3 users.```\n");
+        builder.appendDescription("```Here are shown top 3 users.```\n");
         builder.setThumbnail("https://i.imgur.com/8h4hvKY.png");
 
         for (Long id : ids) {

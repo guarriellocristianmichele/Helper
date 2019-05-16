@@ -271,7 +271,7 @@ public class MySQL {
 
     }
 
-    public MySQL setString(String table, String key, String value, String where, String wherevalue) {
+    public void setString(String table, String key, String value, String where, String wherevalue) {
         Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
         try {
             PreparedStatement ps;
@@ -301,11 +301,9 @@ public class MySQL {
                 e1.printStackTrace();
             }
         }
-
-        return this;
     }
 
-    public MySQL setBool(String table, String key, boolean value, String where, String wherevalue) {
+    public void setBool(String table, String key, boolean value, String where, String wherevalue) {
         Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
 
         try {
@@ -337,11 +335,9 @@ public class MySQL {
                 e1.printStackTrace();
             }
         }
-
-        return this;
     }
 
-    public MySQL dropEntry(String table, String where, String wherevalue) {
+    public void dropEntry(String table, String where, String wherevalue) {
         Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
 
         try {
@@ -367,8 +363,6 @@ public class MySQL {
                 e1.printStackTrace();
             }
         }
-
-        return this;
     }
 
     public void addMember(String username, Long id) {

@@ -82,7 +82,14 @@ public class EconomyCommand extends ListenerAdapter {
                         return;
                     }
 
-                    int n = Integer.parseInt(msg[3]);
+                    int n;
+
+                    try {
+                        n = Integer.parseInt(msg[3]);
+                    } catch (NumberFormatException ex) {
+                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[3] + "`");
+                        return;
+                    }
 
                     int sum = Core.getMySQL().getCoins(target.getIdLong()) + n;
 
@@ -115,7 +122,15 @@ public class EconomyCommand extends ListenerAdapter {
                         return;
                     }
 
-                    int n = Integer.parseInt(msg[3]);
+                    int n;
+
+                    try {
+                        n = Integer.parseInt(msg[3]);
+                    } catch (NumberFormatException ex) {
+                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[3] + "`");
+                        return;
+                    }
+
                     int coins = Core.getMySQL().getCoins(target.getIdLong());
 
                     if (coins < n) {

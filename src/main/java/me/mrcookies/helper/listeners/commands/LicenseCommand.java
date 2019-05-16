@@ -57,7 +57,15 @@ public class LicenseCommand extends ListenerAdapter {
                     }
 
                     String license = Methods.getRandomLicense();
-                    int value = Integer.parseInt(msg[2]);
+
+                    int value;
+
+                    try {
+                        value = Integer.parseInt(msg[2]);
+                    } catch (NumberFormatException ex) {
+                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[2] + "`");
+                        return;
+                    }
 
                     Core.getMySQL().createLicense(license, value, usr.getIdLong());
                     Methods.sendSENT(channel, "License", "License created successfully.\n\n**Your license:** `" + license + "`");

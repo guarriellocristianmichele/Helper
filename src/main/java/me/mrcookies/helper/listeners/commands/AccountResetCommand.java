@@ -70,8 +70,6 @@ public class AccountResetCommand extends ListenerAdapter {
         Core.getMySQL().setInt("members", "daily_start", 0, "id_long", String.valueOf(usr.getIdLong()));
         Core.getMySQL().setInt("members", "rob_start", 0, "id_long", String.valueOf(usr.getIdLong()));
         Core.getMySQL().setInt("members", "warns", 0, "id_long", String.valueOf(usr.getIdLong()));
-        Core.getMySQL().setString("members", "facebook", null, "id_long", String.valueOf(usr.getIdLong()));
-        Core.getMySQL().setString("members", "instagram", null, "id_long", String.valueOf(usr.getIdLong()));
     }
 
 }
