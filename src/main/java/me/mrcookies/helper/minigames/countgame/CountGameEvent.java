@@ -23,7 +23,7 @@ public class CountGameEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
         Message msg = e.getMessage();
         User usr = e.getAuthor();
-        int num;
+        int num = 0;
         Long lastAuthorId = getLastAuthor(channel);
         int lastNumber = getLastNumber(channel);
 
@@ -46,35 +46,30 @@ public class CountGameEvent extends ListenerAdapter {
         }
 
         try {
-
             num = Integer.parseInt(msg.getContentRaw());
-
-            if (num != lastNumber + 1) {
-                msg.delete().queue();
-                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "This is not the next number.\nThe next number is `" + (lastNumber + 1) + "`."));
-                return;
-            }
-
-            if (Core.getConfig().getYml().getInt("Games.Countgame.surprise") == num) {
-                int currentCoins = Core.getMySQL().getCoins(usr.getIdLong());
-                int coins = Methods.getRandom(100, 1);
-                int sum = currentCoins + coins;
-                Methods.sendSENT(channel, "Count Game", usr.getAsMention() + " won `" + coins + "` coins.");
-                Core.getMySQL().setInt("members", "coins", sum, "id_long", String.valueOf(usr.getIdLong()));
-                Core.getConfig().getYml().set("Games.Countgame.surprise", lastNumber + Methods.getRandom(20, 1));
-            }
-
-            Core.getConfig().getYml().set("Games.Countgame.reference", num);
-            Core.getConfig().getYml().set("Games.Countgame.last-author", usr.getIdLong());
-            Core.getConfig().save();
-
         } catch (NumberFormatException ex) {
-            usr.openPrivateChannel().queue((ch) -> {
-                Methods.sendSENT(ch, "Count Game", "Invalid number.");
-                ch.close().queue();
-            });
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "Invalid number."));
             msg.delete().queue();
         }
+
+        if (num != lastNumber + 1) {
+            msg.delete().queue();
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "This is not the next number.\nThe next number is `" + (lastNumber + 1) + "`."));
+            return;
+        }
+
+        if (Core.getConfig().getYml().getInt("Games.Countgame.surprise") == num) {
+            int currentCoins = Core.getMySQL().getCoins(usr.getIdLong());
+            int coins = Methods.getRandom(100, 1);
+            int sum = currentCoins + coins;
+            Methods.sendSENT(channel, "Count Game", usr.getAsMention() + " won `" + coins + "` coins.");
+            Core.getMySQL().setInt("members", "coins", sum, "id_long", String.valueOf(usr.getIdLong()));
+            Core.getConfig().getYml().set("Games.Countgame.surprise", lastNumber + Methods.getRandom(20, 1));
+        }
+
+        Core.getConfig().getYml().set("Games.Countgame.reference", num);
+        Core.getConfig().getYml().set("Games.Countgame.last-author", usr.getIdLong());
+        Core.getConfig().save();
 
     }
 

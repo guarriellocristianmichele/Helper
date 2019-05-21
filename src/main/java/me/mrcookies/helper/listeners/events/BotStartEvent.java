@@ -1,9 +1,13 @@
 package me.mrcookies.helper.listeners.events;
 
 import me.mrcookies.helper.main.Core;
+import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class BotStartEvent extends ListenerAdapter {
 
@@ -14,6 +18,10 @@ public class BotStartEvent extends ListenerAdapter {
         int cont = 0;
         int roles = 0;
 
+        Collection<Role> role = new ArrayList<>();
+        role.add(e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.player")));
+        role.add(e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.support")));
+
         for (User usr : e.getJDA().getUsers()) {
 
             if (usr.isBot()) {
@@ -23,8 +31,7 @@ public class BotStartEvent extends ListenerAdapter {
             Core.getMySQL().addMember(usr.getName(), usr.getIdLong());
 
             if (e.getGuild().getMember(usr).getRoles().isEmpty()) {
-                e.getGuild().getController().addRolesToMember(e.getGuild().getMember(usr), e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.player"))).queue();
-                e.getGuild().getController().addRolesToMember(e.getGuild().getMember(usr), e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.support"))).queue();
+                e.getGuild().getController().addRolesToMember(e.getGuild().getMember(usr), role).queue();
                 roles++;
             }
 

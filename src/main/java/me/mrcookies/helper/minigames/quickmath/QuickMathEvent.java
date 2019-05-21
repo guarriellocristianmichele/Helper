@@ -28,6 +28,7 @@ public class QuickMathEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
         Message msg = e.getMessage();
         User usr = e.getAuthor();
+        int number = 0;
 
         channel.getHistory().retrievePast(1).queue((msgs) -> {
 
@@ -42,26 +43,25 @@ public class QuickMathEvent extends ListenerAdapter {
             return;
         }
 
+        int reference = Core.getConfig().getYml().getInt("Games.QuickMath.reference");
+
         try {
-
-            int reference = Core.getConfig().getYml().getInt("Games.QuickMath.reference");
-            int number = Integer.parseInt(msg.getContentRaw());
-
-            if (number != reference) {
-                msg.delete().queue();
-                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Sorry, this is not the correct answer `" + number + "`."));
-                return;
-            }
-
-            sendWin(usr, reference, channel);
-            quickMathCore(channel);
-            msg.delete().queue();
-
+            number = Integer.parseInt(msg.getContentRaw());
         } catch (NumberFormatException ex) {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Invalid number."));
             msg.delete().queue();
         }
 
+        if (number != reference) {
+            msg.delete().queue();
+            int finalNumber = number;
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Sorry, this is not the correct answer `" + finalNumber + "`."));
+            return;
+        }
+
+        sendWin(usr, reference, channel);
+        quickMathCore(channel);
+        msg.delete().queue();
     }
 
     public static void quickMathCore(TextChannel channel) {

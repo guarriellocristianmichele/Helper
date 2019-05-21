@@ -4,9 +4,13 @@ import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class MemberJoinEvent extends ListenerAdapter {
 
@@ -17,8 +21,11 @@ public class MemberJoinEvent extends ListenerAdapter {
 
         Member mem = e.getMember();
 
-        e.getGuild().getController().addRolesToMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.player"))).queue();
-        e.getGuild().getController().addRolesToMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.support"))).queue();
+        Collection<Role> roles = new ArrayList<>();
+        roles.add(e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.player")));
+        roles.add(e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.support")));
+
+        e.getGuild().getController().addRolesToMember(mem, roles).queue();
 
         TextChannel rules = e.getGuild().getTextChannelById(References.idRules);
 

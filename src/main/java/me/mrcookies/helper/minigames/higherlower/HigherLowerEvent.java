@@ -24,6 +24,7 @@ public class HigherLowerEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
         Message msg = e.getMessage();
         User usr = e.getAuthor();
+        int number = 0;
 
         channel.getHistory().retrievePast(1).queue((msgs) -> {
 
@@ -38,32 +39,30 @@ public class HigherLowerEvent extends ListenerAdapter {
             return;
         }
 
+        int reference = Core.getConfig().getYml().getInt("Games.HigherLower.reference");
+
         try {
-
-            int reference = Core.getConfig().getYml().getInt("Games.HigherLower.reference");
-            int number = Integer.parseInt(msg.getContentRaw());
-
-            if (number > reference) {
-                msg.delete().queue();
-                sendError(channel, usr, false, number);
-                return;
-            }
-
-            if (number < reference) {
-                msg.delete().queue();
-                sendError(channel, usr, true, number);
-                return;
-            }
-
-            sendWin(usr, reference, channel);
-            higherLowerCore(channel);
-            msg.delete().queue();
-
+            number = Integer.parseInt(msg.getContentRaw());
         } catch (NumberFormatException ex) {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Invalid number."));
             msg.delete().queue();
         }
 
+        if (number > reference) {
+            msg.delete().queue();
+            sendError(channel, usr, false, number);
+            return;
+        }
+
+        if (number < reference) {
+            msg.delete().queue();
+            sendError(channel, usr, true, number);
+            return;
+        }
+
+        sendWin(usr, reference, channel);
+        higherLowerCore(channel);
+        msg.delete().queue();
     }
 
     public static void higherLowerCore(TextChannel channel) {
