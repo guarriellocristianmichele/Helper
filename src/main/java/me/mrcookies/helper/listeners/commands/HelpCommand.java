@@ -38,8 +38,7 @@ public class HelpCommand extends ListenerAdapter {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor("Commands:", null, "https://i.imgur.com/UZREy9n.png");
         builder.setColor(Color.decode("#e67e22"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
+        builder.setFooter("Helper • Developed by Mr_Cookies", "https://i.imgur.com/nepS3Lp.jpg");
 
         if (guild.getMember(usr).getRoles().stream().anyMatch(role -> role.getIdLong() == Core.getConfig().getYml().getLong("Roles.permission"))) {
             builder.appendDescription("**Prefix:** `" + References.prefix + "`\n\n" +

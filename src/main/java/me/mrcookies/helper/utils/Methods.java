@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.security.SecureRandom;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -43,8 +42,7 @@ public class Methods {
         builder.setAuthor("Error", null, "https://i.imgur.com/FtoMNlh.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#e74c3c"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
+        builder.setFooter("Helper • Seems you're wrong...", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).complete().delete().queueAfter(5, TimeUnit.SECONDS);
     }
@@ -55,7 +53,6 @@ public class Methods {
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
 
         channel.sendMessage(builder.build()).complete().delete().queueAfter(5, TimeUnit.SECONDS);
     }
@@ -66,7 +63,6 @@ public class Methods {
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
 
         channel.sendMessage(builder.build()).queue();
     }
@@ -77,7 +73,6 @@ public class Methods {
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
 
         channel.sendMessage(builder.build()).queue();
     }
@@ -94,7 +89,6 @@ public class Methods {
         builder.setThumbnail(img);
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
 
         channel.sendMessage(builder.build()).queue();
     }

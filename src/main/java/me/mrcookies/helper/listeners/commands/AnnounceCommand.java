@@ -46,10 +46,10 @@ public class AnnounceCommand extends ListenerAdapter {
 
     }
 
-    private void sendAnnounce(TextChannel channel, String title, String Description, String name) {
+    private void sendAnnounce(TextChannel channel, String title, String description, String name) {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor(title, null, "https://i.imgur.com/vWc2wow.png");
-        builder.setDescription(Description);
+        builder.setDescription(description);
         builder.setColor(Color.decode("#22b9ca"));
         builder.setFooter("Helper • Posted by " + name, "https://i.imgur.com/nepS3Lp.jpg");
 
