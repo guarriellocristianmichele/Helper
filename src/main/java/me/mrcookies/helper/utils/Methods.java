@@ -24,19 +24,6 @@ import java.util.stream.Collectors;
 
 public class Methods {
 
-    public static boolean isNumeric(String str) {
-        try {
-            Integer.parseInt(str);
-        } catch (NumberFormatException nfe) {
-            try {
-                Double.parseDouble(str);
-            } catch (NumberFormatException e) {
-                return false;
-            }
-        }
-        return true;
-    }
-
     public static void sendErrorMessage(TextChannel channel, String Description) {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor("Error", null, "https://i.imgur.com/FtoMNlh.png");

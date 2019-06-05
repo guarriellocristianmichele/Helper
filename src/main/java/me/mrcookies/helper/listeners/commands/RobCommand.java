@@ -49,16 +49,20 @@ public class RobCommand extends ListenerAdapter {
                 return;
             }
 
-            if (!Methods.isNumeric(msg[2])) {
-                Methods.sendErrorMessage(channel, "Invalid number `" + msg[2] + "`");
-                return;
-            }
-
             Long now = System.currentTimeMillis();
             Long start = Core.getMySQL().getLong("members", "rob_start", "id_long", String.valueOf(usr.getIdLong()));
 
             if (start == 0) {
-                int n = Integer.parseInt(msg[2]);
+
+                int n;
+
+                try {
+                    n = Integer.parseInt(msg[2]);
+                } catch (NumberFormatException ex) {
+                    Methods.sendErrorMessage(channel, "Invalid number");
+                    return;
+                }
+
                 tryRob(channel, n, target, usr, now);
                 return;
             }
@@ -67,7 +71,16 @@ public class RobCommand extends ListenerAdapter {
             long seconds = TimeUnit.MILLISECONDS.toSeconds(sub);
 
             if (seconds > 86400) {
-                int n = Integer.parseInt(msg[2]);
+
+                int n;
+
+                try {
+                    n = Integer.parseInt(msg[2]);
+                } catch (NumberFormatException ex) {
+                    Methods.sendErrorMessage(channel, "Invalid number");
+                    return;
+                }
+
                 tryRob(channel, n, target, usr, now);
                 return;
             }

@@ -70,11 +70,6 @@ public class EconomyCommand extends ListenerAdapter {
                         return;
                     }
 
-                    if (!Methods.isNumeric(msg[3])) {
-                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[3] + "`");
-                        return;
-                    }
-
                     User target = e.getMessage().getMentionedUsers().get(0);
 
                     if (target.isBot()) {
@@ -107,11 +102,6 @@ public class EconomyCommand extends ListenerAdapter {
 
                     if (e.getMessage().getMentionedMembers().isEmpty()) {
                         Methods.sendErrorMessage(channel, "Use • `eco remove [@User] [amount]`");
-                        return;
-                    }
-
-                    if (!Methods.isNumeric(msg[3])) {
-                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[3] + "`");
                         return;
                     }
 

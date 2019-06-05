@@ -37,13 +37,17 @@ public class ClearCommand extends ListenerAdapter {
                 return;
             }
 
-            if (!Methods.isNumeric(msg[2])) {
-                Methods.sendErrorMessage(channel, "Invalid number `" + msg[2] + "`");
+            int n;
+
+            try {
+                n = Integer.parseInt(msg[2]);
+            } catch (NumberFormatException ex) {
+                Methods.sendErrorMessage(channel, "Invalid number");
                 return;
             }
 
             TextChannel target = e.getMessage().getMentionedChannels().get(0);
-            purgeMessages(target, Integer.parseInt(msg[2]), channel, e.getAuthor());
+            purgeMessages(target, n, channel, e.getAuthor());
         }
 
     }

@@ -46,7 +46,6 @@ me/mrcookies/helper/listeners/commands/LicenseCommand.class
 me/mrcookies/helper/listeners/commands/PingCommand.class
 me/mrcookies/helper/listeners/commands/RobCommand.class
 me/mrcookies/helper/listeners/commands/PayCommand.class
-me/mrcookies/helper/listeners/commands/CalculatorCommand.class
 me/mrcookies/helper/listeners/commands/WarnCommand.class
 me/mrcookies/helper/minigames/countgame/CountGameEvent.class
 me/mrcookies/helper/listeners/commands/AccountResetCommand.class

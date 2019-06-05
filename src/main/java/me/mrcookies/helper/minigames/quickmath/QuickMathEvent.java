@@ -38,12 +38,6 @@ public class QuickMathEvent extends ListenerAdapter {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Minigame not started."));
         });
 
-        if (!Methods.isNumeric(msg.getContentRaw())) {
-            msg.delete().queue();
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "You can't send text messages here, just numbers."));
-            return;
-        }
-
         int reference = Core.getConfig().getYml().getInt("Games.QuickMath.reference");
 
         try {

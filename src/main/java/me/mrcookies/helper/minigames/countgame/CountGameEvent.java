@@ -39,12 +39,6 @@ public class CountGameEvent extends ListenerAdapter {
             return;
         }
 
-        if (!Methods.isNumeric(msg.getContentRaw())) {
-            msg.delete().queue();
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "You can't send text messages here, just numbers."));
-            return;
-        }
-
         try {
             num = Integer.parseInt(msg.getContentRaw());
         } catch (NumberFormatException ex) {
@@ -80,15 +74,22 @@ public class CountGameEvent extends ListenerAdapter {
 
         if (msgs.size() < 1) return 0;
 
-        if (!Methods.isNumeric(msgs.get(1).getContentRaw())) {
+
+        int n;
+
+        try {
+            n = Integer.parseInt(msgs.get(1).getContentRaw());
+        } catch (NumberFormatException ex) {
+
             if (msgs.get(1).getAuthor().isBot()) {
                 return Core.getConfig().getYml().getInt("Games.Countgame.reference");
             } else {
                 return 0;
             }
+
         }
 
-        return Integer.parseInt(msgs.get(1).getContentRaw());
+        return n;
     }
 
     private Long getLastAuthor(TextChannel channel) {

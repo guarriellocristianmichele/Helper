@@ -51,11 +51,6 @@ public class LicenseCommand extends ListenerAdapter {
                         return;
                     }
 
-                    if (!Methods.isNumeric(msg[2])) {
-                        Methods.sendErrorMessage(channel, "Invalid value `" + msg[2] + "`");
-                        return;
-                    }
-
                     String license = Methods.getRandomLicense();
 
                     int value;
@@ -63,7 +58,7 @@ public class LicenseCommand extends ListenerAdapter {
                     try {
                         value = Integer.parseInt(msg[2]);
                     } catch (NumberFormatException ex) {
-                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[2] + "`");
+                        Methods.sendErrorMessage(channel, "Invalid number");
                         return;
                     }
 
@@ -111,12 +106,14 @@ public class LicenseCommand extends ListenerAdapter {
                         return;
                     }
 
-                    if (!Methods.isNumeric(msg[2])) {
-                        Methods.sendErrorMessage(channel, "Invalid number `" + msg[2] + "`");
+                    int n;
+
+                    try {
+                        n = Integer.parseInt(msg[2]);
+                    } catch (NumberFormatException ex) {
+                        Methods.sendErrorMessage(channel, "Invalid number");
                         return;
                     }
-
-                    int n = Integer.parseInt(msg[2]);
 
                     if (n > 20) {
                         Methods.sendErrorMessage(channel, "Maximum `20` licenses.");

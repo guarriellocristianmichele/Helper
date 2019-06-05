@@ -60,12 +60,14 @@ public class PayCommand extends ListenerAdapter {
                 return;
             }
 
-            if (!Methods.isNumeric(msg[2])) {
-                Methods.sendErrorMessage(channel, "Invalid number `" + msg[2] + "`");
+            int n;
+
+            try {
+                n = Integer.parseInt(msg[2]);
+            } catch (NumberFormatException ex) {
+                Methods.sendErrorMessage(channel, "Invalid number");
                 return;
             }
-
-            int n = Integer.parseInt(msg[2]);
 
             if (Core.getMySQL().getCoins(usr.getIdLong()) < n) {
                 Methods.sendErrorMessage(channel, "You don't have `" + n + "` coins.");

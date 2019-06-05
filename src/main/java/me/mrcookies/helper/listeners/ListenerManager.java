@@ -26,7 +26,7 @@ public class ListenerManager {
         addEventListeners(new RandomCommand(), new ClearCommand(), new MemberJoinEvent(),
                 new DontTagEvent(), new AboutCommand(), new AddReactionEvent(), new RequestSendEvent(),
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
-                new CalculatorCommand(), new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
+                new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
                 new FileCommand(), new StartGameCommand(), new StopGameCommand(), new GiveawayCommand(),
                 new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(), new PresenceCommand(),
                 new BotStopEvent(), new CoinsCommand(), new EconomyCommand(), new LeaderBoardCommand(),

@@ -16,7 +16,6 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/BotStartEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/ListenerManager.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/minigames/countgame/CountGameEvent.java
-/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/CalculatorCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/requests/RequestSendEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/configuration/ConfigurationProvider.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/tickets/TicketCreateChannelEvent.java

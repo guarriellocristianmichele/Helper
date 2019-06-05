@@ -47,7 +47,6 @@ public class HelpCommand extends ListenerAdapter {
                     "`• announce` - Announce something.\n" +
                     "`• send` - Say something.\n" +
                     "`• random` - Random user or number.\n" +
-                    "`• calc` - Calculator.\n" +
                     "`• role` - Add or remove user's roles.\n" +
                     "`• file` - Send files.\n" +
                     "`• countgame` - Manage countgame.\n" +
