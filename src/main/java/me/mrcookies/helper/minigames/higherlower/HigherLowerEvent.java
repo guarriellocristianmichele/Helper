@@ -24,7 +24,7 @@ public class HigherLowerEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
         Message msg = e.getMessage();
         User usr = e.getAuthor();
-        int number = 0;
+        int number;
 
         channel.getHistory().retrievePast(1).queue((msgs) -> {
 
@@ -46,6 +46,7 @@ public class HigherLowerEvent extends ListenerAdapter {
         } catch (NumberFormatException ex) {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Invalid number."));
             msg.delete().queue();
+            return;
         }
 
         if (number > reference) {

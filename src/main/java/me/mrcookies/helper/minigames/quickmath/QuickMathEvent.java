@@ -15,6 +15,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.Objects;
 
 public class QuickMathEvent extends ListenerAdapter {
 
@@ -28,7 +29,7 @@ public class QuickMathEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
         Message msg = e.getMessage();
         User usr = e.getAuthor();
-        int number = 0;
+        int number;
 
         channel.getHistory().retrievePast(1).queue((msgs) -> {
 
@@ -50,6 +51,7 @@ public class QuickMathEvent extends ListenerAdapter {
         } catch (NumberFormatException ex) {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Invalid number."));
             msg.delete().queue();
+            return;
         }
 
         if (number != reference) {
@@ -134,7 +136,7 @@ public class QuickMathEvent extends ListenerAdapter {
 
         g2d.setRenderingHints(rh);
 
-        Methods.centerString(g2d, r, math, customFont);
+        Methods.centerString(g2d, r, math, Objects.requireNonNull(customFont));
 
         g2d.dispose();
 

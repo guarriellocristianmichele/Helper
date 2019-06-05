@@ -23,7 +23,7 @@ public class CountGameEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
         Message msg = e.getMessage();
         User usr = e.getAuthor();
-        int num = 0;
+        int num;
         Long lastAuthorId = getLastAuthor(channel);
         int lastNumber = getLastNumber(channel);
 
@@ -50,6 +50,7 @@ public class CountGameEvent extends ListenerAdapter {
         } catch (NumberFormatException ex) {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Count Game", "Invalid number."));
             msg.delete().queue();
+            return;
         }
 
         if (num != lastNumber + 1) {

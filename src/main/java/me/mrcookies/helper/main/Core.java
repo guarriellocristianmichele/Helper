@@ -36,11 +36,13 @@ public class Core {
 
         mysql.initialize();
         System.out.println("Helper > Database ready.");
-        jda = new JDABuilder(AccountType.BOT).setToken(config.getYml().getString("Settings.token")).addEventListener(new BotStartEvent(),
-                new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent()).build().awaitReady();
+        jda = new JDABuilder(AccountType.BOT).setToken(config.getYml().getString("Settings.token"))
+                .addEventListener(new BotStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent())
+                .setGame(Game.playing("mc.titanetwork.eu"))
+                .setStatus(OnlineStatus.DO_NOT_DISTURB)
+                .build()
+                .awaitReady();
         eventManager.initialize();
-        jda.getPresence().setGame(Game.playing("mc.titanetwork.eu"));
-        jda.getPresence().setStatus(OnlineStatus.DO_NOT_DISTURB);
         System.out.println("Helper > Bot ready to use.");
     }
 
@@ -109,7 +111,7 @@ public class Core {
     }
 
     public static String getVersion() {
-        return "2.3.3";
+        return "2.3.4";
     }
 
     public static JDA getJDA() {
