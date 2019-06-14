@@ -10,7 +10,6 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.awt.*;
-import java.time.Instant;
 import java.util.ArrayList;
 
 public class LeaderBoardCommand extends ListenerAdapter {
@@ -103,8 +102,7 @@ public class LeaderBoardCommand extends ListenerAdapter {
             builder.addField("Your Position:", "• **" + pos + "** " + user.getAsMention() + " - `" + Core.getMySQL().getCoins(user.getIdLong()) + "` coins", false);
         }
 
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

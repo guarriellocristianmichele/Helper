@@ -14,7 +14,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.time.Instant;
 
 public class AboutCommand extends ListenerAdapter {
 
@@ -37,7 +36,7 @@ public class AboutCommand extends ListenerAdapter {
     private void sendAbout(TextChannel channel, int size) {
         String statusUpdate = "Stable";
         EmbedBuilder b = new EmbedBuilder();
-        b.setAuthor("Informations", null, "https://i.imgur.com/IUFgzzq.png");
+        b.setAuthor("Information", null, "https://i.imgur.com/IUFgzzq.png");
         b.setDescription("**Author** » Mr_Cookies\n**Version** » " + Core.getVersion() + " *(" + statusUpdate + ")*\n" + "**Prefix** » `" + References.prefix + "`" +
                 "\n**Members** » " + size + "\n**Players Online** » " +
                 getOnlinePlayerCount(Core.getConfig().getYml().getString("Server.ip"), Core.getConfig().getYml().getInt("Server.port")) + "/2000");
@@ -45,8 +44,7 @@ public class AboutCommand extends ListenerAdapter {
         b.addField("WebSite", "[Click here.](https://www.titannetwork.eu \"Titan Network\")", true);
         b.setThumbnail("https://i.imgur.com/tyKvUls.png");
         b.setColor(Color.decode("#fdcb6e"));
-        b.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        b.setTimestamp(Instant.now());
+        b.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(b.build()).queue();
     }
@@ -64,11 +62,11 @@ public class AboutCommand extends ListenerAdapter {
             out.write(0xFE);
 
             int b;
-            StringBuffer str = new StringBuffer();
+            StringBuilder str = new StringBuilder();
 
             while ((b = in.read()) != -1) {
 
-                if (b != 0 && b > 16 && b != 255 && b != 23 && b != 24) {
+                if (b > 16 && b != 255 && b != 23 && b != 24) {
                     str.append((char) b);
                 }
 

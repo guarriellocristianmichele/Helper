@@ -9,7 +9,6 @@ import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.awt.*;
-import java.time.Instant;
 
 public class FileCommand extends ListenerAdapter {
 
@@ -43,19 +42,18 @@ public class FileCommand extends ListenerAdapter {
 
             TextChannel target = e.getMessage().getMentionedChannels().get(0);
 
-            sendFile(target, msg[1], msg[2]);
+            sendFile(target, msg[1], msg[2], usr.getName());
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "File sent successfully."));
         }
 
     }
 
-    private void sendFile(TextChannel channel, String title, String link) {
+    private void sendFile(TextChannel channel, String title, String link, String name) {
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setAuthor(title, null, "https://i.imgur.com/IUFgzzq.png");
+        builder.setAuthor(title, null, "https://i.imgur.com/vWc2wow.png");
         builder.setImage(link);
-        builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
+        builder.setColor(Color.decode("#22b9ca"));
+        builder.setFooter(References.h + " • Posted by " + name, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

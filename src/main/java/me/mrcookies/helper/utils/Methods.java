@@ -29,7 +29,7 @@ public class Methods {
         builder.setAuthor("Error", null, "https://i.imgur.com/FtoMNlh.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#e74c3c"));
-        builder.setFooter("Helper • Seems you're wrong...", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Seems you're wrong...", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).complete().delete().queueAfter(5, TimeUnit.SECONDS);
     }
@@ -39,7 +39,7 @@ public class Methods {
         builder.setAuthor(title, null, "https://i.imgur.com/IUFgzzq.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).complete().delete().queueAfter(5, TimeUnit.SECONDS);
     }
@@ -49,7 +49,7 @@ public class Methods {
         builder.setAuthor(title, null, "https://i.imgur.com/IUFgzzq.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }
@@ -59,7 +59,7 @@ public class Methods {
         builder.setAuthor(title, null, "https://i.imgur.com/IUFgzzq.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }
@@ -75,7 +75,7 @@ public class Methods {
         builder.setDescription(Description);
         builder.setThumbnail(img);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

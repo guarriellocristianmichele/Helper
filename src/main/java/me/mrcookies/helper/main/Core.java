@@ -75,8 +75,10 @@ public class Core {
         config.addDefault("Channels.support-channel", "");
         config.addDefault("Roles.support", "");
         config.addDefault("Roles.muted", "");
-        config.addDefault("Roles.player", "");
+        config.addDefault("Roles.member", "");
         config.addDefault("Roles.support", "");
+        config.addDefault("Roles.new", "");
+        config.addDefault("Messages.rules", "");
         config.addDefault("Channels.command-channel", "");
         config.addDefault("Channels.logs-channel", "");
         config.addDefault("Channels.command-channel-staff", "");
@@ -111,7 +113,7 @@ public class Core {
     }
 
     public static String getVersion() {
-        return "2.4.0";
+        return "2.5.0";
     }
 
     public static JDA getJDA() {

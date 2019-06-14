@@ -30,7 +30,7 @@ public class MessageRedeemEvent extends ListenerAdapter {
         builder.setDescription("Do you want to redeem your prize?\n\n**Type in your license!**");
         builder.setThumbnail("https://i.imgur.com/QVw0qZa.png");
         builder.setColor(Color.decode("#ce93d8"));
-        builder.setFooter("Helper • Redeem", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Redeem", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

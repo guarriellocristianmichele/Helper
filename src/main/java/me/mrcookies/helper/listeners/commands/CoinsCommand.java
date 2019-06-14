@@ -3,14 +3,10 @@ package me.mrcookies.helper.listeners.commands;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-
-import java.awt.*;
-import java.time.Instant;
 
 public class CoinsCommand extends ListenerAdapter {
 
@@ -27,6 +23,7 @@ public class CoinsCommand extends ListenerAdapter {
 
             TextChannel channel = e.getChannel();
             User usr = e.getAuthor();
+            int coins;
 
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
@@ -36,7 +33,8 @@ public class CoinsCommand extends ListenerAdapter {
             }
 
             if (msg.length == 1) {
-                sendCoinsAmount(usr, channel);
+                coins = Core.getMySQL().getCoins(usr.getIdLong());
+                Methods.sendSENT(channel, "Coins", "You have `" + coins + "`");
                 return;
             }
 
@@ -54,23 +52,13 @@ public class CoinsCommand extends ListenerAdapter {
                     return;
                 }
 
-                sendCoinsAmount(target, channel);
+                coins = Core.getMySQL().getCoins(target.getIdLong());
+
+                Methods.sendSENT(channel, "Coins", target.getAsMention() + " has `" + coins + "`");
             }
 
         }
 
-    }
-
-    private void sendCoinsAmount(User usr, TextChannel channel) {
-        int coins = Core.getMySQL().getCoins(usr.getIdLong());
-        EmbedBuilder b = new EmbedBuilder();
-        b.setDescription(usr.getAsMention() + " has `" + coins + "` coins.");
-        b.setAuthor("Coins", null, "https://i.imgur.com/IUFgzzq.png");
-        b.setColor(Color.decode("#fdcb6e"));
-        b.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        b.setTimestamp(Instant.now());
-
-        channel.sendMessage(b.build()).queue();
     }
 
 }

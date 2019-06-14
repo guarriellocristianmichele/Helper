@@ -1,0 +1,47 @@
+package me.mrcookies.helper.rules;
+
+import me.mrcookies.helper.main.Core;
+import me.mrcookies.helper.utils.Methods;
+import me.mrcookies.helper.utils.References;
+import net.dv8tion.jda.core.entities.*;
+import net.dv8tion.jda.core.events.message.guild.react.GuildMessageReactionRemoveEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class RulesRemoveReactionEvent extends ListenerAdapter {
+
+    @Override
+    public void onGuildMessageReactionRemove(GuildMessageReactionRemoveEvent e) {
+
+        if (e.getUser().isBot()) return;
+
+        if (e.getChannel().getIdLong() != References.idRules) return;
+
+        Emote emote = e.getReactionEmote().getEmote();
+        User usr = e.getUser();
+        Member mem = e.getMember();
+
+        if (emote.getIdLong() == References.check) {
+            Collection<Role> roles = new ArrayList<>();
+            roles.add(e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.member")));
+            roles.add(e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.support")));
+            Role New = e.getGuild().getRoleById(References.newRole);
+
+            e.getGuild().getController().removeRolesFromMember(mem, roles).queue();
+            e.getGuild().getController().addRolesToMember(mem, New).queue();
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Rules", "It seems like you have removed the reaction " + getCheck(e.getGuild()).getAsMention()
+                    + " from the rules message. " +
+                    "You must accept the rules in order to get support. " +
+                    "That's why I've took all your roles. But don't worry. " +
+                    "You will get them back once you add the reaction again"));
+        }
+
+    }
+
+    private Emote getCheck(Guild guild) {
+        return guild.getEmoteById(References.check);
+    }
+
+}

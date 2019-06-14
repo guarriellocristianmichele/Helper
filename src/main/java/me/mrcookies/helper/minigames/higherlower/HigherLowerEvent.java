@@ -78,7 +78,7 @@ public class HigherLowerEvent extends ListenerAdapter {
         }
 
         builder.setColor(Color.decode("#e74c3c"));
-        builder.setFooter("Helper • Try again!", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Try again!", "https://i.imgur.com/nepS3Lp.jpg");
         channel.sendMessage(builder.build()).queue();
     }
 
@@ -87,7 +87,7 @@ public class HigherLowerEvent extends ListenerAdapter {
         builder.setAuthor("Higher Lower", null, "https://i.imgur.com/p3owVKR.png");
         builder.setDescription(usr.getAsMention() + " you guessed!\n**The correct answer was** `" + n + "`.");
         builder.setColor(Color.decode("#2ecc71"));
-        builder.setFooter("Helper • Thinking the next number!", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Thinking the next number!", "https://i.imgur.com/nepS3Lp.jpg");
         channel.sendMessage(builder.build()).queue();
     }
 
@@ -96,7 +96,7 @@ public class HigherLowerEvent extends ListenerAdapter {
         builder.setAuthor("Higher Lower", null, "https://i.imgur.com/gNUeslw.png");
         builder.setDescription("I thinked a number, try to guess it.");
         builder.setColor(Color.decode("#f8c291"));
-        builder.setFooter("Helper • Guess the number!", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Guess the number!", "https://i.imgur.com/nepS3Lp.jpg");
         channel.sendMessage(builder.build()).queue();
     }
 

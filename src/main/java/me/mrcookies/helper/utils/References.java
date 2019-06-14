@@ -30,5 +30,8 @@ public class References {
     public static Long like = Core.getConfig().getYml().getLong("Reactions.like");
     public static Long dislike = Core.getConfig().getYml().getLong("Reactions.dislike");
     public static Long check = Core.getConfig().getYml().getLong("Reactions.check");
+    public static Long newRole = Core.getConfig().getYml().getLong("Roles.new");
+    public static Long rules = Core.getConfig().getYml().getLong("Messages.rules");
+    public static String h = "\uD835\uDDDB\uD835\uDDF2\uD835\uDDF9\uD835\uDDFD\uD835\uDDF2\uD835\uDDFF";
 
 }

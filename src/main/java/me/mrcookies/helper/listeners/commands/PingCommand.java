@@ -43,10 +43,8 @@ public class PingCommand extends ListenerAdapter {
         builder.setAuthor("System", null, "https://i.imgur.com/IUFgzzq.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
-        MessageEmbed msgs = builder.build();
-        return msgs;
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
+        return builder.build();
     }
 
 }

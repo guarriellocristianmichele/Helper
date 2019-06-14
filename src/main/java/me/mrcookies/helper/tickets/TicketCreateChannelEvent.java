@@ -41,7 +41,7 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
 
             TextChannel tc = getOpenTicketChat(usr, e.getGuild());
 
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You have already a ticket opened " + tc.getAsMention() + "\nIf you want to start another, please solve the opened one first."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You have already a ticket opened " + Objects.requireNonNull(tc).getAsMention() + "\nIf you want to start another, please solve the opened one first."));
             msg.delete().queue();
             return;
         }
@@ -142,7 +142,7 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
         builder.setAuthor("Ticket Info", null, "https://i.imgur.com/nvQY65k.png");
         builder.setDescription(desc);
         builder.setColor(Color.decode("#3498db"));
-        builder.setFooter("Helper • Ticket created by " + usr.getName(), "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Ticket created by " + usr.getName(), "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }
@@ -159,7 +159,7 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
         builder.addField("Channel:", log.getName(), false);
         builder.addField("Opened by:", open.getName(), true);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

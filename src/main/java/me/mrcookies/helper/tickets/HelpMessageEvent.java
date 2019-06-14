@@ -30,7 +30,7 @@ public class HelpMessageEvent extends ListenerAdapter {
         builder.setDescription("Do you want to receive direct support from us?\n\n**Type in your question or issue below and we will get to you as soon as possible!**");
         builder.setThumbnail("https://i.imgur.com/C1nbuwe.png");
         builder.setColor(Color.decode("#3498db"));
-        builder.setFooter("Helper • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

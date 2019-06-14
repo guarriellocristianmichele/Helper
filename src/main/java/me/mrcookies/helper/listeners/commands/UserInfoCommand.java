@@ -98,7 +98,7 @@ public class UserInfoCommand extends ListenerAdapter {
         }
 
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper • Info", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Info", "https://i.imgur.com/nepS3Lp.jpg");
 
         if (usr.getDefaultAvatarUrl() != null) {
             builder.setThumbnail(usr.getAvatarUrl());

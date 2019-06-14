@@ -15,6 +15,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class SolvedCommand extends ListenerAdapter {
 
@@ -56,8 +57,8 @@ public class SolvedCommand extends ListenerAdapter {
 
             User target = getTarget(channel);
 
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You closed " + target.getAsMention() + "'s ticket (`" + channel.getName() + "`)."));
-            target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been closed by " + usr.getAsMention() + " (`" + channel.getName() + "`)."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You closed " + Objects.requireNonNull(target).getAsMention() + "'s ticket (`" + channel.getName() + "`)."));
+            Objects.requireNonNull(target).openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been closed by " + usr.getAsMention() + " (`" + channel.getName() + "`)."));
             sendChatLogs(logsChannel, channel, target, usr);
             channel.delete().complete();
             return;
@@ -104,10 +105,10 @@ public class SolvedCommand extends ListenerAdapter {
         builder.addField("Opened by:", open.getName(), true);
         builder.addField("Closed by:", close.getName(), true);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
 
         message.setEmbed(builder.build());
-        channel.sendFile(chatlogs, message.build()).queue();
+        channel.sendFile(Objects.requireNonNull(chatlogs), message.build()).queue();
     }
 
 }

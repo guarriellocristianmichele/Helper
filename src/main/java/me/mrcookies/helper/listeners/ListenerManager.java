@@ -13,6 +13,9 @@ import me.mrcookies.helper.minigames.quickmath.QuickMathEvent;
 import me.mrcookies.helper.redeem.RedeemEvent;
 import me.mrcookies.helper.requests.AddReactionEvent;
 import me.mrcookies.helper.requests.RequestSendEvent;
+import me.mrcookies.helper.rules.ReactionStartEvent;
+import me.mrcookies.helper.rules.RulesAddReactionEvent;
+import me.mrcookies.helper.rules.RulesRemoveReactionEvent;
 import me.mrcookies.helper.security.MessageEditBadWordEvent;
 import me.mrcookies.helper.security.NoBadWords;
 import me.mrcookies.helper.tickets.SolvedCommand;
@@ -26,7 +29,7 @@ public class ListenerManager {
         addEventListeners(new RandomCommand(), new ClearCommand(), new MemberJoinEvent(),
                 new DontTagEvent(), new AboutCommand(), new AddReactionEvent(), new RequestSendEvent(),
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
-                new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
+                new RoleCommand(), new CountGameEvent(), new UserInfoCommand(), new ReactionStartEvent(),
                 new FileCommand(), new StartGameCommand(), new StopGameCommand(), new GiveawayCommand(),
                 new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(), new PresenceCommand(),
                 new BotStopEvent(), new CoinsCommand(), new EconomyCommand(), new LeaderBoardCommand(),
@@ -36,7 +39,7 @@ public class ListenerManager {
                 new NoBadWords(), new CommandsChannelEvents(), new MuteCommand(), new UnmuteCommand(),
                 new WarnCommand(), new IDCommand(), new TicketCreateChannelEvent(), new GiveawayEvent(),
                 new QuickMathEvent(), new HigherLowerEvent(), new MessageEditBadWordEvent(),
-                new ChatLogCommand());
+                new ChatLogCommand(), new RulesAddReactionEvent(), new RulesRemoveReactionEvent());
         System.out.println("Helper > Events ready.");
     }
 

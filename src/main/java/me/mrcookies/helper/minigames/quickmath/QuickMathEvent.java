@@ -50,8 +50,7 @@ public class QuickMathEvent extends ListenerAdapter {
 
         if (number != reference) {
             msg.delete().queue();
-            int finalNumber = number;
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Sorry, this is not the correct answer `" + finalNumber + "`."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Quick Math", "Sorry, this is not the correct answer `" + number + "`."));
             return;
         }
 
@@ -152,7 +151,7 @@ public class QuickMathEvent extends ListenerAdapter {
         InputStream file = new ByteArrayInputStream(by.toByteArray());
         builder.setImage("attachment://math.png");
         builder.setColor(Color.decode("#FF5252"));
-        builder.setFooter("Helper • Try to solve this equation to win!", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Try to solve this equation to win!", "https://i.imgur.com/nepS3Lp.jpg");
         message.setEmbed(builder.build());
         channel.sendFile(file, "math.png", message.build()).queue();
     }
@@ -162,7 +161,7 @@ public class QuickMathEvent extends ListenerAdapter {
         builder.setAuthor("Quick Math", null, "https://i.imgur.com/p3owVKR.png");
         builder.setDescription(usr.getAsMention() + " you guessed!\n**The correct answer was** `" + n + "`.");
         builder.setColor(Color.decode("#2ecc71"));
-        builder.setFooter("Helper • New equation incoming!", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • New equation incoming!", "https://i.imgur.com/nepS3Lp.jpg");
         channel.sendMessage(builder.build()).queue();
     }
 

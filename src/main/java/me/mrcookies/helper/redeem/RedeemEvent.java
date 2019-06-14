@@ -78,7 +78,7 @@ public class RedeemEvent extends ListenerAdapter {
         builder.addField("Value:", String.valueOf(value), false);
         builder.setThumbnail("https://i.imgur.com/QVw0qZa.png");
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper • License", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • License", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

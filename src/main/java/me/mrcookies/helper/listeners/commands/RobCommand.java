@@ -139,8 +139,7 @@ public class RobCommand extends ListenerAdapter {
         builder.setAuthor(title, null, "https://i.imgur.com/hES9Aha.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode(color));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

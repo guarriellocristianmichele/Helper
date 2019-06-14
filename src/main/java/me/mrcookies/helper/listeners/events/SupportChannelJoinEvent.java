@@ -16,7 +16,7 @@ public class SupportChannelJoinEvent extends ListenerAdapter {
 
         if (e.getChannelJoined().getIdLong() != References.idSupportChannel) return;
 
-        if (!e.getMember().getRoles().contains(e.getJDA().getRoleById(Core.getConfig().getYml().getLong("Roles.support"))))
+        if (!e.getMember().getRoles().contains(e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.support"))))
             return;
 
         int cont = 0;

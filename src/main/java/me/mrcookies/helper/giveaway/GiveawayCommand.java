@@ -101,7 +101,7 @@ public class GiveawayCommand extends ListenerAdapter {
                     sendEndGiveaway(gaChannel, prize, winner);
                     aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention());
                     Methods.sendSENT(aChannel, "Giveaway", "```The giveaway ended.```\n\n**Winner** " + winner.getAsMention());
-                    Core.getMySQL().dropEntry("giveaway", "id", String.valueOf(id));
+                    Core.getMySQL().dropEntry("giveaway", "id", id);
                     Methods.sendSENT(channel, "Giveaway", "Giveaway ended successfully.");
                     break;
                 }
@@ -244,7 +244,7 @@ public class GiveawayCommand extends ListenerAdapter {
         builder.addField("Prize:", prize, false);
         builder.addField("Joined:", joined, false);
         builder.setColor(Color.decode("#5e9cab"));
-        builder.setFooter("Helper • Info", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + "Helper • Info", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

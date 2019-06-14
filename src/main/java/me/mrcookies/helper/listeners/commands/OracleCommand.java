@@ -90,8 +90,7 @@ public class OracleCommand extends ListenerAdapter {
         }
 
         builder.setColor(Color.decode(color));
-        builder.setFooter("Helper", "https://i.imgur.com/nepS3Lp.jpg");
-        builder.setTimestamp(Instant.now());
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

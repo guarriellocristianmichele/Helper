@@ -12,6 +12,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Objects;
 
 public class ChatLogCommand extends ListenerAdapter {
 
@@ -72,10 +73,10 @@ public class ChatLogCommand extends ListenerAdapter {
         builder.addField("Channel:", log.getName(), false);
         builder.addField("Logged by:", open.getName(), false);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter("Helper • Chatlog", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Chatlog", "https://i.imgur.com/nepS3Lp.jpg");
 
         message.setEmbed(builder.build());
-        channel.sendFile(chatlogs, message.build()).queue();
+        channel.sendFile(Objects.requireNonNull(chatlogs), message.build()).queue();
     }
 
 }

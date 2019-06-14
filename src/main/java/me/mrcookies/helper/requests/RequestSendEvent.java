@@ -58,9 +58,8 @@ public class RequestSendEvent extends ListenerAdapter {
         builder.setAuthor("Request", null, "https://i.imgur.com/p3owVKR.png");
         builder.setDescription(desc);
         builder.setColor(Color.decode("#2ecc71"));
-        builder.setFooter("Helper • Request created by " + usr.getName(), "https://i.imgur.com/nepS3Lp.jpg");
-        MessageEmbed msg = builder.build();
-        return msg;
+        builder.setFooter(References.h + " • Request created by " + usr.getName(), "https://i.imgur.com/nepS3Lp.jpg");
+        return builder.build();
     }
 
 }

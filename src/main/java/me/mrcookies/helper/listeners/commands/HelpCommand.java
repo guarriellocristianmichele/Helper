@@ -49,7 +49,6 @@ public class HelpCommand extends ListenerAdapter {
                     "`• random` - Random user or number.\n" +
                     "`• role` - Add or remove user's roles.\n" +
                     "`• file` - Send files.\n" +
-                    "`• countgame` - Manage countgame.\n" +
                     "`• coins` - Coins owned.\n" +
                     "`• eco` - Manage user's economy.\n" +
                     "`• lb` - Leaderboard.\n" +
@@ -69,6 +68,8 @@ public class HelpCommand extends ListenerAdapter {
                     "`• presence` - Set presence.\n" +
                     "`• info` - Get user's info.\n" +
                     "`• giveaway` - Manage giveaways.\n" +
+                    "`• start` - Start a minigame.\n" +
+                    "`• stop` - Stop a minigame.\n" +
                     "`• chatlog` - Create a chatlog."
             );
 

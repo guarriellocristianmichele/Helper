@@ -51,7 +51,7 @@ public class AnnounceCommand extends ListenerAdapter {
         builder.setAuthor(title, null, "https://i.imgur.com/vWc2wow.png");
         builder.setDescription(description);
         builder.setColor(Color.decode("#22b9ca"));
-        builder.setFooter("Helper • Posted by " + name, "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Posted by " + name, "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
     }

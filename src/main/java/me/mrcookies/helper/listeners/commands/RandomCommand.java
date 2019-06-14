@@ -57,7 +57,7 @@ public class RandomCommand extends ListenerAdapter {
                 return;
             }
 
-            Methods.sendSENT(channel, "Random", "Your random number is " + Methods.getRandom(n, 1) + "` between `1` and `" + n + "`");
+            Methods.sendSENT(channel, "Random", "Your random number is `" + Methods.getRandom(n, 1) + "` between `1` and `" + n + "`");
         }
 
     }
