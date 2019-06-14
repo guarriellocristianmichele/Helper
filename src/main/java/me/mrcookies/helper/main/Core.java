@@ -6,6 +6,7 @@ import me.mrcookies.helper.listeners.ListenerManager;
 import me.mrcookies.helper.listeners.events.BotStartEvent;
 import me.mrcookies.helper.listeners.events.BotStatusEvent;
 import me.mrcookies.helper.redeem.MessageRedeemEvent;
+import me.mrcookies.helper.rules.ReactionStartEvent;
 import me.mrcookies.helper.tickets.HelpMessageEvent;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
@@ -37,7 +38,7 @@ public class Core {
         mysql.initialize();
         System.out.println("Helper > Database ready.");
         jda = new JDABuilder(AccountType.BOT).setToken(config.getYml().getString("Settings.token"))
-                .addEventListener(new BotStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent())
+                .addEventListener(new BotStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent(), new ReactionStartEvent())
                 .setGame(Game.playing("mc.titanetwork.eu"))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .build()
@@ -113,7 +114,7 @@ public class Core {
     }
 
     public static String getVersion() {
-        return "2.5.0";
+        return "2.5.1";
     }
 
     public static JDA getJDA() {

@@ -13,7 +13,6 @@ import me.mrcookies.helper.minigames.quickmath.QuickMathEvent;
 import me.mrcookies.helper.redeem.RedeemEvent;
 import me.mrcookies.helper.requests.AddReactionEvent;
 import me.mrcookies.helper.requests.RequestSendEvent;
-import me.mrcookies.helper.rules.ReactionStartEvent;
 import me.mrcookies.helper.rules.RulesAddReactionEvent;
 import me.mrcookies.helper.rules.RulesRemoveReactionEvent;
 import me.mrcookies.helper.security.MessageEditBadWordEvent;
@@ -29,7 +28,7 @@ public class ListenerManager {
         addEventListeners(new RandomCommand(), new ClearCommand(), new MemberJoinEvent(),
                 new DontTagEvent(), new AboutCommand(), new AddReactionEvent(), new RequestSendEvent(),
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
-                new RoleCommand(), new CountGameEvent(), new UserInfoCommand(), new ReactionStartEvent(),
+                new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
                 new FileCommand(), new StartGameCommand(), new StopGameCommand(), new GiveawayCommand(),
                 new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(), new PresenceCommand(),
                 new BotStopEvent(), new CoinsCommand(), new EconomyCommand(), new LeaderBoardCommand(),

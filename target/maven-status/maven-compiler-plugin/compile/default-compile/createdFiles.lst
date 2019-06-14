@@ -15,6 +15,7 @@ me/mrcookies/helper/security/MessageEditBadWordEvent.class
 me/mrcookies/helper/tickets/TicketCreateChannelEvent.class
 me/mrcookies/helper/listeners/ListenerManager.class
 me/mrcookies/helper/listeners/commands/RoleCommand.class
+me/mrcookies/helper/rules/ReactionStartEvent.class
 me/mrcookies/helper/listeners/commands/PresenceCommand.class
 me/mrcookies/helper/configuration/YamlConfiguration$1.class
 me/mrcookies/helper/listeners/commands/HelpCommand.class
@@ -23,6 +24,7 @@ me/mrcookies/helper/listeners/commands/CoinsCommand.class
 me/mrcookies/helper/listeners/commands/RandomCommand.class
 me/mrcookies/helper/redeem/MessageRedeemEvent.class
 me/mrcookies/helper/listeners/commands/ProfileCommand.class
+me/mrcookies/helper/rules/RulesAddReactionEvent.class
 me/mrcookies/helper/listeners/commands/ShutdownCommand.class
 me/mrcookies/helper/listeners/events/MemberLeftEvent.class
 me/mrcookies/helper/listeners/commands/IDCommand.class
@@ -36,6 +38,7 @@ me/mrcookies/helper/redeem/RedeemEvent.class
 me/mrcookies/helper/tickets/HelpMessageEvent.class
 me/mrcookies/helper/listeners/events/MemberJoinEvent.class
 me/mrcookies/helper/minigames/StopGameCommand.class
+me/mrcookies/helper/rules/RulesRemoveReactionEvent.class
 me/mrcookies/helper/listeners/commands/MuteCommand.class
 me/mrcookies/helper/tickets/SolvedCommand.class
 me/mrcookies/helper/giveaway/GiveawayCommand.class
