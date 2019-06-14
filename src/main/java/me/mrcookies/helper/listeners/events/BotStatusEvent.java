@@ -32,7 +32,7 @@ public class BotStatusEvent extends ListenerAdapter {
         builder.setAuthor("Status", null, "https://i.imgur.com/IUFgzzq.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • Hello world!", "https://i.imgur.com/nepS3Lp.jpg");
         return builder.build();
     }
 

@@ -598,6 +598,7 @@ public class MySQL {
     }
 
     public Long getGiveawayID() {
+
         Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
 
         try {
@@ -613,6 +614,36 @@ public class MySQL {
             }
 
             connection.close();
+        } catch (final SQLException e) {
+            e.printStackTrace();
+
+            try {
+                connection.close();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Long> getUsersID() {
+
+        ArrayList<Long> ids = new ArrayList<>();
+        Connection connection = Objects.requireNonNull(getConnection(), "SQL Connection is null");
+
+        try {
+            final PreparedStatement ps = connection.prepareStatement("SELECT id_long FROM members");
+            final ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Long result = rs.getLong("id_long");
+                ids.add(result);
+            }
+
+            rs.close();
+            ps.close();
+            connection.close();
+            return ids;
         } catch (final SQLException e) {
             e.printStackTrace();
 

@@ -34,7 +34,7 @@ public class ShutdownCommand extends ListenerAdapter {
             TextChannel c = e.getJDA().getTextChannelById(References.idStatus);
             List<Message> msgs = c.getHistory().retrievePast(1).complete();
 
-            Methods.sendSENT(channel, "System", "The Bot will shutdown...");
+            sendShutdown(channel, "System", "The Bot will shutdown...");
 
             Core.getConfig().save();
 
@@ -68,8 +68,18 @@ public class ShutdownCommand extends ListenerAdapter {
         builder.setAuthor("Status", null, "https://i.imgur.com/IUFgzzq.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h + " • I'll be right back...", "https://i.imgur.com/nepS3Lp.jpg");
         return builder.build();
+    }
+
+    private void sendShutdown(TextChannel channel, String title, String Description) {
+        EmbedBuilder builder = new EmbedBuilder();
+        builder.setAuthor(title, null, "https://i.imgur.com/IUFgzzq.png");
+        builder.setDescription(Description);
+        builder.setColor(Color.decode("#fdcb6e"));
+        builder.setFooter(References.h + " • Bye... Bye...", "https://i.imgur.com/nepS3Lp.jpg");
+
+        channel.sendMessage(builder.build()).queue();
     }
 
 }
