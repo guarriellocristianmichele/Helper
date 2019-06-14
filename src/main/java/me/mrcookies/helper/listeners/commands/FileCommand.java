@@ -43,7 +43,7 @@ public class FileCommand extends ListenerAdapter {
             TextChannel target = e.getMessage().getMentionedChannels().get(0);
 
             sendFile(target, msg[1], msg[2], usr.getName());
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "System", "File sent successfully."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "File", "File sent successfully."));
         }
 
     }

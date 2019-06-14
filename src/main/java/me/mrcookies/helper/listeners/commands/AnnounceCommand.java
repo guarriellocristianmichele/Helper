@@ -4,6 +4,7 @@ import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -23,6 +24,7 @@ public class AnnounceCommand extends ListenerAdapter {
             if (Methods.isInvalidChannel(e.getChannel())) return;
 
             TextChannel channel = e.getChannel();
+            User usr = e.getAuthor();
 
             if (!Methods.hasPermission(e.getMember(), channel)) return;
 
@@ -41,7 +43,7 @@ public class AnnounceCommand extends ListenerAdapter {
             TextChannel target = e.getMessage().getMentionedChannels().get(0);
 
             sendAnnounce(target, msgs[1], msgs[2], e.getAuthor().getName());
-            channel.sendMessage(e.getAuthor().getAsMention() + " message sent.").queue();
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Announce", "Message sent successfully."));
         }
 
     }
