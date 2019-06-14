@@ -9,7 +9,6 @@ import net.dv8tion.jda.core.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.awt.*;
-import java.time.Instant;
 import java.util.List;
 
 public class BotStatusEvent extends ListenerAdapter {
@@ -21,7 +20,7 @@ public class BotStatusEvent extends ListenerAdapter {
         List<Message> msgs = c.getHistory().retrievePast(1).complete();
 
         if (msgs.size() > 0) {
-            c.getHistory().retrievePast(1).queue(msg -> msg.get(0).editMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue());
+            msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue();
             return;
         }
 

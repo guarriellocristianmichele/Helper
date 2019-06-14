@@ -38,7 +38,7 @@ public class Core {
         mysql.initialize();
         System.out.println("Helper > Database ready.");
         jda = new JDABuilder(AccountType.BOT).setToken(config.getYml().getString("Settings.token"))
-                .addEventListener(new BotStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent(), new ReactionStartEvent())
+                .addEventListener(new BotStartEvent(), new ReactionStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent())
                 .setGame(Game.playing("mc.titanetwork.eu"))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .build()

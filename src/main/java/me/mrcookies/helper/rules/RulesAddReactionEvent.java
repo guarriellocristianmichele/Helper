@@ -44,7 +44,8 @@ public class RulesAddReactionEvent extends ListenerAdapter {
 
             e.getGuild().getController().addRolesToMember(mem, roles).queue();
             e.getGuild().getController().removeRolesFromMember(mem, New).queue();
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Rules", "Thanks accepting our rules.\nNow you are our Member."));
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Rules", "Dear " + usr.getAsMention() + ",\nthanks accepting our rules.\n**Now you are our Member.**" +
+                    "\n\n`Remember if you need help open a ticket or join the voice channel.`"));
         }
 
     }

@@ -26,9 +26,9 @@ public class RulesRemoveReactionEvent extends ListenerAdapter {
             e.getGuild().getController().addRolesToMember(mem, New).queue();
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Rules", "It seems like you have removed the reaction " + getCheck(e.getGuild()).getAsMention()
                     + " from the rules message. " +
-                    "You must accept the rules in order to get support. " +
-                    "That's why I've took all your roles. But don't worry. " +
-                    "You will get them back once you add the reaction again"));
+                    "\nYou must accept the rules in order to get support. " +
+                    "\nThat's why I've took all your roles. But don't worry. " +
+                    "\nou will get them back once you add the reaction again"));
         }
 
     }

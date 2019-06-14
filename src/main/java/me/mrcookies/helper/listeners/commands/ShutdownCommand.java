@@ -39,15 +39,14 @@ public class ShutdownCommand extends ListenerAdapter {
             Core.getConfig().save();
 
             if (msgs.size() > 0) {
-                c.getHistory().retrievePast(1).queue(msg -> msg.get(0).editMessage(msg(
-                        e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
+                msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
                         .thenRun(() -> {
                             try {
                                 Runtime.getRuntime().exec("sudo pkill -f Helper");
                             } catch (IOException ex) {
                                 ex.printStackTrace();
                             }
-                        }));
+                        });
             } else {
                 c.sendMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
                         .thenRun(() -> {
@@ -69,7 +68,7 @@ public class ShutdownCommand extends ListenerAdapter {
         builder.setAuthor("Status", null, "https://i.imgur.com/IUFgzzq.png");
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
-        builder.setFooter(References.h + " • Bye... Bye...", "https://i.imgur.com/nepS3Lp.jpg");
+        builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
         return builder.build();
     }
 
