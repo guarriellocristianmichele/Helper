@@ -24,40 +24,44 @@ public class HigherLowerEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
         Message msg = e.getMessage();
         User usr = e.getAuthor();
-        int number;
 
         channel.getHistory().retrievePast(1).queue(msgs -> {
 
-            if (msgs.size() > 0) return;
+            int number;
 
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Minigame not started."));
+            if (msgs.size() <= 0) {
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Minigame not started."));
+                return;
+            }
+
+            int reference = Core.getConfig().getYml().getInt("Games.HigherLower.reference");
+
+            try {
+                number = Integer.parseInt(msg.getContentRaw());
+            } catch (NumberFormatException ex) {
+                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Invalid number."));
+                msg.delete().queue();
+                return;
+            }
+
+            if (number > reference) {
+                msg.delete().queue();
+                sendError(channel, usr, false, number);
+                return;
+            }
+
+            if (number < reference) {
+                msg.delete().queue();
+                sendError(channel, usr, true, number);
+                return;
+            }
+
+            sendWin(usr, reference, channel);
+            higherLowerCore(channel);
+            msg.delete().queue();
+
         });
 
-        int reference = Core.getConfig().getYml().getInt("Games.HigherLower.reference");
-
-        try {
-            number = Integer.parseInt(msg.getContentRaw());
-        } catch (NumberFormatException ex) {
-            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Higher Lower", "Invalid number."));
-            msg.delete().queue();
-            return;
-        }
-
-        if (number > reference) {
-            msg.delete().queue();
-            sendError(channel, usr, false, number);
-            return;
-        }
-
-        if (number < reference) {
-            msg.delete().queue();
-            sendError(channel, usr, true, number);
-            return;
-        }
-
-        sendWin(usr, reference, channel);
-        higherLowerCore(channel);
-        msg.delete().queue();
     }
 
     public static void higherLowerCore(TextChannel channel) {

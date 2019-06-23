@@ -79,6 +79,7 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
                     usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been created " + ticketChat.getAsMention() + "\nTo solve it, type in `" + References.prefix + "solved`."));
                     sendTicket(ticketChat, usr, desc);
                     sendLog(logsChannel, ticketChat, usr);
+
                 });
 
     }

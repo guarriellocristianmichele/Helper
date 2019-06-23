@@ -70,6 +70,7 @@ public class RedeemEvent extends ListenerAdapter {
 
     private void sendLog(String license, TextChannel channel, User create, User redeem, int value) {
         EmbedBuilder builder = new EmbedBuilder();
+
         builder.setAuthor("System", null, "https://i.imgur.com/IUFgzzq.png");
         builder.addField("Type:", "License", false);
         builder.addField("License:", license, false);

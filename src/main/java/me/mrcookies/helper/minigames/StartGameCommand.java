@@ -67,28 +67,29 @@ public class StartGameCommand extends ListenerAdapter {
                             quickMathChannel.getManager().setTopic("Minigame **Quick Math**, write the correct answer.").queue();
                             quickMathChannel.getManager().putPermissionOverride(e.getGuild().getPublicRole(), 2048, 0).queue();
                             QuickMathEvent.quickMathCore(quickMathChannel);
+                        } else {
+
+                            if (quickMathChannel.getTopic().toLowerCase().startsWith("minigame")) {
+                                Methods.sendErrorMessage(channel, "Minigame already started.");
+                                return;
+                            }
+
+                            quickMathChannel.getManager().setTopic("Minigame **Quick Math**, write the correct answer.").queue();
+                            quickMathChannel.getManager().putPermissionOverride(e.getGuild().getPublicRole(), 2048, 0).queue();
+
+                            quickMathChannel.getHistory().retrievePast(1).queue(ms -> {
+
+                                if (ms.get(0).getAuthor().isBot()) {
+                                    ms.get(0).delete().queue();
+                                }
+
+                            });
+
+                            Methods.sendSimpleEmbed(channel, "Quick Math", "Minigame toggled on.");
                         }
 
                     });
 
-
-                    if (quickMathChannel.getTopic().toLowerCase().startsWith("minigame")) {
-                        Methods.sendErrorMessage(channel, "Minigame already started.");
-                        return;
-                    }
-
-                    quickMathChannel.getManager().setTopic("Minigame **Quick Math**, write the correct answer.").queue();
-                    quickMathChannel.getManager().putPermissionOverride(e.getGuild().getPublicRole(), 2048, 0).queue();
-
-                    quickMathChannel.getHistory().retrievePast(1).queue(msgs -> {
-
-                        if (msgs.get(0).getAuthor().isBot()) {
-                            msgs.get(0).delete().queue();
-                        }
-
-                    });
-
-                    Methods.sendSimpleEmbed(channel, "Quick Math", "Minigame toggled on.");
                     break;
                 }
 
@@ -103,28 +104,29 @@ public class StartGameCommand extends ListenerAdapter {
                             higherLowerChannel.getManager().setTopic("Minigame **Higher Lower**, write the number that i'm thinking.").queue();
                             higherLowerChannel.getManager().putPermissionOverride(e.getGuild().getPublicRole(), 2048, 0).queue();
                             HigherLowerEvent.higherLowerCore(higherLowerChannel);
+                        } else {
+
+                            if (higherLowerChannel.getTopic().toLowerCase().startsWith("minigame")) {
+                                Methods.sendErrorMessage(channel, "Minigame already started.");
+                                return;
+                            }
+
+                            higherLowerChannel.getManager().setTopic("Minigame **Higher Lower**, write the number that i'm thinking.").queue();
+                            higherLowerChannel.getManager().putPermissionOverride(e.getGuild().getPublicRole(), 2048, 0).queue();
+
+                            higherLowerChannel.getHistory().retrievePast(1).queue(ms -> {
+
+                                if (ms.get(0).getAuthor().isBot()) {
+                                    ms.get(0).delete().queue();
+                                }
+
+                            });
+
+                            Methods.sendSimpleEmbed(channel, "Higher Lower", "Minigame toggled on.");
                         }
 
                     });
 
-
-                    if (higherLowerChannel.getTopic().toLowerCase().startsWith("minigame")) {
-                        Methods.sendErrorMessage(channel, "Minigame already started.");
-                        return;
-                    }
-
-                    higherLowerChannel.getManager().setTopic("Minigame **Higher Lower**, write the number that i'm thinking.").queue();
-                    higherLowerChannel.getManager().putPermissionOverride(e.getGuild().getPublicRole(), 2048, 0).queue();
-
-                    higherLowerChannel.getHistory().retrievePast(1).queue(msgs -> {
-
-                        if (msgs.get(0).getAuthor().isBot()) {
-                            msgs.get(0).delete().queue();
-                        }
-
-                    });
-
-                    Methods.sendSimpleEmbed(channel, "Higher Lower", "Minigame toggled on.");
                     break;
                 }
 

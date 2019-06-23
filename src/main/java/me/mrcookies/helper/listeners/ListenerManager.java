@@ -32,7 +32,7 @@ public class ListenerManager {
                 new DontTagEvent(), new AboutCommand(), new AddReactionEvent(), new RequestSendEvent(),
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
                 new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
-                new FileCommand(), new StartGameCommand(), new StopGameCommand(), new GiveawayCommand(),
+                new ImageCommand(), new StartGameCommand(), new StopGameCommand(), new GiveawayCommand(),
                 new MemberLeftEvent(), new LicenseCommand(), new RedeemEvent(), new PresenceCommand(),
                 new BotStopEvent(), new CoinsCommand(), new EconomyCommand(), new LeaderBoardCommand(),
                 new ProfileCommand(), new PayCommand(), new PingCommand(), new DailyCommand(),

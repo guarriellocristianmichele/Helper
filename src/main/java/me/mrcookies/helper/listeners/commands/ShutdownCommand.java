@@ -36,7 +36,9 @@ public class ShutdownCommand extends ListenerAdapter {
             Core.getConfig().save();
 
             c.getHistory().retrievePast(1).queue((msgs) -> {
+
                 if (msgs.size() > 0) {
+
                     msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
                             .thenRun(() -> {
                                 try {
@@ -44,8 +46,11 @@ public class ShutdownCommand extends ListenerAdapter {
                                 } catch (IOException ex) {
                                     ex.printStackTrace();
                                 }
+
                             });
+
                 } else {
+
                     c.sendMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
                             .thenRun(() -> {
                                 try {
@@ -54,7 +59,9 @@ public class ShutdownCommand extends ListenerAdapter {
                                     ex.printStackTrace();
                                 }
                             });
+
                 }
+
             });
 
         }

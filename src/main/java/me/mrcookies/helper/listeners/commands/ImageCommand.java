@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 
-public class FileCommand extends ListenerAdapter {
+public class ImageCommand extends ListenerAdapter {
 
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent e) {
@@ -19,7 +19,7 @@ public class FileCommand extends ListenerAdapter {
 
         if (Methods.returnChannels(e)) return;
 
-        if (e.getMessage().getContentRaw().toLowerCase().startsWith(References.prefix + "file")) {
+        if (e.getMessage().getContentRaw().toLowerCase().startsWith(References.prefix + "image")) {
 
             if (Methods.isInvalidChannel(e.getChannel())) return;
 
@@ -42,13 +42,13 @@ public class FileCommand extends ListenerAdapter {
 
             TextChannel target = e.getMessage().getMentionedChannels().get(0);
 
-            sendFile(target, msg[1], msg[2], usr.getName());
+            sendImage(target, msg[1], msg[2], usr.getName());
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "File", "File sent successfully."));
         }
 
     }
 
-    private void sendFile(TextChannel channel, String title, String link, String name) {
+    private void sendImage(TextChannel channel, String title, String link, String name) {
         EmbedBuilder builder = new EmbedBuilder();
         builder.setAuthor(title, null, "https://i.imgur.com/vWc2wow.png");
         builder.setImage(link);

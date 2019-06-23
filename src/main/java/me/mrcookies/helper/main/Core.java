@@ -8,6 +8,7 @@ import me.mrcookies.helper.listeners.events.BotStatusEvent;
 import me.mrcookies.helper.redeem.MessageRedeemEvent;
 import me.mrcookies.helper.rules.ReactionStartEvent;
 import me.mrcookies.helper.tickets.HelpMessageEvent;
+import me.mrcookies.helper.utils.Methods;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -15,6 +16,7 @@ import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class Core {
 
@@ -39,12 +41,14 @@ public class Core {
 
         jda = new JDABuilder(AccountType.BOT).setToken(config.getYml().getString("Settings.token"))
                 .addEventListeners(new BotStartEvent(), new ReactionStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent())
-                .setActivity(Activity.playing("mc.titanetwork.eu"))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .build()
                 .awaitReady();
 
         new ListenerManager();
+
+        jda.getRateLimitPool().scheduleWithFixedDelay(() -> jda.getPresence().setActivity(Activity.watching(getRandomActivity())), 0, 5, TimeUnit.SECONDS);
+
         System.out.println("Helper > Bot ready to use.");
     }
 
@@ -96,6 +100,20 @@ public class Core {
         config.addDefault("Category.tickets", "");
         config.addDefault("Channels.requests-channel", "");
         config.saveDefaults();
+    }
+
+    private static String getRandomActivity() {
+        String[] activities = {
+                Methods.getUsersSize() + " users",
+                "code",
+                "my creator",
+                "videos",
+                "discord"
+        };
+
+        int ran = Methods.getRandom(activities.length - 1, 0);
+
+        return activities[ran];
     }
 
     private static void setupFolders() {

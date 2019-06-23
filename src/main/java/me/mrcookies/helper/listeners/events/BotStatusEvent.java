@@ -20,11 +20,12 @@ public class BotStatusEvent extends ListenerAdapter {
 
             if (msgs.size() > 0) {
                 msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue();
+            } else {
+                c.sendMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue();
             }
 
         });
 
-        c.sendMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue();
     }
 
     private MessageEmbed msg(String Description) {

@@ -48,6 +48,7 @@ public class AddReactionEvent extends ListenerAdapter {
                 }
 
             }
+
         });
 
         if (emote.getIdLong() == References.like) return;

@@ -34,7 +34,7 @@ public class AccountResetCommand extends ListenerAdapter {
 
             if (msg[1].equalsIgnoreCase("all")) {
 
-                for (User usr : Core.getJDA().getUsers()) {
+                for (User usr : e.getJDA().getUsers()) {
 
                     if (usr.isBot()) {
                         continue;
