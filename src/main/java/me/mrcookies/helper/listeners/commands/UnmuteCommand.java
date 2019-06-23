@@ -3,11 +3,11 @@ package me.mrcookies.helper.listeners.commands;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class UnmuteCommand extends ListenerAdapter {
 
@@ -52,7 +52,7 @@ public class UnmuteCommand extends ListenerAdapter {
                 return;
             }
 
-            e.getGuild().getController().removeRolesFromMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
+            e.getGuild().removeRoleFromMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
             Core.getMySQL().setInt("members", "warns", 0, "id_long", String.valueOf(target.getIdLong()));
             Methods.sendSimpleEmbed(channel, "Security", target.getAsMention() + " have been unmuted.");
             target.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Security", "You have been unmuted."));

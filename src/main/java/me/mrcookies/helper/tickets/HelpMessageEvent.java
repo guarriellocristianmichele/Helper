@@ -1,10 +1,10 @@
 package me.mrcookies.helper.tickets;
 
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.guild.GuildReadyEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 
@@ -15,7 +15,7 @@ public class HelpMessageEvent extends ListenerAdapter {
 
         TextChannel tChannel = e.getJDA().getTextChannelById(References.idTickets);
 
-        tChannel.getHistory().retrievePast(1).queue((msgs) -> {
+        tChannel.getHistory().retrievePast(1).queue(msgs -> {
 
             if (msgs.size() > 0) return;
 

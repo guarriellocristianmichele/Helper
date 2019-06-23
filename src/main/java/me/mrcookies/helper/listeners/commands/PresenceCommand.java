@@ -3,10 +3,10 @@ package me.mrcookies.helper.listeners.commands;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.Game;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.Activity;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class PresenceCommand extends ListenerAdapter {
 
@@ -36,19 +36,19 @@ public class PresenceCommand extends ListenerAdapter {
             switch (msg[1].toLowerCase()) {
 
                 case "watch": {
-                    Core.getJDA().getPresence().setGame(Game.watching(text[1]));
+                    Core.getJDA().getPresence().setActivity(Activity.watching(text[1]));
                     Methods.sendSENT(channel, "System", "The presence has been changed.");
                     break;
                 }
 
                 case "play": {
-                    Core.getJDA().getPresence().setGame(Game.playing(text[1]));
+                    Core.getJDA().getPresence().setActivity(Activity.playing(text[1]));
                     Methods.sendSENT(channel, "System", "The presence has been changed.");
                     break;
                 }
 
                 case "listen": {
-                    Core.getJDA().getPresence().setGame(Game.listening(text[1]));
+                    Core.getJDA().getPresence().setActivity(Activity.listening(text[1]));
                     Methods.sendSENT(channel, "System", "The presence has been changed.");
                     break;
                 }

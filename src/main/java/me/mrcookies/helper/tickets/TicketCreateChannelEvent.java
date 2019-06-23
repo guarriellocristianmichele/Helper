@@ -3,11 +3,11 @@ package me.mrcookies.helper.tickets;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.*;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.util.*;
@@ -60,35 +60,27 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
         String name = "ticket-" + UUID.randomUUID().toString().split("-")[0];
 
         Category category = guild.getCategoryById(Core.getConfig().getYml().getLong("Category.tickets"));
-
-        TextChannel ticketChat = (TextChannel) guild.getController().createTextChannel(name)
-                .setParent(category)
-                .setTopic("Ticket from " + usr.getAsMention() + " | Problem Solved? Please type in **" + References.prefix + "solved**.")
-                .complete();
         TextChannel logsChannel = guild.getTextChannelById(References.idLogs);
-
-        ticketChat.getManager().clearOverridesRemoved();
-        ticketChat.getManager().clearOverridesAdded();
-
-        Collection<Permission> permissionsAllow = new ArrayList<>();
-        permissionsAllow.add(Permission.MESSAGE_ADD_REACTION);
-        permissionsAllow.add(Permission.MESSAGE_ATTACH_FILES);
-        permissionsAllow.add(Permission.MESSAGE_EMBED_LINKS);
-        permissionsAllow.add(Permission.MESSAGE_READ);
-        permissionsAllow.add(Permission.MESSAGE_WRITE);
-        permissionsAllow.add(Permission.MESSAGE_HISTORY);
-
         Role supporter = guild.getRoleById(Core.getConfig().getYml().getLong("Roles.utility"));
 
-        ticketChat.getManager()
-                .putPermissionOverride(supporter, permissionsAllow, Collections.singletonList(Permission.MESSAGE_TTS))
-                .putPermissionOverride(guild.getMember(usr), permissionsAllow, Collections.singletonList(Permission.MESSAGE_TTS))
-                .putPermissionOverride(guild.getPublicRole(), new ArrayList<>(), Arrays.asList(Permission.MESSAGE_READ, Permission.MESSAGE_WRITE))
-                .complete();
+        guild.createTextChannel(name)
+                .setParent(category)
+                .setTopic("Ticket from " + usr.getAsMention() + " | Problem Solved? Please type in **" + References.prefix + "solved**.")
+                .queue(ticketChat -> {
+                    ticketChat.getManager().clearOverridesRemoved();
+                    ticketChat.getManager().clearOverridesAdded();
 
-        usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been created " + ticketChat.getAsMention() + "\nTo solve it, type in `" + References.prefix + "solved`."));
-        sendTicket(ticketChat, usr, desc);
-        sendLog(logsChannel, ticketChat, usr);
+                    ticketChat.getManager()
+                            .putPermissionOverride(supporter, getPermissions(), Collections.singletonList(Permission.MESSAGE_TTS))
+                            .putPermissionOverride(guild.getMember(usr), getPermissions(), Collections.singletonList(Permission.MESSAGE_TTS))
+                            .putPermissionOverride(guild.getPublicRole(), new ArrayList<>(), Arrays.asList(Permission.MESSAGE_READ, Permission.MESSAGE_WRITE))
+                            .queue();
+
+                    usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been created " + ticketChat.getAsMention() + "\nTo solve it, type in `" + References.prefix + "solved`."));
+                    sendTicket(ticketChat, usr, desc);
+                    sendLog(logsChannel, ticketChat, usr);
+                });
+
     }
 
     private TextChannel getOpenTicketChat(User usr, Guild guild) {
@@ -162,6 +154,20 @@ public class TicketCreateChannelEvent extends ListenerAdapter {
         builder.setFooter(References.h + " • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
 
         channel.sendMessage(builder.build()).queue();
+    }
+
+    private Collection<Permission> getPermissions() {
+
+        Collection<Permission> permissionsAllow = new ArrayList<>();
+
+        permissionsAllow.add(Permission.MESSAGE_ADD_REACTION);
+        permissionsAllow.add(Permission.MESSAGE_ATTACH_FILES);
+        permissionsAllow.add(Permission.MESSAGE_EMBED_LINKS);
+        permissionsAllow.add(Permission.MESSAGE_READ);
+        permissionsAllow.add(Permission.MESSAGE_WRITE);
+        permissionsAllow.add(Permission.MESSAGE_HISTORY);
+
+        return permissionsAllow;
     }
 
 }

@@ -3,13 +3,13 @@ package me.mrcookies.helper.listeners.commands;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -79,7 +79,7 @@ public class ProfileCommand extends ListenerAdapter {
         Image avatar = null;
         URL url;
         User usr = mem.getUser();
-        OffsetDateTime date = mem.getJoinDate();
+        OffsetDateTime date = mem.getTimeJoined();
         String format = Methods.getCap(date.getDayOfWeek().toString().substring(0, 3).toLowerCase()) + ", " + Methods.getCap(date.getMonth().name().toLowerCase()) + " " + date.getDayOfMonth() + ", " + date.getYear();
         int coins = Core.getMySQL().getCoins(usr.getIdLong());
 
@@ -142,10 +142,12 @@ public class ProfileCommand extends ListenerAdapter {
         MessageBuilder message = new MessageBuilder();
         EmbedBuilder builder = new EmbedBuilder();
         InputStream file = new ByteArrayInputStream(by.toByteArray());
+
         builder.setImage("attachment://profile.png");
         builder.setColor(Color.decode("#2ecc71"));
+
         message.setEmbed(builder.build());
-        channel.sendFile(file, "profile.png", message.build()).queue();
+        channel.sendMessage(message.build()).addFile(file, "profile.png").queue();
     }
 
     private void centerString(Graphics g, int width, int height, int x, int y, String s, Font font) {

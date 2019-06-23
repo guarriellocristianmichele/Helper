@@ -2,14 +2,13 @@ package me.mrcookies.helper.listeners.commands;
 
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.MessageEmbed;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
-import java.time.Instant;
 import java.util.concurrent.TimeUnit;
 
 public class PingCommand extends ListenerAdapter {
@@ -30,7 +29,7 @@ public class PingCommand extends ListenerAdapter {
 
             channel.sendMessage(msg(e.getGuild().getEmoteById(References.loading).getAsMention() + " Testing ping")).queue(message -> {
                 long ping = System.currentTimeMillis() - time;
-                message.editMessage(msg("**Ping:** `" + ping + "`ms\n**WebSocket:** `" + e.getJDA().getPing() + "`ms")).queueAfter(2, TimeUnit.SECONDS);
+                message.editMessage(msg("**Ping:** `" + ping + "`ms\n**WebSocket:** `" + e.getJDA().getGatewayPing() + "`ms")).queueAfter(2, TimeUnit.SECONDS);
                 message.delete().submitAfter(5, TimeUnit.SECONDS);
             });
 

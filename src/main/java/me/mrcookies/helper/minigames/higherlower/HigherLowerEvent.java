@@ -3,12 +3,12 @@ package me.mrcookies.helper.minigames.higherlower;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 
@@ -26,7 +26,7 @@ public class HigherLowerEvent extends ListenerAdapter {
         User usr = e.getAuthor();
         int number;
 
-        channel.getHistory().retrievePast(1).queue((msgs) -> {
+        channel.getHistory().retrievePast(1).queue(msgs -> {
 
             if (msgs.size() > 0) return;
 

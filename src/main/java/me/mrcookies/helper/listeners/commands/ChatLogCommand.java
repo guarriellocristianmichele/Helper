@@ -2,12 +2,12 @@ package me.mrcookies.helper.listeners.commands;
 
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.io.File;
@@ -76,7 +76,7 @@ public class ChatLogCommand extends ListenerAdapter {
         builder.setFooter(References.h + " • Chatlog", "https://i.imgur.com/nepS3Lp.jpg");
 
         message.setEmbed(builder.build());
-        channel.sendFile(Objects.requireNonNull(chatlogs), message.build()).queue();
+        channel.sendMessage(message.build()).addFile(chatlogs).queue();
     }
 
 }

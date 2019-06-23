@@ -8,11 +8,11 @@ import me.mrcookies.helper.listeners.events.BotStatusEvent;
 import me.mrcookies.helper.redeem.MessageRedeemEvent;
 import me.mrcookies.helper.rules.ReactionStartEvent;
 import me.mrcookies.helper.tickets.HelpMessageEvent;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.OnlineStatus;
-import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 
 import java.io.File;
 
@@ -21,7 +21,6 @@ public class Core {
     private static JDA jda;
     private static ConfigManager config;
     private static MySQL mysql;
-    private static ListenerManager eventManager;
 
     public static void main(String[] args) throws Exception {
         setupConfig();
@@ -33,17 +32,19 @@ public class Core {
         }
 
         mysql = new MySQL();
-        eventManager = new ListenerManager();
 
         mysql.initialize();
+
         System.out.println("Helper > Database ready.");
+
         jda = new JDABuilder(AccountType.BOT).setToken(config.getYml().getString("Settings.token"))
-                .addEventListener(new BotStartEvent(), new ReactionStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent())
-                .setGame(Game.playing("mc.titanetwork.eu"))
+                .addEventListeners(new BotStartEvent(), new ReactionStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent())
+                .setActivity(Activity.playing("mc.titanetwork.eu"))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .build()
                 .awaitReady();
-        eventManager.initialize();
+
+        new ListenerManager();
         System.out.println("Helper > Bot ready to use.");
     }
 
@@ -114,7 +115,7 @@ public class Core {
     }
 
     public static String getVersion() {
-        return "2.5.1";
+        return "2.6.0";
     }
 
     public static JDA getJDA() {

@@ -3,13 +3,13 @@ package me.mrcookies.helper.requests;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageEmbed;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 
@@ -46,11 +46,14 @@ public class RequestSendEvent extends ListenerAdapter {
         TextChannel channel = e.getChannel();
 
         msg.delete().queue();
+
         MessageEmbed mse = sendRequest(usr, e.getMessage().getContentRaw());
-        channel.sendMessage(mse).queue((message -> {
+
+        channel.sendMessage(mse).queue(message -> {
             message.addReaction(e.getGuild().getEmoteById(References.like)).queue();
             message.addReaction(e.getGuild().getEmoteById(References.dislike)).queue();
-        }));
+        });
+
     }
 
     private MessageEmbed sendRequest(User usr, String desc) {

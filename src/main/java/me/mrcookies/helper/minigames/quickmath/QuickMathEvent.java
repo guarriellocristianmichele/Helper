@@ -3,13 +3,13 @@ package me.mrcookies.helper.minigames.quickmath;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -153,7 +153,7 @@ public class QuickMathEvent extends ListenerAdapter {
         builder.setColor(Color.decode("#FF5252"));
         builder.setFooter(References.h + " • Try to solve this equation to win!", "https://i.imgur.com/nepS3Lp.jpg");
         message.setEmbed(builder.build());
-        channel.sendFile(file, "math.png", message.build()).queue();
+        channel.sendMessage(message.build()).addFile(file, "math.png").queue();
     }
 
     private void sendWin(User usr, int n, TextChannel channel) {

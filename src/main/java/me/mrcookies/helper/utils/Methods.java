@@ -1,9 +1,9 @@
 package me.mrcookies.helper.utils;
 
 import me.mrcookies.helper.main.Core;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.*;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 
 import java.awt.*;
 import java.awt.font.FontRenderContext;
@@ -31,7 +31,7 @@ public class Methods {
         builder.setColor(Color.decode("#e74c3c"));
         builder.setFooter(References.h + " • Seems you're wrong...", "https://i.imgur.com/nepS3Lp.jpg");
 
-        channel.sendMessage(builder.build()).complete().delete().queueAfter(5, TimeUnit.SECONDS);
+        channel.sendMessage(builder.build()).queueAfter(5, TimeUnit.SECONDS, msg -> msg.delete().queue());
     }
 
     public static void sendSimpleEmbed(TextChannel channel, String title, String Description) {
@@ -41,7 +41,7 @@ public class Methods {
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
-        channel.sendMessage(builder.build()).complete().delete().queueAfter(5, TimeUnit.SECONDS);
+        channel.sendMessage(builder.build()).queueAfter(5, TimeUnit.SECONDS, msg -> msg.delete().queue());
     }
 
     public static void sendSENT(TextChannel channel, String title, String Description) {
@@ -216,7 +216,7 @@ public class Methods {
                 attachment.append(" ").append(me.getDescription());
             }
 
-            br.write("Date: " + m.getCreationTime().getDayOfMonth() + "/" + m.getCreationTime().getMonthValue() + "/" + m.getCreationTime().getYear() + " ID: " + m.getAuthor().getId() + " Name: " + m.getAuthor().getName() + " » " + messagecontent + " " + attachment);
+            br.write("Date: " + m.getTimeCreated().getDayOfMonth() + "/" + m.getTimeCreated().getMonthValue() + "/" + m.getTimeCreated().getYear() + " ID: " + m.getAuthor().getId() + " Name: " + m.getAuthor().getName() + " » " + messagecontent + " " + attachment);
             br.newLine();
         }
 

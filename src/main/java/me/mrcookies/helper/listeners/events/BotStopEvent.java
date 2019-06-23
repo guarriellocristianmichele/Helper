@@ -1,8 +1,8 @@
 package me.mrcookies.helper.listeners.events;
 
 import me.mrcookies.helper.main.Core;
-import net.dv8tion.jda.core.events.ShutdownEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.events.ShutdownEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class BotStopEvent extends ListenerAdapter {
 

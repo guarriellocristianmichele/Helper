@@ -3,12 +3,12 @@ package me.mrcookies.helper.listeners.commands;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.time.OffsetDateTime;
@@ -69,7 +69,7 @@ public class UserInfoCommand extends ListenerAdapter {
 
         User usr = mem.getUser();
         int warns = Core.getMySQL().getWarns(usr.getIdLong());
-        OffsetDateTime date = mem.getJoinDate();
+        OffsetDateTime date = mem.getTimeJoined();
         String format = Methods.getCap(date.getDayOfWeek().toString().substring(0, 3).toLowerCase())
                 + ", " + Methods.getCap(date.getMonth().name().toLowerCase()) + " " + date.getDayOfMonth() + ", " + date.getYear();
 
@@ -100,7 +100,7 @@ public class UserInfoCommand extends ListenerAdapter {
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter(References.h + " • Info", "https://i.imgur.com/nepS3Lp.jpg");
 
-        if (usr.getDefaultAvatarUrl() != null) {
+        if (usr.getAvatarUrl() != null) {
             builder.setThumbnail(usr.getAvatarUrl());
         }
 

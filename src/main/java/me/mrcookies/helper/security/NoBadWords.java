@@ -3,11 +3,11 @@ package me.mrcookies.helper.security;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class NoBadWords extends ListenerAdapter {
 
@@ -33,7 +33,7 @@ public class NoBadWords extends ListenerAdapter {
             Member mem = e.getGuild().getMember(usr);
 
             if (warns == 3) {
-                e.getGuild().getController().addRolesToMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
+                e.getGuild().addRoleToMember(mem, e.getGuild().getRoleById(Core.getConfig().getYml().getLong("Roles.muted"))).queue();
                 Methods.sendSENT(channel, "Security", usr.getAsMention() + " have been muted.");
                 usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Security", "You have been muted, (warns `3/3`)."));
                 return;

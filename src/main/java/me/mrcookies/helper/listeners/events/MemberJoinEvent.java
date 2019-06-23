@@ -3,9 +3,9 @@ package me.mrcookies.helper.listeners.events;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.*;
-import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class MemberJoinEvent extends ListenerAdapter {
 
@@ -17,7 +17,7 @@ public class MemberJoinEvent extends ListenerAdapter {
         Member mem = e.getMember();
         Role New = e.getGuild().getRoleById(References.newRole);
 
-        e.getGuild().getController().addRolesToMember(mem, New).queue();
+        e.getGuild().addRoleToMember(mem, New).queue();
 
         TextChannel rules = e.getGuild().getTextChannelById(References.idRules);
         TextChannel commands = e.getGuild().getTextChannelById(References.idCommands);

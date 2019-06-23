@@ -3,16 +3,14 @@ package me.mrcookies.helper.listeners.commands;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageEmbed;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.List;
 
 public class ShutdownCommand extends ListenerAdapter {
 
@@ -31,33 +29,33 @@ public class ShutdownCommand extends ListenerAdapter {
 
             if (!Methods.hasPermission(e.getMember(), channel)) return;
 
-            TextChannel c = e.getJDA().getTextChannelById(References.idStatus);
-            List<Message> msgs = c.getHistory().retrievePast(1).complete();
+            TextChannel c = e.getGuild().getTextChannelById(References.idStatus);
 
             sendShutdown(channel, "System", "The Bot will shutdown...");
 
             Core.getConfig().save();
 
-            if (msgs.size() > 0) {
-                msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
-                        .thenRun(() -> {
-                            try {
-                                Runtime.getRuntime().exec("sudo pkill -f Helper");
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
-                        });
-            } else {
-                c.sendMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
-                        .thenRun(() -> {
-                            try {
-                                Runtime.getRuntime().exec("sudo pkill -f Helper");
-                            } catch (IOException ex) {
-                                ex.printStackTrace();
-                            }
-                        });
-            }
-
+            c.getHistory().retrievePast(1).queue((msgs) -> {
+                if (msgs.size() > 0) {
+                    msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
+                            .thenRun(() -> {
+                                try {
+                                    Runtime.getRuntime().exec("sudo pkill -f Helper");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            });
+                } else {
+                    c.sendMessage(msg(e.getGuild().getEmoteById(References.offline).getAsMention() + "``Offline!``")).submit()
+                            .thenRun(() -> {
+                                try {
+                                    Runtime.getRuntime().exec("sudo pkill -f Helper");
+                                } catch (IOException ex) {
+                                    ex.printStackTrace();
+                                }
+                            });
+                }
+            });
 
         }
 
@@ -69,6 +67,7 @@ public class ShutdownCommand extends ListenerAdapter {
         builder.setDescription(Description);
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter(References.h + " • I'll be right back...", "https://i.imgur.com/nepS3Lp.jpg");
+
         return builder.build();
     }
 

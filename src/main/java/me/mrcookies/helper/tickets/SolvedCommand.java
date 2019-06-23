@@ -3,19 +3,20 @@ package me.mrcookies.helper.tickets;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.MessageBuilder;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class SolvedCommand extends ListenerAdapter {
 
@@ -42,7 +43,7 @@ public class SolvedCommand extends ListenerAdapter {
 
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You solved your ticket (`" + channel.getName() + "`)."));
             sendChatLogs(logsChannel, channel, usr, usr);
-            channel.delete().complete();
+            channel.delete().queueAfter(15, TimeUnit.SECONDS);
             return;
         }
 
@@ -60,7 +61,7 @@ public class SolvedCommand extends ListenerAdapter {
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You closed " + Objects.requireNonNull(target).getAsMention() + "'s ticket (`" + channel.getName() + "`)."));
             Objects.requireNonNull(target).openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been closed by " + usr.getAsMention() + " (`" + channel.getName() + "`)."));
             sendChatLogs(logsChannel, channel, target, usr);
-            channel.delete().complete();
+            channel.delete().queueAfter(15, TimeUnit.SECONDS);
             return;
         }
 
@@ -108,7 +109,7 @@ public class SolvedCommand extends ListenerAdapter {
         builder.setFooter(References.h + " • Ticket", "https://i.imgur.com/nepS3Lp.jpg");
 
         message.setEmbed(builder.build());
-        channel.sendFile(Objects.requireNonNull(chatlogs), message.build()).queue();
+        channel.sendMessage(message.build()).addFile(chatlogs).queue();
     }
 
 }

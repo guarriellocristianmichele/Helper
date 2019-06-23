@@ -19,13 +19,16 @@ import me.mrcookies.helper.security.MessageEditBadWordEvent;
 import me.mrcookies.helper.security.NoBadWords;
 import me.mrcookies.helper.tickets.SolvedCommand;
 import me.mrcookies.helper.tickets.TicketCreateChannelEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class ListenerManager {
 
-    public void initialize() {
+    public ListenerManager() {
+        addEventListeners();
+        System.out.println("Helper > Events ready.");
+    }
 
-        addEventListeners(new RandomCommand(), new ClearCommand(), new MemberJoinEvent(),
+    private void addEventListeners() {
+        Core.getJDA().addEventListener(new RandomCommand(), new ClearCommand(), new MemberJoinEvent(),
                 new DontTagEvent(), new AboutCommand(), new AddReactionEvent(), new RequestSendEvent(),
                 new SayCommand(), new AnnounceCommand(), new HelpCommand(), new CancelCommandsEvent(),
                 new RoleCommand(), new CountGameEvent(), new UserInfoCommand(),
@@ -39,13 +42,6 @@ public class ListenerManager {
                 new WarnCommand(), new IDCommand(), new TicketCreateChannelEvent(), new GiveawayEvent(),
                 new QuickMathEvent(), new HigherLowerEvent(), new MessageEditBadWordEvent(),
                 new ChatLogCommand(), new RulesAddReactionEvent(), new RulesRemoveReactionEvent());
-        System.out.println("Helper > Events ready.");
-    }
-
-    private void addEventListeners(ListenerAdapter... listeners) {
-        for (ListenerAdapter listener : listeners) {
-            Core.getJDA().addEventListener(listener);
-        }
     }
 
 }

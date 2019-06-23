@@ -2,10 +2,10 @@ package me.mrcookies.helper.listeners.commands;
 
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.entities.User;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class RoleCommand extends ListenerAdapter {
 
@@ -52,8 +52,7 @@ public class RoleCommand extends ListenerAdapter {
                         return;
                     }
 
-                    e.getGuild().getController().addRolesToMember(e.getGuild().getMember(target),
-                            e.getJDA().getRolesByName(msgs[2], true)).complete();
+                    e.getGuild().addRoleToMember(e.getGuild().getMember(target), e.getGuild().getRolesByName(msgs[2], true).get(0)).queue();
 
                     Methods.sendSimpleEmbed(channel, "Roles", "Added `" + msgs[2] + "` to " + target.getAsMention());
                     break;
@@ -73,8 +72,8 @@ public class RoleCommand extends ListenerAdapter {
                         return;
                     }
 
-                    e.getGuild().getController().removeRolesFromMember((e.getGuild().getMember(target)),
-                            e.getJDA().getRolesByName(msgs[2], true)).complete();
+                    e.getGuild().removeRoleFromMember(e.getGuild().getMember(target),
+                            e.getGuild().getRolesByName(msgs[2], true).get(0)).queue();
 
                     Methods.sendSimpleEmbed(channel, "Roles", "Removed `" + msgs[2] + "` to " + target.getAsMention());
                     break;

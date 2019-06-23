@@ -1,15 +1,13 @@
 package me.mrcookies.helper.listeners.events;
 
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.MessageEmbed;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.events.guild.GuildReadyEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.entities.TextChannel;
+import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
-import java.util.List;
 
 public class BotStatusEvent extends ListenerAdapter {
 
@@ -17,12 +15,14 @@ public class BotStatusEvent extends ListenerAdapter {
     public void onGuildReady(GuildReadyEvent e) {
 
         TextChannel c = e.getGuild().getTextChannelById(References.idStatus);
-        List<Message> msgs = c.getHistory().retrievePast(1).complete();
 
-        if (msgs.size() > 0) {
-            msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue();
-            return;
-        }
+        c.getHistory().retrievePast(1).queue(msgs -> {
+
+            if (msgs.size() > 0) {
+                msgs.get(0).editMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue();
+            }
+
+        });
 
         c.sendMessage(msg(e.getGuild().getEmoteById(References.online).getAsMention() + "``Online!``")).queue();
     }

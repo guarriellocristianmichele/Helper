@@ -1,9 +1,9 @@
 package me.mrcookies.helper.listeners.events;
 
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class CancelCommandsEvent extends ListenerAdapter {
 

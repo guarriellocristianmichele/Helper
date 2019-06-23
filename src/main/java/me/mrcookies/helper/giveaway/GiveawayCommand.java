@@ -3,10 +3,10 @@ package me.mrcookies.helper.giveaway;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.*;
-import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -51,108 +51,126 @@ public class GiveawayCommand extends ListenerAdapter {
                         return;
                     }
 
-                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
+                    gaChannel.getHistory().retrievePast(1).queue(msgs -> {
 
-                    if (!msgs.isEmpty()) {
-                        Methods.sendErrorMessage(channel, "There is already a giveaway started.");
-                        return;
-                    }
+                        if (!msgs.isEmpty()) {
+                            Methods.sendErrorMessage(channel, "There is already a giveaway started.");
+                            return;
+                        }
 
-                    sendGiveaway(text[1], gaChannel, emote);
-                    aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention());
-                    Methods.sendSENT(aChannel, "Giveaway", "```A giveaway has been started.```\n\n**Join it** " + gaChannel.getAsMention());
-                    Methods.sendSENT(channel, "Giveaway", "Giveaway started successfully.");
+                        sendGiveaway(text[1], gaChannel, emote);
+                        aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention()).queue();
+                        Methods.sendSENT(aChannel, "Giveaway", "```A giveaway has been started.```\n\n**Join it** " + gaChannel.getAsMention());
+                        Methods.sendSENT(channel, "Giveaway", "Giveaway started successfully.");
+
+                    });
+
                     break;
                 }
 
                 case "end": {
 
-                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
+                    gaChannel.getHistory().retrievePast(1).queue(msgs -> {
 
-                    if (msgs.isEmpty()) {
-                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
-                        return;
-                    }
+                        if (msgs.isEmpty()) {
+                            Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                            return;
+                        }
 
-                    String id = String.valueOf(Core.getMySQL().getGiveawayID());
+                        String id = String.valueOf(Core.getMySQL().getGiveawayID());
 
-                    if (id == null) {
-                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
-                        return;
-                    }
+                        if (id == null) {
+                            Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                            return;
+                        }
 
-                    String prize = Core.getMySQL().getString("giveaway", "prize", "id", id);
-                    Message message = gaChannel.getMessageById(id).complete();
-                    int joined = getJoinedUsers(message);
+                        String prize = Core.getMySQL().getString("giveaway", "prize", "id", id);
 
-                    if (joined == 0) {
-                        Methods.sendErrorMessage(channel, "Nobody joined the giveaway.\nIf you wanna delete it, use ``" + References.prefix + "giveaway delete``");
-                        return;
-                    }
+                        gaChannel.retrieveMessageById(id).queue(message -> {
 
-                    User winner = getWinner(message);
+                            int joined = getJoinedUsers(message);
 
-                    if (winner == null) {
-                        Methods.sendErrorMessage(channel, "No winner found.");
-                        return;
-                    }
+                            if (joined == 0) {
+                                Methods.sendErrorMessage(channel, "Nobody joined the giveaway.\nIf you wanna delete it, use ``" + References.prefix + "giveaway delete``");
+                                return;
+                            }
 
-                    message.delete().queue();
-                    sendEndGiveaway(gaChannel, prize, winner);
-                    aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention());
-                    Methods.sendSENT(aChannel, "Giveaway", "```The giveaway ended.```\n\n**Winner** " + winner.getAsMention());
-                    Core.getMySQL().dropEntry("giveaway", "id", id);
-                    Methods.sendSENT(channel, "Giveaway", "Giveaway ended successfully.");
+                            User winner = getWinner(message);
+
+                            if (winner == null) {
+                                Methods.sendErrorMessage(channel, "No winner found.");
+                                return;
+                            }
+
+                            message.delete().queue();
+                            sendEndGiveaway(gaChannel, prize, winner);
+                            aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention()).queue();
+                            Methods.sendSENT(aChannel, "Giveaway", "```The giveaway ended.```\n\n**Winner** " + winner.getAsMention());
+                            Core.getMySQL().dropEntry("giveaway", "id", id);
+                            Methods.sendSENT(channel, "Giveaway", "Giveaway ended successfully.");
+
+                        });
+
+                    });
+
                     break;
                 }
 
                 case "info": {
 
-                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
+                    gaChannel.getHistory().retrievePast(1).queue(msgs -> {
 
-                    if (msgs.isEmpty()) {
-                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
-                        return;
-                    }
+                        if (msgs.isEmpty()) {
+                            Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                            return;
+                        }
 
-                    String ID = String.valueOf(Core.getMySQL().getGiveawayID());
+                        String ID = String.valueOf(Core.getMySQL().getGiveawayID());
 
-                    if (ID == null) {
-                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
-                        return;
-                    }
+                        if (ID == null) {
+                            Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                            return;
+                        }
 
-                    Message message = gaChannel.getMessageById(ID).complete();
-                    String prize = Core.getMySQL().getString("giveaway", "prize", "id", ID);
-                    String n = String.valueOf(getJoinedUsers(message));
+                        gaChannel.retrieveMessageById(ID).queue(message -> {
 
-                    sendInfo(channel, ID, prize, n);
+                            String prize = Core.getMySQL().getString("giveaway", "prize", "id", ID);
+                            String n = String.valueOf(getJoinedUsers(message));
+
+                            sendInfo(channel, ID, prize, n);
+
+                        });
+
+                    });
+
                     break;
                 }
 
                 case "delete": {
 
-                    List<Message> msgs = gaChannel.getHistory().retrievePast(1).complete();
+                    gaChannel.getHistory().retrievePast(1).queue(msgs -> {
 
-                    if (msgs.isEmpty()) {
-                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
-                        return;
-                    }
+                        if (msgs.isEmpty()) {
+                            Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                            return;
+                        }
 
-                    String ID = String.valueOf(Core.getMySQL().getGiveawayID());
+                        String ID = String.valueOf(Core.getMySQL().getGiveawayID());
 
-                    if (ID == null) {
-                        Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
-                        return;
-                    }
+                        if (ID == null) {
+                            Methods.sendErrorMessage(channel, "There isn't any giveaway started.");
+                            return;
+                        }
 
-                    Message message = gaChannel.getMessageById(ID).complete();
+                        gaChannel.retrieveMessageById(ID).queue(message -> message.delete().queue());
 
-                    aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention());
-                    Methods.sendSENT(aChannel, "Giveaway", "```The giveaway has been deleted.```");
-                    message.delete().queue();
-                    Core.getMySQL().dropEntry("giveaway", "id", ID);
-                    Methods.sendSENT(channel, "Giveaway", "Giveaway deleted successfully.");
+                        aChannel.sendMessage(e.getGuild().getPublicRole().getAsMention()).queue();
+                        Methods.sendSENT(aChannel, "Giveaway", "```The giveaway has been deleted.```");
+                        Core.getMySQL().dropEntry("giveaway", "id", ID);
+                        Methods.sendSENT(channel, "Giveaway", "Giveaway deleted successfully.");
+
+                    });
+
                     break;
                 }
 
@@ -202,7 +220,7 @@ public class GiveawayCommand extends ListenerAdapter {
 
         for (MessageReaction re : reactions) {
 
-            for (User usr : re.getUsers()) {
+            for (User usr : re.retrieveUsers().cache(false)) {
 
                 if (usr.isBot()) {
                     continue;
@@ -223,7 +241,7 @@ public class GiveawayCommand extends ListenerAdapter {
 
         for (MessageReaction re : reactions) {
 
-            for (User usr : re.getUsers()) {
+            for (User usr : re.retrieveUsers().cache(false)) {
 
                 if (usr.isBot()) {
                     continue;

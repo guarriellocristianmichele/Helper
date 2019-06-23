@@ -3,9 +3,9 @@ package me.mrcookies.helper.listeners.events;
 import me.mrcookies.helper.main.Core;
 import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.*;
-import net.dv8tion.jda.core.events.guild.GuildReadyEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.ArrayList;
 
@@ -15,6 +15,7 @@ public class BotStartEvent extends ListenerAdapter {
     public void onGuildReady(GuildReadyEvent e) {
 
         System.out.println("Helper > Checking users...");
+
         Role New = e.getGuild().getRoleById(References.newRole);
         ArrayList<Long> ids = Core.getMySQL().getUsersID();
         int cont = 0;
@@ -28,7 +29,7 @@ public class BotStartEvent extends ListenerAdapter {
             }
 
             if (e.getGuild().getMember(usr).getRoles().isEmpty()) {
-                e.getGuild().getController().addRolesToMember(e.getGuild().getMember(usr), New).queue();
+                e.getGuild().addRoleToMember(e.getGuild().getMember(usr), New).queue();
                 sendWelcome(e.getGuild(), usr);
                 added++;
             }
@@ -48,7 +49,7 @@ public class BotStartEvent extends ListenerAdapter {
 
         System.out.println("Helper > Checked " + cont + " users.");
         System.out.println("Helper > Added " + added + " roles.");
-        System.out.println("Helper > Removed " + removed + " roles.");
+        System.out.println("Helper > Removed " + removed + " users.");
     }
 
     private void sendWelcome(Guild guild, User usr) {

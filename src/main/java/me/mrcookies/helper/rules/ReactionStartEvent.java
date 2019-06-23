@@ -1,18 +1,18 @@
 package me.mrcookies.helper.rules;
 
 import me.mrcookies.helper.utils.References;
-import net.dv8tion.jda.core.entities.Emote;
-import net.dv8tion.jda.core.entities.Guild;
-import net.dv8tion.jda.core.entities.MessageReaction;
-import net.dv8tion.jda.core.events.guild.GuildReadyEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.entities.Emote;
+import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.MessageReaction;
+import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class ReactionStartEvent extends ListenerAdapter {
 
     @Override
     public void onGuildReady(GuildReadyEvent e) {
 
-        e.getGuild().getTextChannelById(References.idRules).getMessageById(References.rules).queue(msg -> {
+        e.getGuild().getTextChannelById(References.idRules).retrieveMessageById(References.rules).queue(msg -> {
 
             if (msg.getReactions().isEmpty()) {
                 msg.addReaction(getCheck(e.getGuild())).queue();
@@ -21,9 +21,9 @@ public class ReactionStartEvent extends ListenerAdapter {
 
             for (MessageReaction re : msg.getReactions()) {
 
-                if (re.getUsers().stream().noneMatch(user -> user.getIdLong() == e.getGuild().getSelfMember().getUser().getIdLong())) {
-                    msg.addReaction(getCheck(e.getGuild())).queue();
-                }
+                re.retrieveUsers().cache(false)
+                        .forEachAsync(user -> user.getIdLong() != e.getGuild().getSelfMember().getUser().getIdLong())
+                        .thenRun(() -> msg.addReaction(getCheck(e.getGuild())).queue());
 
             }
 
