@@ -47,7 +47,7 @@ public class Core {
 
         new ListenerManager();
 
-        jda.getRateLimitPool().scheduleWithFixedDelay(() -> jda.getPresence().setActivity(Activity.watching(getRandomActivity())), 0, 5, TimeUnit.SECONDS);
+        jda.getRateLimitPool().scheduleWithFixedDelay(() -> jda.getPresence().setActivity(Activity.streaming(getRandomActivity(), null)), 0, 5, TimeUnit.SECONDS);
 
         System.out.println("Helper > Bot ready to use.");
     }
@@ -104,14 +104,14 @@ public class Core {
 
     private static String getRandomActivity() {
         String[] activities = {
-                Methods.getUsersSize() + " users",
-                "code",
-                "my creator",
-                "videos",
-                "discord"
+                Methods.getUsersSize() + " USERS",
+                "MY CODE",
+                "VIDEOS",
+                "DISCORD",
+                "MUSIC"
         };
 
-        int ran = Methods.getRandom(activities.length - 1, 0);
+        int ran = Methods.getRandom(activities.length, 0);
 
         return activities[ran];
     }

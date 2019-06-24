@@ -54,7 +54,7 @@ public class OracleCommand extends ListenerAdapter {
                     "Very doubtful"
             };
 
-            int ran = Methods.getRandom(arr.length - 1, 0);
+            int ran = Methods.getRandom(arr.length, 0);
 
             if (ran <= 9) {
                 sendOracleResponse(channel, msgs[1], arr[ran], "#2ecc71", "https://i.imgur.com/p3owVKR.png");

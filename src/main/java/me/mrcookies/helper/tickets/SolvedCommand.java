@@ -42,6 +42,7 @@ public class SolvedCommand extends ListenerAdapter {
             }
 
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You solved your ticket (`" + channel.getName() + "`)."));
+            sendTicketClose(channel, usr);
             sendChatLogs(logsChannel, channel, usr, usr);
             channel.delete().queueAfter(15, TimeUnit.SECONDS);
             return;
@@ -60,6 +61,7 @@ public class SolvedCommand extends ListenerAdapter {
 
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "You closed " + Objects.requireNonNull(target).getAsMention() + "'s ticket (`" + channel.getName() + "`)."));
             Objects.requireNonNull(target).openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Ticket", "Your ticket has been closed by " + usr.getAsMention() + " (`" + channel.getName() + "`)."));
+            sendTicketClose(channel, usr);
             sendChatLogs(logsChannel, channel, target, usr);
             channel.delete().queueAfter(15, TimeUnit.SECONDS);
             return;
@@ -111,5 +113,16 @@ public class SolvedCommand extends ListenerAdapter {
         message.setEmbed(builder.build());
         channel.sendMessage(message.build()).addFile(chatlogs).queue();
     }
+
+    private void sendTicketClose(TextChannel channel, User usr) {
+        EmbedBuilder builder = new EmbedBuilder();
+        builder.setAuthor("Ticket", null, "https://i.imgur.com/nvQY65k.png");
+        builder.setDescription("This channel is going to be deleted in ``15``s.");
+        builder.setColor(Color.decode("#3498db"));
+        builder.setFooter(References.h + " • Ticket closed by " + usr.getName(), "https://i.imgur.com/nepS3Lp.jpg");
+
+        channel.sendMessage(builder.build()).queue();
+    }
+
 
 }

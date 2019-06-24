@@ -31,7 +31,7 @@ public class Methods {
         builder.setColor(Color.decode("#e74c3c"));
         builder.setFooter(References.h + " • Seems you're wrong...", "https://i.imgur.com/nepS3Lp.jpg");
 
-        channel.sendMessage(builder.build()).queueAfter(5, TimeUnit.SECONDS, msg -> msg.delete().queue());
+        channel.sendMessage(builder.build()).queue(msg -> msg.delete().queueAfter(5, TimeUnit.SECONDS));
     }
 
     public static void sendSimpleEmbed(TextChannel channel, String title, String Description) {
@@ -41,7 +41,7 @@ public class Methods {
         builder.setColor(Color.decode("#fdcb6e"));
         builder.setFooter(References.h, "https://i.imgur.com/nepS3Lp.jpg");
 
-        channel.sendMessage(builder.build()).queueAfter(5, TimeUnit.SECONDS, msg -> msg.delete().queue());
+        channel.sendMessage(builder.build()).queue(msg -> msg.delete().queueAfter(5, TimeUnit.SECONDS));
     }
 
     public static void sendSENT(TextChannel channel, String title, String Description) {

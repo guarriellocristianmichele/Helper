@@ -1,4 +1,3 @@
-/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/FileCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/redeem/RedeemEvent.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/PingCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/RoleCommand.java
@@ -30,6 +29,7 @@
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/ShutdownCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/DailyCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/utils/Methods.java
+/Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/ImageCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/PayCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/commands/HelpCommand.java
 /Users/cristian/IdeaProjects/Helper/src/main/java/me/mrcookies/helper/listeners/events/CancelCommandsEvent.java
