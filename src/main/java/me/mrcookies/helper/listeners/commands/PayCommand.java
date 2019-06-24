@@ -43,6 +43,11 @@ public class PayCommand extends ListenerAdapter {
                 return;
             }
 
+            if (target == usr) {
+                Methods.sendErrorMessage(channel, "You can't pay yourself.");
+                return;
+            }
+
             if (msg[2].equalsIgnoreCase("all")) {
 
                 int coins = Core.getMySQL().getCoins(usr.getIdLong());

@@ -64,7 +64,6 @@ public class HelpCommand extends ListenerAdapter {
                     "`• warn` - Warn user.\n" +
                     "`• id` - ID of emotes and roles.\n" +
                     "`• license` - Create licenses.\n" +
-                    "`• presence` - Set presence.\n" +
                     "`• info` - Get user's info.\n" +
                     "`• giveaway` - Manage giveaways.\n" +
                     "`• start` - Start a minigame.\n" +

@@ -12,7 +12,6 @@ import me.mrcookies.helper.utils.Methods;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 
 import java.io.File;
@@ -41,13 +40,12 @@ public class Core {
 
         jda = new JDABuilder(AccountType.BOT).setToken(config.getYml().getString("Settings.token"))
                 .addEventListeners(new BotStartEvent(), new ReactionStartEvent(), new BotStatusEvent(), new HelpMessageEvent(), new MessageRedeemEvent())
-                .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .build()
                 .awaitReady();
 
         new ListenerManager();
 
-        jda.getRateLimitPool().scheduleWithFixedDelay(() -> jda.getPresence().setActivity(Activity.streaming(getRandomActivity(), null)), 0, 5, TimeUnit.SECONDS);
+        jda.getRateLimitPool().scheduleWithFixedDelay(() -> jda.getPresence().setActivity(Activity.streaming(getRandomActivity(), "https://www.twitch.tv/chill24h")), 0, 5, TimeUnit.SECONDS);
 
         System.out.println("Helper > Bot ready to use.");
     }

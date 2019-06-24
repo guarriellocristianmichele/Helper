@@ -4,7 +4,6 @@ import me.mrcookies.helper.utils.Methods;
 import me.mrcookies.helper.utils.References;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
-import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -28,12 +27,19 @@ public class ClearCommand extends ListenerAdapter {
             String[] msg = e.getMessage().getContentRaw().split(" ");
 
             if (msg.length != 3) {
-                Methods.sendErrorMessage(channel, "Use • `clear [#channel] [amount]`");
+                Methods.sendErrorMessage(channel, "Use • `clear [#channel] [amount] | all`");
                 return;
             }
 
             if (e.getMessage().getMentionedChannels().isEmpty()) {
-                Methods.sendErrorMessage(channel, "Use • `clear [#channel] [amount]`");
+                Methods.sendErrorMessage(channel, "Use • `clear [#channel] [amount] | all`");
+                return;
+            }
+
+            TextChannel target = e.getMessage().getMentionedChannels().get(0);
+
+            if (msg[2].equalsIgnoreCase("all")) {
+                purgeAllMessages(target, channel);
                 return;
             }
 
@@ -46,33 +52,58 @@ public class ClearCommand extends ListenerAdapter {
                 return;
             }
 
-            TextChannel target = e.getMessage().getMentionedChannels().get(0);
-            purgeMessages(target, n, channel, e.getAuthor());
+            purgeMessages(target, n, channel);
         }
 
     }
 
-    private void purgeMessages(TextChannel channel, int num, TextChannel chan, User usr) {
+    private void purgeMessages(TextChannel target, int num, TextChannel chan) {
 
         if (num > 100 || num < 1) {
             Methods.sendErrorMessage(chan, "Invalid number `" + num + "`");
             return;
         }
 
-        channel.getHistory().retrievePast(num).queue(msgs -> {
+        target.getHistory().retrievePast(num).queue(msgs -> {
+
+            int cont = 0;
 
             if (msgs.size() < 2) {
-                usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Clear", "Minimum `2` messages in the channel."));
+                Methods.sendErrorMessage(chan, "Minimum `1` message in the channel.");
                 return;
             }
 
             for (Message msg : msgs) {
                 msg.delete().queue();
+                cont++;
             }
+
+            Methods.sendSimpleEmbed(chan, "Messages", "Deleted `" + cont + "`/`" + num + "` messages.");
 
         });
 
-        Methods.sendSimpleEmbed(chan, "Messages", "Deleted `" + num + "` messages.");
+    }
+
+    private void purgeAllMessages(TextChannel target, TextChannel chan) {
+
+        target.getIterableHistory().queue(msgs -> {
+
+            int cont = 0;
+
+            if (msgs.size() < 1) {
+                Methods.sendErrorMessage(chan, "Minimum `1` message in the channel.");
+                return;
+            }
+
+            for (Message msg : msgs) {
+                msg.delete().queue();
+                cont++;
+            }
+
+            Methods.sendSimpleEmbed(chan, "Messages", "Deleting `" + cont + "` messages.");
+
+        });
+
     }
 
 }

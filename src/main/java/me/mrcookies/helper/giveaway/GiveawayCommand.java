@@ -198,6 +198,7 @@ public class GiveawayCommand extends ListenerAdapter {
             msg.addReaction(emote).queue();
             Core.getMySQL().setLong("giveaway", "id", msg.getIdLong(), "prize", prize);
         });
+
     }
 
     private void sendEndGiveaway(TextChannel channel, String prize, User winner) {
