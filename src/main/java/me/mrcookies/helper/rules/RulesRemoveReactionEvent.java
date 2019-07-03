@@ -15,15 +15,19 @@ public class RulesRemoveReactionEvent extends ListenerAdapter {
 
         if (e.getChannel().getIdLong() != References.idRules) return;
 
-        Emote emote = e.getReactionEmote().getEmote();
-        User usr = e.getUser();
         Member mem = e.getMember();
+        User usr = mem.getUser();
+
+        if (Methods.isStaffer(mem)) return;
+
+        Emote emote = e.getReactionEmote().getEmote();
 
         if (emote.getIdLong() == References.check) {
             Role New = e.getGuild().getRoleById(References.newRole);
 
             e.getGuild().modifyMemberRoles(mem, null, mem.getRoles()).queue();
             e.getGuild().addRoleToMember(mem, New).queue();
+
             usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Rules", "**It seems like you have removed the reaction** " + getCheck(e.getGuild()).getAsMention()
                     + " **from the rules message.** " +
                     "\n\nYou must accept the rules in order to get support. " +
