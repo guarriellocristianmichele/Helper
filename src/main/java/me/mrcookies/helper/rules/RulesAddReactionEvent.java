@@ -27,9 +27,16 @@ public class RulesAddReactionEvent extends ListenerAdapter {
             return;
         }
 
-        Emote emote = e.getReactionEmote().getEmote();
-        User usr = e.getUser();
         Member mem = e.getMember();
+        User usr = mem.getUser();
+
+        if (Methods.isStaffer(mem)) {
+            e.getReaction().removeReaction(usr).queue();
+            usr.openPrivateChannel().queue((ch) -> Methods.sendSENT(ch, "Rules", "You don't need to accept the rules."));
+            return;
+        }
+
+        Emote emote = e.getReactionEmote().getEmote();
 
         if (emote.getIdLong() != References.check) {
             e.getReaction().removeReaction(usr).queue();

@@ -16,7 +16,6 @@ me/mrcookies/helper/tickets/TicketCreateChannelEvent.class
 me/mrcookies/helper/listeners/ListenerManager.class
 me/mrcookies/helper/listeners/commands/RoleCommand.class
 me/mrcookies/helper/rules/ReactionStartEvent.class
-me/mrcookies/helper/listeners/commands/PresenceCommand.class
 me/mrcookies/helper/configuration/YamlConfiguration$1.class
 me/mrcookies/helper/listeners/commands/HelpCommand.class
 me/mrcookies/helper/requests/AddReactionEvent.class
