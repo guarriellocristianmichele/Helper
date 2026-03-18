@@ -1,4 +1,4 @@
-# 🤖 Discord Bot (Java + JDA)
+# 🤖 HELPER - Discord Bot (Java + JDA)
 
 A powerful and modular Discord bot built with **Java** using the **JDA (Java Discord API)** library.
 Designed to enhance server management, user engagement, and automation through a wide range of features.
